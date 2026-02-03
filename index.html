@@ -85,6 +85,7 @@
       padding: 14px;
       transition: all 0.2s ease;
       animation: fadeInUp 0.6s ease;
+      min-width: 0; /* Fix flexbox overflow */
     }
 
     .pixel-card:hover {
@@ -95,6 +96,22 @@
     /* Fix animation delay cho nested cards */
     .pixel-card .pixel-card {
       animation: none;
+    }
+
+    /* Fix ASCII art không bị overflow */
+    .ascii-art {
+      font-size: 12px;
+      line-height: 1.4;
+      overflow-x: auto;
+      white-space: pre;
+      word-wrap: normal;
+      max-width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .ascii-art {
+        font-size: 14px;
+      }
     }
 
     .tag {
@@ -169,25 +186,32 @@
           </ul>
         </div>
 
+        <!-- FIX: About_me.exe tab -->
         <div class="pixel-card w-full">
           <h2 class="exe-title mb-3 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="pixel-card">
-              <pre class="text-sm sm:text-base leading-relaxed whitespace-pre font-mono text-center">         へ      ╱|、
+          
+          <!-- FIX: Thay grid bằng flex-col trên mobile, grid trên sm -->
+          <div class="flex flex-col sm:grid sm:grid-cols-2 gap-3">
+            
+            <!-- ASCII Art Card -->
+            <div class="pixel-card overflow-hidden">
+              <pre class="ascii-art font-mono text-center">
+         へ      ╱|、
     ૮  - ՛ )  (> < 7
     /  ⁻ ៸     |、˜〵
   乀 (ˍ, ل   じしˍ,)ノ</pre>
             </div>
-            <div class="pixel-card">
-              <div class="text-sm leading-loose text-center flex items-center justify-center h-full">
-                <div>
-                  <p class="mb-1">Ta Thấy Em Sinh Khẽ Lắc Đầu</p>
-                  <p class="mb-1">Bở Vì Ta Có Đuợc Em Đâu</p>
-                  <p class="mb-1">Tay Kia Sẽ Ấp Nhiều Tay Khác</p>
-                  <p class="mb-1">Môi Ấy Vì Ai Sẽ Đượm Màu</p>
-                </div>
+            
+            <!-- Poem Card -->
+            <div class="pixel-card flex items-center justify-center">
+              <div class="text-sm leading-relaxed text-center">
+                <p class="mb-1">Ta Thấy Em Sinh Khẽ Lắc Đầu</p>
+                <p class="mb-1">Bở Vì Ta Có Được Em Đâu</p>
+                <p class="mb-1">Tay Kia Sẽ Ấp Nhiều Tay Khác</p>
+                <p class="mb-1">Môi Ấy Vì Ai Sẽ Đượm Màu</p>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
