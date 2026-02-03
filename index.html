@@ -36,6 +36,7 @@
       background: var(--card);
       border: 4px solid var(--border);
       box-shadow: 6px 6px 0 var(--gray);
+      animation: fadeInUp 0.6s ease;
     }
 
     .exe-title {
@@ -51,6 +52,13 @@
       border: 4px solid var(--border);
       image-rendering: pixelated;
       filter: grayscale(10%) contrast(105%);
+      transition: all 0.3s ease;
+    }
+
+    .avatar:hover {
+      filter: grayscale(0%) contrast(110%);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
 
     .name-box {
@@ -62,6 +70,12 @@
       box-shadow: 4px 4px 0 var(--gray);
       padding: 6px 14px;
       text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .name-box:hover {
+      transform: scale(1.02);
+      box-shadow: 5px 5px 0 var(--gray);
     }
 
     .pixel-card {
@@ -69,6 +83,18 @@
       border: 3px solid var(--border);
       box-shadow: 4px 4px 0 var(--gray);
       padding: 14px;
+      transition: all 0.2s ease;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .pixel-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 var(--gray);
+    }
+
+    /* Fix animation delay cho nested cards */
+    .pixel-card .pixel-card {
+      animation: none;
     }
 
     .tag {
@@ -78,6 +104,13 @@
       background: #e0e0e0;
       border: 2px solid var(--border);
       box-shadow: 2px 2px 0 var(--gray);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .tag:hover {
+      transform: translateY(-1px);
+      box-shadow: 3px 3px 0 var(--gray);
     }
 
     .skill-bar {
@@ -89,8 +122,21 @@
     .skill-fill {
       height: 100%;
       background: var(--border);
+      transition: width 0.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
+<base target="_blank">
 </head>
 
 <body class="flex items-start justify-center min-h-screen p-3">
@@ -115,7 +161,7 @@
         <div class="name-box">NGUYỄN GIA KHẢI</div>
 
         <div class="pixel-card w-full">
-          <h2 class="exe-title mb-2">⎾ ↺ STATS.exe - 🗗 X ⏋</h2>
+          <h2 class="exe-title mb-2">STATS</h2>
           <ul class="text-sm space-y-1">
             <li>Tuổi: 14</li>
             <li>Trạng thái: Online</li>
@@ -124,20 +170,24 @@
         </div>
 
         <div class="pixel-card w-full">
-          <h2 class="exe-title mb-2">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
-          <pre class="text-xs leading-relaxed whitespace-pre text-center">              へ         ╱|、
-       ૮  -   ՛ ) つ(>   < 7 
-       /   ⁻  ៸          、˜〵     
- 乀 (ˍ,  ل            じしˍ,)ノ</pre>
-        </div>
-
-        <div class="pixel-card w-full">
-          <h2 class="exe-title mb-2">⎾ ↺ Poem.exe - 🗗 X ⏋</h2>
-          <div class="text-sm leading-relaxed">
-            <p>Ta Thấy Em Sinh Khẽ Lắc Đầu</p>
-            <p>Bở Vì Ta Có Đuợc Em Đâu</p>
-            <p>Tay Kia Sẽ Ấp Nhiều Tay Khác</p>
-            <p>Môi Ấy Vì Ai Sẽ Đượm Màu</p>
+          <h2 class="exe-title mb-3 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="pixel-card">
+              <pre class="text-sm sm:text-base leading-relaxed whitespace-pre font-mono text-center">         へ      ╱|、
+    ૮  - ՛ )  (> < 7
+    /  ⁻ ៸     |、˜〵
+  乀 (ˍ, ل   じしˍ,)ノ</pre>
+            </div>
+            <div class="pixel-card">
+              <div class="text-sm leading-loose text-center flex items-center justify-center h-full">
+                <div>
+                  <p class="mb-1">Ta Thấy Em Sinh Khẽ Lắc Đầu</p>
+                  <p class="mb-1">Bở Vì Ta Có Đuợc Em Đâu</p>
+                  <p class="mb-1">Tay Kia Sẽ Ấp Nhiều Tay Khác</p>
+                  <p class="mb-1">Môi Ấy Vì Ai Sẽ Đượm Màu</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -146,7 +196,7 @@
       <div class="md:col-span-2 space-y-4">
 
         <div class="pixel-card">
-          <h2 class="exe-title mb-2">⎾ ↺ Hobbies.exe - 🗗 X ⏋</h2>
+          <h2 class="exe-title mb-2">SỞ THÍCH</h2>
           <div class="flex gap-2 flex-wrap">
             <span class="tag">LÝ</span>
             <span class="tag">CODE</span>
@@ -157,7 +207,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
           <div class="pixel-card">
-            <h2 class="exe-title mb-3">⎾ ↺ Love.exe - 🗗 X ⏋</h2>
+            <h2 class="exe-title mb-3">YÊU THÍCH</h2>
             <p class="text-sm mb-1">Chi Zân</p>
             <div class="skill-bar mb-3">
               <div class="skill-fill" style="width:99%"></div>
@@ -169,7 +219,7 @@
           </div>
 
           <div class="pixel-card md:col-span-2">
-            <h2 class="exe-title mb-3">⎾ ↺ Skills.exe - 🗗 X ⏋</h2>
+            <h2 class="exe-title mb-3">SKILLS</h2>
             <div class="space-y-3">
               <div>
                 <p class="text-sm">Vibecoding – 80%</p>
