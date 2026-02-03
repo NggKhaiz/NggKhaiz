@@ -96,14 +96,20 @@
     /* Nested pixel cards */
     .pixel-card .pixel-card {
       animation: none;
-      padding: 12px;
+      padding: 10px;
+    }
+
+    /* About me container - hẹp vừa đủ */
+    .about-me-container {
+      width: fit-content;
+      max-width: 100%;
     }
 
     /* ASCII art */
     .ascii-art {
       font-family: "Roboto Mono", monospace;
-      font-size: 14px;
-      line-height: 1.4;
+      font-size: 12px;
+      line-height: 1.3;
       white-space: pre;
       margin: 0;
       text-align: center;
@@ -112,31 +118,23 @@
     /* Poem */
     .poem-line {
       white-space: nowrap;
-      margin-bottom: 8px;
-      font-size: 15px;
+      margin-bottom: 4px;
+      font-size: 13px;
+      line-height: 1.4;
     }
 
     .poem-line:last-child {
       margin-bottom: 0;
     }
 
-    @media (max-width: 768px) {
-      .ascii-art {
-        font-size: 12px;
-      }
-      .poem-line {
-        font-size: 14px;
-      }
-    }
-
     @media (max-width: 640px) {
       .ascii-art {
         font-size: 10px;
-        line-height: 1.3;
+        line-height: 1.2;
       }
       .poem-line {
-        font-size: 12px;
-        margin-bottom: 6px;
+        font-size: 11px;
+        margin-bottom: 3px;
       }
     }
 
@@ -194,7 +192,7 @@
       <span id="clock" class="exe-title"></span>
     </div>
 
-    <!-- Content Grid - 3 cột trên desktop -->
+    <!-- Content Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
       <!-- Cột trái -->
@@ -210,6 +208,36 @@
             <li>Khu vực: Việt Nam</li>
           </ul>
         </div>
+
+        <!-- About_me.exe - Hẹp vừa đủ, căn trái dưới STATS -->
+        <div class="pixel-card about-me-container">
+          <h2 class="exe-title mb-2 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
+          
+          <!-- 2 mục nhỏ -->
+          <div class="flex flex-row gap-2">
+            
+            <!-- ASCII Art -->
+            <div class="pixel-card p-2">
+              <pre class="ascii-art">
+         へ      ╱|、
+    ૮  - ՛ )  (> < 7
+    /  ⁻ ៸     |、˜〵
+  乀 (ˍ, ل   じしˍ,)ノ</pre>
+            </div>
+            
+            <!-- Poem -->
+            <div class="pixel-card p-2 flex items-center justify-center">
+              <div>
+                <div class="poem-line">Ta Thấy Em Xinh Khẽ Lắc Đầu</div>
+                <div class="poem-line">Bở Vì Ta Có Được Em Đâu</div>
+                <div class="poem-line">Tay Kia Sẽ Ấp Nhiều Tay Khác</div>
+                <div class="poem-line">Môi Ấy Vì Ai Sẽ Đượm Màu</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
       </div>
 
       <!-- Cột giữa -->
@@ -269,35 +297,6 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- About_me.exe - Full width dưới cùng -->
-    <div class="pixel-card mt-4">
-      <h2 class="exe-title mb-3 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
-      
-      <!-- 2 mục nhỏ bên trong -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        
-        <!-- Mục nhỏ 1: ASCII Art -->
-        <div class="pixel-card">
-          <pre class="ascii-art">
-         へ      ╱|、
-    ૮  - ՛ )  (> < 7
-    /  ⁻ ៸     |、˜〵
-  乀 (ˍ, ل   じしˍ,)ノ</pre>
-        </div>
-        
-        <!-- Mục nhỏ 2: Poem -->
-        <div class="pixel-card flex items-center justify-center">
-          <div class="text-center">
-            <div class="poem-line">Ta Thấy Em Sinh Khẽ Lắc Đầu</div>
-            <div class="poem-line">Bở Vì Ta Có Được Em Đâu</div>
-            <div class="poem-line">Tay Kia Sẽ Ấp Nhiều Tay Khác</div>
-            <div class="poem-line">Môi Ấy Vì Ai Sẽ Đượm Màu</div>
-          </div>
-        </div>
-        
-      </div>
     </div>
 
   </div>
