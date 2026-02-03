@@ -85,7 +85,7 @@
       padding: 14px;
       transition: all 0.2s ease;
       animation: fadeInUp 0.6s ease;
-      min-width: 0; /* Fix flexbox overflow */
+      min-width: 0;
     }
 
     .pixel-card:hover {
@@ -93,24 +93,50 @@
       box-shadow: 6px 6px 0 var(--gray);
     }
 
-    /* Fix animation delay cho nested cards */
+    /* Nested pixel cards */
     .pixel-card .pixel-card {
       animation: none;
+      padding: 12px;
     }
 
-    /* Fix ASCII art không bị overflow */
+    /* ASCII art */
     .ascii-art {
-      font-size: 12px;
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
       line-height: 1.4;
-      overflow-x: auto;
       white-space: pre;
-      word-wrap: normal;
-      max-width: 100%;
+      margin: 0;
+      text-align: center;
     }
 
-    @media (min-width: 640px) {
+    /* Poem */
+    .poem-line {
+      white-space: nowrap;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .poem-line:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
       .ascii-art {
+        font-size: 12px;
+      }
+      .poem-line {
         font-size: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ascii-art {
+        font-size: 10px;
+        line-height: 1.3;
+      }
+      .poem-line {
+        font-size: 12px;
+        margin-bottom: 6px;
       }
     }
 
@@ -153,7 +179,6 @@
       }
     }
   </style>
-<base target="_blank">
 </head>
 
 <body class="flex items-start justify-center min-h-screen p-3">
@@ -169,10 +194,10 @@
       <span id="clock" class="exe-title"></span>
     </div>
 
-    <!-- Content -->
+    <!-- Content Grid - 3 cột trên desktop -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-      <!-- Left -->
+      <!-- Cột trái -->
       <div class="flex flex-col items-center gap-3">
         <img src="https://i.pinimg.com/736x/90/1b/32/901b327d2aed79cd72447aca071f32aa.jpg" class="avatar" />
         <div class="name-box">NGUYỄN GIA KHẢI</div>
@@ -185,40 +210,10 @@
             <li>Khu vực: Việt Nam</li>
           </ul>
         </div>
-
-        <!-- FIX: About_me.exe tab -->
-        <div class="pixel-card w-full">
-          <h2 class="exe-title mb-3 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
-          
-          <!-- FIX: Thay grid bằng flex-col trên mobile, grid trên sm -->
-          <div class="flex flex-col sm:grid sm:grid-cols-2 gap-3">
-            
-            <!-- ASCII Art Card -->
-            <div class="pixel-card overflow-hidden">
-              <pre class="ascii-art font-mono text-center">
-         へ      ╱|、
-    ૮  - ՛ )  (> < 7
-    /  ⁻ ៸     |、˜〵
-  乀 (ˍ, ل   じしˍ,)ノ</pre>
-            </div>
-            
-            <!-- Poem Card -->
-            <div class="pixel-card flex items-center justify-center">
-              <div class="text-sm leading-relaxed text-center">
-                <p class="mb-1">Ta Thấy Em Sinh Khẽ Lắc Đầu</p>
-                <p class="mb-1">Bở Vì Ta Có Được Em Đâu</p>
-                <p class="mb-1">Tay Kia Sẽ Ấp Nhiều Tay Khác</p>
-                <p class="mb-1">Môi Ấy Vì Ai Sẽ Đượm Màu</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
       </div>
 
-      <!-- Right -->
-      <div class="md:col-span-2 space-y-4">
-
+      <!-- Cột giữa -->
+      <div class="flex flex-col gap-4">
         <div class="pixel-card">
           <h2 class="exe-title mb-2">SỞ THÍCH</h2>
           <div class="flex gap-2 flex-wrap">
@@ -228,53 +223,83 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          <div class="pixel-card">
-            <h2 class="exe-title mb-3">YÊU THÍCH</h2>
-            <p class="text-sm mb-1">Chi Zân</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:99%"></div>
-            </div>
-            <p class="text-sm mb-1">C++</p>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width:85%"></div>
-            </div>
+        <div class="pixel-card flex-1">
+          <h2 class="exe-title mb-3">YÊU THÍCH</h2>
+          <p class="text-sm mb-1">Chi Zân</p>
+          <div class="skill-bar mb-3">
+            <div class="skill-fill" style="width:99%"></div>
           </div>
-
-          <div class="pixel-card md:col-span-2">
-            <h2 class="exe-title mb-3">SKILLS</h2>
-            <div class="space-y-3">
-              <div>
-                <p class="text-sm">Vibecoding – 80%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:80%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">HTML / CSS – 15%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:15%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">Design – 25%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:25%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">C++ – 10%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:10%"></div>
-                </div>
-              </div>
-            </div>
+          <p class="text-sm mb-1">C++</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:85%"></div>
           </div>
-
         </div>
       </div>
+
+      <!-- Cột phải -->
+      <div class="flex flex-col gap-4">
+        <div class="pixel-card flex-1">
+          <h2 class="exe-title mb-3">SKILLS</h2>
+          <div class="space-y-3">
+            <div>
+              <p class="text-sm">Vibecoding – 80%</p>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width:80%"></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm">HTML / CSS – 15%</p>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width:15%"></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm">Design – 25%</p>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width:25%"></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm">C++ – 10%</p>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width:10%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- About_me.exe - Full width dưới cùng -->
+    <div class="pixel-card mt-4">
+      <h2 class="exe-title mb-3 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
+      
+      <!-- 2 mục nhỏ bên trong -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        
+        <!-- Mục nhỏ 1: ASCII Art -->
+        <div class="pixel-card">
+          <pre class="ascii-art">
+         へ      ╱|、
+    ૮  - ՛ )  (> < 7
+    /  ⁻ ៸     |、˜〵
+  乀 (ˍ, ل   じしˍ,)ノ</pre>
+        </div>
+        
+        <!-- Mục nhỏ 2: Poem -->
+        <div class="pixel-card flex items-center justify-center">
+          <div class="text-center">
+            <div class="poem-line">Ta Thấy Em Sinh Khẽ Lắc Đầu</div>
+            <div class="poem-line">Bở Vì Ta Có Được Em Đâu</div>
+            <div class="poem-line">Tay Kia Sẽ Ấp Nhiều Tay Khác</div>
+            <div class="poem-line">Môi Ấy Vì Ai Sẽ Đượm Màu</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
   </div>
 
   <script>
