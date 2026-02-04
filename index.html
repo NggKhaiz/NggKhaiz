@@ -46,13 +46,15 @@
     }
 
     .avatar {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
       border: 4px solid var(--border);
       image-rendering: pixelated;
       filter: grayscale(10%) contrast(105%);
       transition: all 0.3s ease;
+      display: block;
+      margin: 0 auto;
     }
 
     .avatar:hover {
@@ -63,14 +65,15 @@
 
     .name-box {
       font-family: "VT323", monospace;
-      font-size: 30px;
+      font-size: 24px;
       letter-spacing: 2px;
       background: #e0e0e0;
       border: 3px solid var(--border);
       box-shadow: 4px 4px 0 var(--gray);
-      padding: 6px 14px;
+      padding: 8px 16px;
       text-align: center;
       transition: all 0.2s ease;
+      display: inline-block;
     }
 
     .name-box:hover {
@@ -85,7 +88,6 @@
       padding: 14px;
       transition: all 0.2s ease;
       animation: fadeInUp 0.6s ease;
-      min-width: 0;
     }
 
     .pixel-card:hover {
@@ -93,60 +95,70 @@
       box-shadow: 6px 6px 0 var(--gray);
     }
 
-    /* Nested pixel cards */
-    .pixel-card .pixel-card {
-      animation: none;
-      padding: 10px;
+    /* About me - dịch sang phải */
+    .about-section {
+      width: calc(100% - 280px); /* Bằng đúng cột phải */
+      max-width: 520px;
+      margin-left: auto;  /* Đẩy sang phải */
+      margin-right: 0;
     }
 
-    /* About me container - hẹp vừa đủ */
-    .about-me-container {
-      width: fit-content;
-      max-width: 100%;
+    .about-content {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
     }
 
-    /* ASCII art */
-    .ascii-art {
+    .about-box {
+      background: var(--card);
+      border: 3px solid var(--border);
+      box-shadow: 4px 4px 0 var(--gray);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .ascii-box {
       font-family: "Roboto Mono", monospace;
-      font-size: 12px;
-      line-height: 1.3;
+      font-size: 10px;
+      line-height: 1.2;
       white-space: pre;
-      margin: 0;
       text-align: center;
+      margin: 0;
     }
 
-    /* Poem */
+    .poem-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
     .poem-line {
       white-space: nowrap;
-      margin-bottom: 4px;
-      font-size: 13px;
+      margin-bottom: 5px;
+      font-size: 12px;
       line-height: 1.4;
+      text-align: center;
     }
 
     .poem-line:last-child {
       margin-bottom: 0;
     }
 
-    @media (max-width: 640px) {
-      .ascii-art {
-        font-size: 10px;
-        line-height: 1.2;
-      }
-      .poem-line {
-        font-size: 11px;
-        margin-bottom: 3px;
-      }
-    }
-
     .tag {
       font-family: "VT323", monospace;
-      font-size: 16px;
-      padding: 4px 8px;
+      font-size: 14px;
+      padding: 4px 10px;
       background: #e0e0e0;
       border: 2px solid var(--border);
       box-shadow: 2px 2px 0 var(--gray);
       transition: all 0.2s ease;
       cursor: pointer;
+      display: inline-block;
     }
 
     .tag:hover {
@@ -158,6 +170,7 @@
       height: 10px;
       border: 2px solid var(--border);
       background: #e0e0e0;
+      margin-top: 6px;
     }
 
     .skill-fill {
@@ -176,6 +189,51 @@
         transform: translateY(0);
       }
     }
+
+    /* Main layout */
+    .main-content {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .right-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+    }
+
+    .sothich-box {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      .right-section {
+        grid-template-columns: 1fr;
+      }
+      .sothich-box {
+        grid-column: 1;
+      }
+      .about-section {
+        width: 100%;
+        margin-left: 0;
+      }
+      .about-content {
+        grid-template-columns: 100px 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -184,90 +242,65 @@
   <!-- AUDIO -->
   <audio id="bgm" src="music.mp3" preload="auto" loop></audio>
 
-  <div class="os-window w-full max-w-4xl p-4">
+  <div class="os-window w-full max-w-3xl p-5">
 
     <!-- Header -->
-    <div class="flex justify-between items-center mb-4">
+    <div class="flex justify-between items-center mb-5">
       <span class="exe-title">Tôi Yêu Em , Quế Chi à </span>
       <span id="clock" class="exe-title"></span>
     </div>
 
-    <!-- Content Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <!-- Top Section -->
+    <div class="main-content">
 
-      <!-- Cột trái -->
-      <div class="flex flex-col items-center gap-3">
+      <!-- Left: Avatar + Name + Stats -->
+      <div class="left-section">
         <img src="https://i.pinimg.com/736x/90/1b/32/901b327d2aed79cd72447aca071f32aa.jpg" class="avatar" />
         <div class="name-box">NGUYỄN GIA KHẢI</div>
-
         <div class="pixel-card w-full">
-          <h2 class="exe-title mb-2">STATS</h2>
-          <ul class="text-sm space-y-1">
+          <h2 class="exe-title mb-3 text-base">STATS</h2>
+          <ul class="text-sm space-y-2">
             <li>Tuổi: 14</li>
             <li>Trạng thái: Online</li>
             <li>Khu vực: Việt Nam</li>
           </ul>
         </div>
-
-        <!-- About_me.exe - Hẹp vừa đủ, căn trái dưới STATS -->
-        <div class="pixel-card about-me-container">
-          <h2 class="exe-title mb-2 text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
-          
-          <!-- 2 mục nhỏ -->
-          <div class="flex flex-row gap-2">
-            
-            <!-- ASCII Art -->
-            <div class="pixel-card p-2">
-              <pre class="ascii-art">
-         へ      ╱|、
-    ૮  - ՛ )  (> < 7
-    /  ⁻ ៸     |、˜〵
-  乀 (ˍ, ل   じしˍ,)ノ</pre>
-            </div>
-            
-            <!-- Poem -->
-            <div class="pixel-card p-2 flex items-center justify-center">
-              <div>
-                <div class="poem-line">Ta Thấy Em Xinh Khẽ Lắc Đầu</div>
-                <div class="poem-line">Bở Vì Ta Có Được Em Đâu</div>
-                <div class="poem-line">Tay Kia Sẽ Ấp Nhiều Tay Khác</div>
-                <div class="poem-line">Môi Ấy Vì Ai Sẽ Đượm Màu</div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
       </div>
 
-      <!-- Cột giữa -->
-      <div class="flex flex-col gap-4">
-        <div class="pixel-card">
-          <h2 class="exe-title mb-2">SỞ THÍCH</h2>
-          <div class="flex gap-2 flex-wrap">
+      <!-- Right: Sở thích + Yêu thích + Skills -->
+      <div class="right-section">
+        <!-- SỞ THÍCH -->
+        <div class="pixel-card sothich-box">
+          <h2 class="exe-title mb-3 text-base">SỞ THÍCH</h2>
+          <div class="flex gap-3 flex-wrap">
             <span class="tag">LÝ</span>
             <span class="tag">CODE</span>
             <span class="tag">DESIGN</span>
           </div>
         </div>
 
-        <div class="pixel-card flex-1">
-          <h2 class="exe-title mb-3">YÊU THÍCH</h2>
-          <p class="text-sm mb-1">Chi Zân</p>
-          <div class="skill-bar mb-3">
-            <div class="skill-fill" style="width:99%"></div>
-          </div>
-          <p class="text-sm mb-1">C++</p>
-          <div class="skill-bar">
-            <div class="skill-fill" style="width:85%"></div>
+        <!-- YÊU THÍCH -->
+        <div class="pixel-card">
+          <h2 class="exe-title mb-3 text-base">YÊU THÍCH</h2>
+          <div class="space-y-3">
+            <div>
+              <p class="text-sm">LOVE Quế Chi !</p>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width:99%"></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm">C++</p>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width:85%"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Cột phải -->
-      <div class="flex flex-col gap-4">
-        <div class="pixel-card flex-1">
-          <h2 class="exe-title mb-3">SKILLS</h2>
+        <!-- SKILLS -->
+        <div class="pixel-card">
+          <h2 class="exe-title mb-3 text-base">SKILLS</h2>
           <div class="space-y-3">
             <div>
               <p class="text-sm">Vibecoding – 80%</p>
@@ -297,6 +330,32 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- About me - Sát phải, bằng cột SKILLS -->
+    <div class="pixel-card about-section">
+      <h2 class="exe-title mb-3 text-base text-center">⎾ ↺ About_me.exe - 🗗 X ⏋</h2>
+      
+      <div class="about-content">
+        <!-- ASCII Art -->
+        <div class="about-box">
+          <pre class="ascii-box">
+              へ         ╱|、
+       ૮  -   ՛ ) つ(>   < 7 
+       /   ⁻  ៸          、˜〵     
+ 乀 (ˍ,  ل            じしˍ,)ノ</pre>
+        </div>
+        
+        <!-- Poem -->
+        <div class="about-box poem-box">
+          <div>
+            <div class="poem-line">Ta Thấy Em Xinh Khẽ Lắc Đầu</div>
+            <div class="poem-line">Bởi Vì Ta Có Được Em Đâu</div>
+            <div class="poem-line">Tay Kia Sẽ Ấp Nhiều Tay Khác</div>
+            <div class="poem-line">Môi Ấy Vì Ai Sẽ Đượm Màu</div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
