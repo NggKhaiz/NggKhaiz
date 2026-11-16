@@ -275,6 +275,25 @@
   overflow-wrap: anywhere;
 }
 
+/* ---------- attribution note ---------- */
+
+.detail__note {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border-left: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  border-radius: 0 3px 3px 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.detail__note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (min-width: 900px) {
   .detail {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.42fr);

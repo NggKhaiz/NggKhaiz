@@ -4,8 +4,8 @@
 Outputs (all committed, so deploying needs no build step):
 
   assets/img/icons/      favicon 16/32/48, apple-touch-icon, PWA 192/512, favicon.ico
-  assets/img/social/     og-profile (+light), og-studio, github-social, x-header,
-                         discord-banner, avatar, avatar-light
+  assets/img/social/     og-profile (+light), og-labs, github-social, x-header,
+                         discord-banner, avatar, avatar-384
   assets/img/covers/     one 16:9 cover per project
 
 Requires: pip install pillow, plus the variable fonts from tools/fetch_fonts.py
@@ -23,6 +23,8 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / ".cache" / "fonts"
 OUT = ROOT / "assets" / "img"
+
+PORTRAIT = ROOT / "tools" / "src" / "portrait.png"
 
 INTER = FONTS / "Inter.ttf"
 TIGHT = FONTS / "InterTight.ttf"
@@ -143,6 +145,19 @@ def monogram(size: int, theme: dict, letter: str = "K") -> Image.Image:
     return canvas
 
 
+def portrait(size: int) -> Image.Image:
+    """Circular crop of the illustration that stands in for a photo."""
+    image = Image.open(PORTRAIT).convert("RGB")
+    side = min(image.size)
+    image = image.crop(((image.width - side) // 2, (image.height - side) // 2, (image.width + side) // 2, (image.height + side) // 2))
+    image = image.resize((size, size), Image.LANCZOS)
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse([0, 0, size - 1, size - 1], fill=255)
+    canvas.paste(image, (0, 0), mask)
+    return canvas
+
+
 def app_icon(size: int, theme: dict) -> Image.Image:
     """Squircle icon. The accent dot only appears once there is room for it."""
     scale = 4
@@ -169,7 +184,7 @@ def og_profile(theme: dict) -> Image.Image:
     draw = ImageDraw.Draw(canvas)
 
     # monogram plate, top left
-    canvas.alpha_composite(monogram(150, theme), (72, 66))
+    canvas.alpha_composite(portrait(150), (72, 66))
 
     mono = typeface(MONO, 20, 500)
     write(draw, (250, 112), "NGGKHAIZ.JS.ORG", mono, theme["muted"], tracking=3)
@@ -179,7 +194,7 @@ def og_profile(theme: dict) -> Image.Image:
     write(draw, (72, 350), "Nguyễn Gia Khải", title, theme["text"], tracking=-4)
 
     line = typeface(INTER, 32, 400)
-    write(draw, (76, 410), "Developer · Builder · C++ to web", line, theme["muted"], tracking=-0.4)
+    write(draw, (76, 410), "C · C++ · Zig · Python · web", line, theme["muted"], tracking=-0.4)
 
     rule_y = 470
     draw.line([72, rule_y, W - 72, rule_y], fill=theme["line"], width=1)
@@ -189,18 +204,18 @@ def og_profile(theme: dict) -> Image.Image:
     write(draw, (W - 76, 530), "Discord · mental.arc", small, theme["muted"], tracking=0.5, anchor="right")
 
     draw.ellipse([76, 566, 86, 576], fill=theme["accent"] + (255,))
-    write(draw, (98, 578), "turning weird ideas into things that actually run", small, theme["faint"])
+    write(draw, (98, 578), "C, C++, Zig and Python — and the site around it", small, theme["faint"])
     return canvas.convert("RGB")
 
 
-def og_studio(theme: dict) -> Image.Image:
+def og_labs(theme: dict) -> Image.Image:
     W, H = 1200, 630
     canvas = Image.new("RGBA", (W, H), theme["bg"] + (255,))
     rings(canvas, W + 90, 470, [560, 430, 310], theme["line"], 2)
     draw = ImageDraw.Draw(canvas)
 
     mono = typeface(MONO, 20, 500)
-    write(draw, (76, 96), "INDEPENDENT SOFTWARE STUDIO", mono, theme["accent"], tracking=4)
+    write(draw, (76, 96), "MOLIK LABS · INDEPENDENT", mono, theme["accent"], tracking=4)
 
     title = typeface(TIGHT, 88, 600)
     write(draw, (72, 240), "Independent.", title, theme["text"], tracking=-4)
@@ -210,8 +225,8 @@ def og_studio(theme: dict) -> Image.Image:
     write(draw, (76, 410), "Open source. No tracking. No ads. Built to do its job well.", body, theme["muted"], tracking=-0.3)
 
     draw.line([76, 470, W - 76, 470], fill=theme["line"], width=1)
-    write(draw, (76, 530), "NGGKHAIZ STUDIO", mono, theme["text"], tracking=3)
-    write(draw, (W - 76, 530), "nggkhaiz.js.org/studio", mono, theme["faint"], tracking=1, anchor="right")
+    write(draw, (76, 530), "MOLIK LABS", mono, theme["text"], tracking=3)
+    write(draw, (W - 76, 530), "github.com/MoLik-Labs", mono, theme["faint"], tracking=1, anchor="right")
     return canvas.convert("RGB")
 
 
@@ -228,7 +243,7 @@ def github_social(theme: dict) -> Image.Image:
     write(draw, (76, 300), "Ngg.Khaiz", title, theme["text"], tracking=-5)
 
     body = typeface(INTER, 34, 400)
-    write(draw, (80, 360), "C++ · Python · TypeScript · hand-written web", body, theme["muted"], tracking=-0.4)
+    write(draw, (80, 360), "C · C++ · Zig · Python · hand-written web", body, theme["muted"], tracking=-0.4)
 
     draw.line([80, 430, W - 80, 430], fill=theme["line"], width=1)
     small = typeface(MONO, 22, 400)
@@ -250,7 +265,7 @@ def x_header(theme: dict) -> Image.Image:
     write(draw, (68, 250), "Nguyễn Gia Khải", title, theme["text"], tracking=-3.4)
 
     body = typeface(INTER, 26, 400)
-    write(draw, (72, 300), "Developer · Builder · Bắc Giang, Việt Nam", body, theme["muted"], tracking=-0.3)
+    write(draw, (72, 300), "Builder · C, C++, Zig, Python · Bắc Giang, Việt Nam", body, theme["muted"], tracking=-0.3)
     return canvas.convert("RGB")
 
 
@@ -264,7 +279,7 @@ def discord_banner(theme: dict) -> Image.Image:
     write(draw, (W / 2, 270), "Ngg.Khaiz", title, theme["text"], tracking=-4, anchor="center")
 
     mono = typeface(MONO, 20, 500)
-    write(draw, (W / 2, 320), "NGGKHAIZ.JS.ORG", mono, theme["muted"], tracking=5, anchor="center")
+    write(draw, (W / 2, 320), "C · C++ · ZIG · PYTHON · WEB", mono, theme["muted"], tracking=5, anchor="center")
     return canvas.convert("RGB")
 
 
@@ -272,39 +287,57 @@ def discord_banner(theme: dict) -> Image.Image:
 
 PROJECTS = [
     {
+        "slug": "zmrig",
+        "repo": "MoLik-Labs / ZMRIG",
+        "title": "ZMRIG",
+        "sub": "RandomX miner, pool and proxy in one tree",
+        "tags": ["C", "C++", "Zig"],
+        "accent_lines": [1, 5],
+        "glyph": "code",
+    },
+    {
+        "slug": "qfox",
+        "repo": "MoLik-Labs / Q-FOX-Algorithm",
+        "title": "Q-FOX",
+        "sub": "A 3x3 method laboratory, one C engine",
+        "tags": ["JavaScript", "Python", "C"],
+        "accent_lines": [2, 6],
+        "glyph": "code",
+    },
+    {
+        "slug": "study-site",
+        "repo": "MoLik-Labs / STUDY-SITE",
+        "title": "Study Focus Fox",
+        "sub": "One HTML file to study everything",
+        "tags": ["HTML", "JavaScript", "MIT"],
+        "accent_lines": [0, 4],
+        "glyph": "browser",
+    },
+    {
         "slug": "public-file",
         "repo": "NggKhaiz / PUBLIC_FILE",
         "title": "PUBLIC_FILE",
         "sub": "Obfuscation scanner and file tools",
-        "tags": ["Python", "Security", "CLI"],
-        "accent_lines": [5, 8],
+        "tags": ["Python", "Apache-2.0"],
+        "accent_lines": [3, 7],
         "glyph": "shell",
     },
     {
-        "slug": "rhlz-panel",
-        "repo": "NggKhaiz / RHLZ-PANEL",
-        "title": "RHLZ Panel",
-        "sub": "Self-hosted control panel, Docker-ready",
-        "tags": ["TypeScript", "Docker", "Shell"],
+        "slug": "molik-winlik",
+        "repo": "MoLik-Labs / MOLIK_WINLIK",
+        "title": "MOLIK_WINLIK",
+        "sub": "PowerShell build of Sophia Script",
+        "tags": ["PowerShell", "Windows", "MIT"],
         "accent_lines": [2, 7],
         "glyph": "dashboard",
-    },
-    {
-        "slug": "nggkhaiz-site",
-        "repo": "NggKhaiz / NggKhaiz",
-        "title": "nggkhaiz.js.org",
-        "sub": "Hand-written HTML and CSS, no framework",
-        "tags": ["HTML", "CSS", "JavaScript"],
-        "accent_lines": [1, 6],
-        "glyph": "browser",
     },
     {
         "slug": "this-profile",
         "repo": "NggKhaiz / NggKhaiz",
         "title": "This profile",
-        "sub": "README, SVG assets and a Python build script",
-        "tags": ["Python", "SVG", "GitHub"],
-        "accent_lines": [3, 9],
+        "sub": "README, SVG, raster and pages from data",
+        "tags": ["Python", "SVG", "Pillow"],
+        "accent_lines": [1, 6],
         "glyph": "code",
     },
 ]
@@ -402,14 +435,16 @@ def main() -> int:
     # social
     og_profile(DARK).save(social / "og-profile.png", optimize=True)
     og_profile(LIGHT).save(social / "og-profile-light.png", optimize=True)
-    og_studio(DARK).save(social / "og-studio.png", optimize=True)
+    og_labs(DARK).save(social / "og-labs.png", optimize=True)
     github_social(DARK).save(social / "github-social.png", optimize=True)
     x_header(DARK).save(social / "x-header.png", optimize=True)
     discord_banner(DARK).save(social / "discord-banner.png", optimize=True)
-    for name, theme in (("", DARK), ("-light", LIGHT)):
-        avatar = Image.new("RGBA", (512, 512), theme["bg"] + (255,))
-        avatar.alpha_composite(monogram(512, theme))
-        avatar.convert("RGB").save(social / f"avatar{name}.png", optimize=True)
+    avatar = Image.new("RGBA", (512, 512), DARK["bg"] + (255,))
+    avatar.alpha_composite(portrait(512))
+    avatar.convert("RGB").save(social / "avatar.png", optimize=True)
+
+    # 384 px square, used as the embedded avatar inside the README SVGs
+    portrait(384).convert("RGB").save(social / "avatar-384.jpg", quality=90, optimize=True)
 
     # covers
     for project in PROJECTS:

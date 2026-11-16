@@ -45,14 +45,39 @@ description) → **04 Technical domains** (flat list).
 **02 The people** (numbered person cards) → **03 Get in touch** → **04 The fine print**
 (4 numbered disclosures: non-profit, zero data collection, third-party, licensing).
 
-## 3. Observed — Khải's own data (GitHub API, 2026-11-16)
+## 3. Observed — Khải's own repositories (GitHub API, 2026-11-16)
 
-- login `NggKhaiz`, name `Ngg.Khaiz`, location `Viet Nam`, blog `nggkhaiz.pages.dev`, no public email in the API
-- 12 public repositories, 5 stars total, top repo `PUBLIC_FILE` with 4 stars, account created 2025-12-22
-- repo languages: `D, HTML, JavaScript, Python, Rust, TypeScript`; `RHLZ-PANEL` adds `Shell`, `CSS`, `Dockerfile`
-- contributions in the last year: **464**
-- `PUBLIC_FILE` contains `obf-scanner.py`, `ravenst`, `kill.txt` → an obfuscation scanner, not a generic “file host”
-- site domain comes from `CNAME`: `nggkhaiz.js.org`
+Second pass, after the first build was rejected: all 18 public repositories across the
+personal account and the `MoLik-Labs` organisation were crawled (`/repos`, `/languages`,
+`/readme`, plus commit counts from the `Link: rel="last"` header). Project selection for
+the site and the README is derived from that table — commit volume, not taste.
+
+| Repository | Commits | Language | Licence | Notes |
+| --- | --- | --- | --- | --- |
+| `MoLik-Labs/ZMRIG` | 4,580 | C / C++ / Zig | GPL-3.0 | 12 ★, v6.48.0, docs at `molik-labs.github.io/ZMRIG/`; RandomX miner + pool + proxy |
+| `MoLik-Labs/MOLIK_WINLIK` | 2,824 | PowerShell | MIT | **build of `farag2/Sophia-Script-for-Windows`**; 59 of the last 100 commits are upstream |
+| `MoLik-Labs/Q-FOX-Algorithm` | 42 | JS / C / Python | — | one C translation unit, facelets/BFS/IDA*, generated static site |
+| `MoLik-Labs/STUDY-SITE` | 31 | HTML / JS | MIT | single-file study app ("Study Focus Fox") |
+| `NggKhaiz` (this repo) | 23 | — | — | profile + site |
+| `NggKhaiz/PUBLIC_FILE` | 8 | Python | Apache-2.0 | 4 ★, `obf-scanner.py` and file tools |
+
+- 10 of the 18 are original, the rest are forks kept on purpose
+- languages across the non-forks: PowerShell 21%, HTML 18%, C 16%, C++ 13%, Python 10%,
+  JavaScript 9%, TypeScript 3.5%, Zig 2%, seventeen in total
+- contributions in the last year: **464**; 12 ★ on the top repository
+- profile site: `CNAME` → `nggkhaiz.js.org` (blog stays at `nggkhaiz.pages.dev`)
+
+Consequences that changed the build:
+
+1. **Positioning.** Independent builder working from C / C++ / Zig up through Python and the web —
+   not a security analyst, and not a "studio".
+2. **Project set.** Six projects carry pages; the profile shows the four most active
+   (ZMRIG, Q-FOX, Study Focus Fox, PUBLIC_FILE), the lab shows the three org projects.
+3. **Attribution.** `MOLIK_WINLIK` is an upstream build, so its page renders a credit note
+   (`.detail__note`) naming Sophia Script, its author and its MIT licence. Hiding that would
+   have been the one dishonest number in an otherwise checkable set.
+4. **`/studio/` → `/labs/`.** The organisation is the real container, so the second site became
+   `MoLik Labs`, and `/studio/` survives only as a redirect stub.
 
 ## 4. Inferred — not verifiable from the available evidence
 
@@ -64,8 +89,8 @@ description) → **04 Technical domains** (flat list).
   accent `#d9a06b`) is a deliberate interpretation of the same monochrome-plus-warm-badge language.
 - **Motion.** Reveal-on-scroll, scroll progress, active-nav tracking and the sticky blur header
   are additions in that spirit; they are hidden from `prefers-reduced-motion`.
-- **The `/studio/` page.** sakayori.studio describes a studio with two people and a legal
-  fine-print section. This version is written as a personal, non-commercial initiative of one
+- **The `/labs/` page.** sakayori.studio describes a studio with two people and a legal
+  fine-print section. This version is written as a personal, non-commercial organisation of one
   person — no invented co-founder, no invented company registration. Delete the folder if you
   do not want it.
 
@@ -73,8 +98,9 @@ description) → **04 Technical domains** (flat list).
 
 The reference is a security analyst with certifications and eight years of experience. Copying
 that copy verbatim would make this profile lie. The structure, type scale and section rhythm are
-cloned; **the claims are Khải's own**: born 9 May 2000, 12 public repositories, real languages,
-real projects. No fake certificates, no fake employers, no invented metrics.
+cloned; **the claims are Khải's own**: born 9 May 2000, 18 public repositories across two
+accounts, real languages, real projects. No fake certificates, no fake employers, no invented
+metrics — and every figure on the site is one the API returns.
 
 ## 6. Identity data — supplied by the owner
 
@@ -82,22 +108,21 @@ real projects. No fake certificates, no fake employers, no invented metrics.
 | --- | --- | --- |
 | Date of birth | 09-05-2000 (9 May 2000, DD-MM-YYYY) | site facts table (`facts.dobValue`) |
 | Age | derived: 26 | hero, both languages |
-| Email | `nggkhaiz@proton.me` | README badge, hero CTA, contact block, studio page, `<meta name="description">` |
+| Email | `nggkhaiz@proton.me` | README badge, hero CTA, contact block, labs page, `<meta name="description">` |
 | Discord | `mental.arc` | README badge, contact block with copy-to-clipboard |
-| Telegram | **withheld by request** | nowhere. `TELEGRAM_HANDLE = ""` in `assets/site.js` keeps the link out of the page; fill it in when you want it visible |
-| Avatar | monogram `K` | hero SVG plate, app icons, `assets/img/social/avatar*.png` |
+| Telegram | **not published** | the site has no element, attribute, string or comment for it; the copy table and the script were scrubbed rather than gated behind an empty variable |
+| Avatar | illustration (`tools/src/portrait.png`) | circular-cropped into the hero SVG plate, app icons and `assets/img/social/avatar{,-384}.{png,jpg}` |
 
 ## 7. Unknowns — fill these in yourself
 
-- the Telegram handle, whenever it should go live
-- a real avatar photo for the hero: base64-encode a square image and set `AVATAR_DATA_URI`
-  in `tools/build_assets.py`, then rebuild — the monogram plate disappears automatically
 - whether `nggkhaiz.pages.dev` (profile blog) should be the primary URL instead of `nggkhaiz.js.org`
+- whether the lab should stay English-only, or inherit the VI/EN toggle
+- how much of the contribution grid should be art rather than real commits (see `docs/graph-art.md`)
 
 ## 8. Structure
 
-The site is 12 static pages (see `docs/site-map.md`) served from the repository root, so deploying
-is "upload this folder". Profile pages are bilingual (VI default, EN toggle); studio pages stay in
+The site is 15 static pages (see `docs/site-map.md`) served from the repository root, so deploying
+is "upload this folder". Profile pages are bilingual (VI default, EN toggle); lab pages stay in
 English like the reference, and their `<html>` has no `data-lang-switch`, so the language script
 never touches them.
 
@@ -108,16 +133,16 @@ in `assets/fonts`). No request leaves the domain for type, and there is no third
 ## 9. Images
 
 `tools/build_images.py` renders every raster asset with Pillow from the same design tokens as the
-CSS: favicon set, apple-touch-icon, PWA 192/512, OG cards (profile + studio, dark + light), GitHub
-social preview 1280×640, X header 1500×500, Discord banner 960×540, square avatars, and one
-1200×675 cover per project. The covers are deliberately abstract UI studies — they are *not*
+CSS: favicon set, apple-touch-icon, PWA 192/512, OG cards (profile + labs, dark + light), GitHub
+social preview 1280×640, X header 1500×500, Discord banner 960×540, square avatars cropped from
+`tools/src/portrait.png`, and one 1200×675 cover per project (20 images in total). The covers are deliberately abstract UI studies — they are *not*
 presented as screenshots of software that does not exist.
 
 ## 10. Rebuild
 
 ```bash
 python3 tools/fetch_fonts.py    # woff2 subsets        (fonttools, brotli, network)
-python3 tools/build_images.py   # 19 raster images     (pillow, fonts in .cache/fonts)
+python3 tools/build_images.py   # 20 raster images     (pillow, fonts in .cache/fonts)
 python3 tools/build_assets.py   # README SVGs
 python3 tools/build_pages.py    # HTML + copy.js + sitemap + manifest
 python3 -m http.server 8000     # preview http://localhost:8000
@@ -126,3 +151,16 @@ python3 -m http.server 8000     # preview http://localhost:8000
 SVG content lives in `CONTENT` at the top of `tools/build_assets.py`; page copy and the project
 records live in `tools/build_pages.py`, which also emits `assets/copy.js` so the two languages can
 never drift apart. Nothing is fetched at runtime.
+
+## 11. Graph art
+
+The reference repository carries 365 commits that exist only to draw a picture in the
+contribution calendar: every one dated 12:00 +07:00, every one authored from the same
+account, none of them touching a file. That history is observable, and the reference never
+mentions it.
+
+This rebuild keeps the effect and drops the secrecy. `tools/graph-art.txt` is a 53×7 ASCII
+picture, `tools/graph_art.py` turns it into absolute dates and empty commits whose message is
+`chore: graph art YYYY-MM-DD (n/m)`, `.github/workflows/graph-art.yml` repaints from CI, and
+`docs/graph-art.md` documents the mapping, the identity requirement and how to switch it off.
+The plan file is frozen so the drawing does not scramble when the calendar slides forward.

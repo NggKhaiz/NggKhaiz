@@ -9,10 +9,12 @@ can follow the reader's colour scheme through <picture>.
 Content lives in CONTENT below. Run `python3 tools/build_assets.py` after
 editing it; nothing else in the repository needs to change.
 
-Avatar: the hero draws a monogram plate. To use a photo instead, base64-encode
-a square JPEG/PNG and set AVATAR_DATA_URI to "data:image/jpeg;base64,...".
+Avatar: the hero embeds assets/img/social/avatar-384.jpg as a base64 data URI,
+because GitHub renders SVG but will not let it fetch remote images. Replace the
+portrait with `python3 tools/build_images.py` (it crops tools/src/portrait.png).
 """
 
+import base64
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -22,55 +24,60 @@ ASSETS = ROOT / "assets"
 MONO = "ui-monospace,SFMono-Regular,Menlo,monospace"
 SANS = "-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif"
 
-# Empty string = draw the monogram plate instead of a photo.
-AVATAR_DATA_URI = ""
+# Illustration avatar, embedded so GitHub renders it (SVG cannot load remote images).
+AVATAR_SOURCE = ROOT / "assets" / "img" / "social" / "avatar-384.jpg"
+AVATAR_DATA_URI = (
+    "data:image/jpeg;base64," + base64.b64encode(AVATAR_SOURCE.read_bytes()).decode("ascii")
+    if AVATAR_SOURCE.exists()
+    else ""
+)
 
 CONTENT = {
     "name": "Ngg.Khaiz",
-    "tagline": "Turning weird ideas into things that actually run",
+    "tagline": "C, C++, Zig and Python — and the site around it",
     # (icon, label, value) - rendered in the right half, 2x2 grid.
     "quadrants": [
-        ("rocket", "Focus", "C++ & Python"),
-        ("shield", "Mindset", "Break, then fix"),
-        ("code", "Toolbox", "TS, Rust, Docker"),
+        ("rocket", "Focus", "C · C++ · Zig"),
+        ("shield", "Method", "Read the source"),
+        ("code", "Also writes", "Python, JS, web"),
         ("globe", "Based in", "Việt Nam"),
     ],
     "monogram": "K",
     "highlights_label": "GITHUB HIGHLIGHTS",
     "highlights": [
         ("464", "contributions"),
-        ("12", "public repositories"),
-        ("4", "stars, top repository"),
-        ("6", "languages in public repos"),
+        ("18", "public repositories"),
+        ("12", "stars, top repository"),
+        ("13", "languages in use"),
     ],
     "projects": [
         {
+            "slug": "zmrig",
+            "repo": "MoLik-Labs / ZMRIG",
+            "title": "ZMRIG",
+            "desc": "RandomX miner, pool and proxy",
+            "langs": ["C", "C++", "Zig"],
+        },
+        {
+            "slug": "qfox",
+            "repo": "MoLik-Labs / Q-FOX",
+            "title": "Q-FOX",
+            "desc": "A 3x3 method laboratory",
+            "langs": ["C", "Python", "JavaScript"],
+        },
+        {
+            "slug": "study-site",
+            "repo": "MoLik-Labs / STUDY-SITE",
+            "title": "Study Focus Fox",
+            "desc": "One HTML file to study",
+            "langs": ["HTML", "JavaScript"],
+        },
+        {
             "slug": "public-file",
-            "repo": "NggKhaiz/PUBLIC_FILE",
+            "repo": "NggKhaiz / PUBLIC_FILE",
             "title": "PUBLIC_FILE",
             "desc": "Obfuscation scanner and file tools",
-            "langs": ["Python"],
-        },
-        {
-            "slug": "rhlz-panel",
-            "repo": "NggKhaiz/RHLZ-PANEL",
-            "title": "RHLZ Panel",
-            "desc": "Self-hosted panel, Docker-ready",
-            "langs": ["TypeScript", "Shell"],
-        },
-        {
-            "slug": "nggkhaiz-site",
-            "repo": "NggKhaiz/NggKhaiz",
-            "title": "nggkhaiz.js.org",
-            "desc": "Hand-written site, no framework",
-            "langs": ["HTML", "CSS"],
-        },
-        {
-            "slug": "this-profile",
-            "repo": "NggKhaiz/NggKhaiz",
-            "title": "This profile",
-            "desc": "README, SVG assets, build script",
-            "langs": ["Python", "SVG"],
+            "langs": ["Python", "Apache-2.0"],
         },
     ],
 }

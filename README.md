@@ -3,12 +3,12 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/hero-light.svg">
-  <img width="100%" alt="Ngg.Khaiz — Turning weird ideas into things that actually run" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/hero-dark.svg">
+  <img width="100%" alt="Ngg.Khaiz — C, C++, Zig and Python, and the site around it" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/hero-dark.svg">
 </picture>
 
 <p>
   <a href="https://nggkhaiz.js.org"><img src="https://img.shields.io/badge/nggkhaiz.js.org-111827?style=for-the-badge&logo=github&logoColor=white" alt="nggkhaiz.js.org" /></a>
-  <a href="https://nggkhaiz.js.org/studio/"><img src="https://img.shields.io/badge/NggKhaiz_Studio-6F4320?style=for-the-badge&logo=github&logoColor=white" alt="NggKhaiz Studio" /></a>
+  <a href="https://nggkhaiz.js.org/labs/"><img src="https://img.shields.io/badge/MoLik_Labs-6F4320?style=for-the-badge&logo=github&logoColor=white" alt="MoLik Labs" /></a>
   <a href="mailto:nggkhaiz@proton.me"><img src="https://img.shields.io/badge/nggkhaiz@proton.me-6D4AFF?style=for-the-badge&logo=protonmail&logoColor=white" alt="nggkhaiz@proton.me" /></a>
   <img src="https://img.shields.io/badge/mental.arc-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord: mental.arc" />
 </p>
@@ -19,18 +19,40 @@
 
 <p><strong>About me</strong></p>
 
-Hi, I'm **Khải**, I build things because an idea is only worth something once someone else can run it.
+Hi, I'm **Khải**. I work on my own, mostly close to the machine: C and C++ for the core of things, Zig where that exact speed matters, Python for the tooling around it, and hand-written HTML/CSS/JS for whatever someone else has to look at.
 
-My work moves between C++, Python scripts, TypeScript panels and hand-written HTML, depending on what the idea needs. I learn in public and I'd rather ship a small honest tool than a big empty one.
+I like repositories bigger than a single script — a RandomX miner, a 3×3 cube laboratory, a study app that fits in one file — and I'd rather ship a small honest tool than a big empty one. Every number on my site can be checked against the GitHub API.
 
 <sub>nggkhaiz@proton.me · Discord <code>mental.arc</code> · Bắc Giang, Việt Nam</sub>
 
 <p><strong>Selected work</strong></p>
 
-<sub>Write-ups for each of these: [nggkhaiz.js.org/work](https://nggkhaiz.js.org/work/) · studio pages: [nggkhaiz.js.org/studio](https://nggkhaiz.js.org/studio/)</sub>
+<sub>Picked by real commit counts, not by taste. Write-ups: [nggkhaiz.js.org/work](https://nggkhaiz.js.org/work/) · the lab: [nggkhaiz.js.org/labs](https://nggkhaiz.js.org/labs/)</sub>
 
 <div align="center">
 
+<a href="https://github.com/MoLik-Labs/ZMRIG">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/zmrig-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/zmrig-light.svg">
+    <img width="49%" alt="ZMRIG" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/zmrig-dark.svg">
+  </picture>
+</a>
+<a href="https://github.com/MoLik-Labs/Q-FOX-Algorithm">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/qfox-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/qfox-light.svg">
+    <img width="49%" alt="Q-FOX" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/qfox-dark.svg">
+  </picture>
+</a>
+
+<a href="https://github.com/MoLik-Labs/STUDY-SITE">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/study-site-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/study-site-light.svg">
+    <img width="49%" alt="Study Focus Fox" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/study-site-dark.svg">
+  </picture>
+</a>
 <a href="https://github.com/NggKhaiz/PUBLIC_FILE">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/public-file-dark.svg">
@@ -38,39 +60,40 @@ My work moves between C++, Python scripts, TypeScript panels and hand-written HT
     <img width="49%" alt="PUBLIC_FILE" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/public-file-dark.svg">
   </picture>
 </a>
-<a href="https://github.com/NggKhaiz/RHLZ-PANEL">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/rhlz-panel-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/rhlz-panel-light.svg">
-    <img width="49%" alt="RHLZ Panel" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/rhlz-panel-dark.svg">
-  </picture>
-</a>
-
-<a href="https://nggkhaiz.js.org">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/nggkhaiz-site-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/nggkhaiz-site-light.svg">
-    <img width="49%" alt="nggkhaiz.js.org" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/nggkhaiz-site-dark.svg">
-  </picture>
-</a>
-<a href="https://github.com/NggKhaiz/NggKhaiz">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/this-profile-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/this-profile-light.svg">
-    <img width="49%" alt="This profile" src="https://raw.githubusercontent.com/NggKhaiz/NggKhaiz/main/assets/projects/this-profile-dark.svg">
-  </picture>
-</a>
 
 </div>
+
+<p><strong>MoLik Labs</strong></p>
+
+Most of the larger code lives in the [MoLik-Labs](https://github.com/MoLik-Labs) organisation, kept separate so each repository can carry its own docs, releases and licence:
+
+- **[ZMRIG](https://github.com/MoLik-Labs/ZMRIG)** — RandomX miner, pool and proxy · C / C++ / Zig · GPL-3.0 · 4,580 commits
+- **[Q-FOX](https://github.com/MoLik-Labs/Q-FOX-Algorithm)** — 3×3 method laboratory, one C translation unit · C / Python / JS
+- **[Study Focus Fox](https://github.com/MoLik-Labs/STUDY-SITE)** — single-file study app · HTML / JS · MIT
+- **[MOLIK_WINLIK](https://github.com/MoLik-Labs/MOLIK_WINLIK)** — PowerShell build of [Sophia Script](https://github.com/farag2/Sophia-Script-for-Windows) (MIT, upstream credited)
+
+<sub>Personal, non-commercial, one maintainer: [nggkhaiz.js.org/labs](https://nggkhaiz.js.org/labs/)</sub>
 
 <p><strong>Toolbox</strong></p>
 
 <div align="center">
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/C-0D1117?style=flat-square&logo=c&logoColor=white">
+  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C-F6F8FA?style=flat-square&logo=c&logoColor=111111">
+  <img alt="C" src="https://img.shields.io/badge/C-0D1117?style=flat-square&logo=c&logoColor=white">
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/C++-0D1117?style=flat-square&logo=cplusplus&logoColor=white">
   <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C++-F6F8FA?style=flat-square&logo=cplusplus&logoColor=111111">
   <img alt="C++" src="https://img.shields.io/badge/C++-0D1117?style=flat-square&logo=cplusplus&logoColor=white">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Zig-0D1117?style=flat-square&logo=zig&logoColor=white">
+  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Zig-F6F8FA?style=flat-square&logo=zig&logoColor=111111">
+  <img alt="Zig" src="https://img.shields.io/badge/Zig-0D1117?style=flat-square&logo=zig&logoColor=white">
 </picture>
 
 <picture>
@@ -80,21 +103,15 @@ My work moves between C++, Python scripts, TypeScript panels and hand-written HT
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/TypeScript-0D1117?style=flat-square&logo=typescript&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/TypeScript-F6F8FA?style=flat-square&logo=typescript&logoColor=111111">
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-0D1117?style=flat-square&logo=typescript&logoColor=white">
-</picture>
-
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/JavaScript-0D1117?style=flat-square&logo=javascript&logoColor=white">
   <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/JavaScript-F6F8FA?style=flat-square&logo=javascript&logoColor=111111">
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-0D1117?style=flat-square&logo=javascript&logoColor=white">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Rust-0D1117?style=flat-square&logo=rust&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Rust-F6F8FA?style=flat-square&logo=rust&logoColor=111111">
-  <img alt="Rust" src="https://img.shields.io/badge/Rust-0D1117?style=flat-square&logo=rust&logoColor=white">
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/TypeScript-0D1117?style=flat-square&logo=typescript&logoColor=white">
+  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/TypeScript-F6F8FA?style=flat-square&logo=typescript&logoColor=111111">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-0D1117?style=flat-square&logo=typescript&logoColor=white">
 </picture>
 
 <picture>
@@ -110,27 +127,21 @@ My work moves between C++, Python scripts, TypeScript panels and hand-written HT
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Shell-0D1117?style=flat-square&logo=gnubash&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Shell-F6F8FA?style=flat-square&logo=gnubash&logoColor=111111">
-  <img alt="Shell" src="https://img.shields.io/badge/Shell-0D1117?style=flat-square&logo=gnubash&logoColor=white">
-</picture>
-
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/PowerShell-0D1117?style=flat-square&logo=powershell&logoColor=white">
   <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/PowerShell-F6F8FA?style=flat-square&logo=powershell&logoColor=111111">
   <img alt="PowerShell" src="https://img.shields.io/badge/PowerShell-0D1117?style=flat-square&logo=powershell&logoColor=white">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Docker-0D1117?style=flat-square&logo=docker&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Docker-F6F8FA?style=flat-square&logo=docker&logoColor=111111">
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-0D1117?style=flat-square&logo=docker&logoColor=white">
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Shell-0D1117?style=flat-square&logo=gnubash&logoColor=white">
+  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Shell-F6F8FA?style=flat-square&logo=gnubash&logoColor=111111">
+  <img alt="Shell" src="https://img.shields.io/badge/Shell-0D1117?style=flat-square&logo=gnubash&logoColor=white">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Cloudflare_Workers-0D1117?style=flat-square&logo=cloudflareworkers&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Cloudflare_Workers-F6F8FA?style=flat-square&logo=cloudflareworkers&logoColor=111111">
-  <img alt="Cloudflare Workers" src="https://img.shields.io/badge/Cloudflare_Workers-0D1117?style=flat-square&logo=cloudflareworkers&logoColor=white">
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Docker-0D1117?style=flat-square&logo=docker&logoColor=white">
+  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Docker-F6F8FA?style=flat-square&logo=docker&logoColor=111111">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-0D1117?style=flat-square&logo=docker&logoColor=white">
 </picture>
 
 <picture>
@@ -168,5 +179,7 @@ My work moves between C++, Python scripts, TypeScript panels and hand-written HT
 ---
 
 <div align="center">
-  <sub>sometimes C++, sometimes TypeScript, sometimes whatever gets the idea working</sub>
+  <sub>The contribution grid above is painted by <a href="https://github.com/NggKhaiz/NggKhaiz/blob/main/tools/graph_art.py">tools/graph_art.py</a> and a scheduled workflow — nothing hidden, see <a href="https://github.com/NggKhaiz/NggKhaiz/blob/main/docs/graph-art.md">docs/graph-art.md</a>.</sub>
+  <br />
+  <sub>sometimes C++, sometimes Zig, sometimes whatever gets the idea working</sub>
 </div>

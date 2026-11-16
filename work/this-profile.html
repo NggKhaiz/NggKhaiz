@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>This profile — Nguyễn Gia Khải</title>
-  <meta name="description" content="README và toàn bộ ảnh SVG, sinh từ ba script Python." />
+  <meta name="description" content="README, ảnh SVG và toàn bộ trang này — sinh ra từ dữ liệu." />
   <meta name="author" content="Nguyễn Gia Khải" />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="canonical" href="https://nggkhaiz.js.org/work/this-profile.html" />
@@ -12,7 +12,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Ngg.Khaiz" />
   <meta property="og:title" content="This profile — Nguyễn Gia Khải" />
-  <meta property="og:description" content="README và toàn bộ ảnh SVG, sinh từ ba script Python." />
+  <meta property="og:description" content="README, ảnh SVG và toàn bộ trang này — sinh ra từ dữ liệu." />
   <meta property="og:url" content="https://nggkhaiz.js.org/work/this-profile.html" />
   <meta property="og:image" content="https://nggkhaiz.js.org/assets/img/covers/this-profile.png" />
   <meta property="og:image:width" content="1200" />
@@ -57,12 +57,12 @@
 
         <div class="page-head__grid">
           <h1 class="page-title reveal">This profile</h1>
-          <p class="page-lede reveal"><span data-i18n="p.this-profile.tagline">README và toàn bộ ảnh SVG, sinh từ ba script Python.</span></p>
+          <p class="page-lede reveal"><span data-i18n="p.this-profile.tagline">README, ảnh SVG và toàn bộ trang này — sinh ra từ dữ liệu.</span></p>
         </div>
 
         <dl class="inline-facts reveal">
           <div><dt><span data-i18n="d.status">Trạng thái</span></dt><dd><span data-i18n="p.this-profile.status">Sinh tự động</span></dd></div>
-          <div><dt><span data-i18n="d.stack">Công nghệ</span></dt><dd>Python · SVG · Images</dd></div>
+          <div><dt><span data-i18n="d.stack">Công nghệ</span></dt><dd>Python · SVG · Pillow</dd></div>
           <div><dt><span data-i18n="d.source">Mã nguồn</span></dt><dd><a class="inline-link" href="https://github.com/NggKhaiz/NggKhaiz" target="_blank" rel="noopener noreferrer">NggKhaiz/NggKhaiz</a></dd></div>
         </dl>
       </div>
@@ -70,7 +70,7 @@
 
     <div class="shell">
       <figure class="cover reveal">
-        <img src="../assets/img/covers/this-profile.png" alt="Cover cho dự án This profile" width="1200" height="675" />
+        <img src="../assets/img/covers/this-profile.png" alt="Cover: This profile" width="1200" height="675" />
       </figure>
     </div>
 
@@ -79,29 +79,30 @@
         <div class="detail__main">
           <article class="prose reveal">
             <h2><span data-i18n="d.overview">Tổng quan</span></h2>
-            <p data-i18n-html="p.this-profile.intro">Hero, card dự án và bảng highlights đều là SVG sinh ra từ `tools/build_assets.py`, nên bản sáng và bản tối không bao giờ lệch nhau.</p>
+            <p data-i18n-html="p.this-profile.intro">Hero, card dự án, highlights và 20 ảnh raster đều do script sinh; các trang HTML cũng vậy. Sửa số liệu một chỗ, chạy lại, mọi thứ khớp nhau.</p>
             <h2><span data-i18n="d.why">Vì sao có nó</span></h2>
-            <p data-i18n-html="p.this-profile.why">Sửa số liệu ở một chỗ, chạy lại script, mọi ảnh tự cập nhật. Không chỉnh tay từng file SVG.</p>
+            <p data-i18n-html="p.this-profile.why">Profile nói về việc viết code thì bản thân nó cũng nên được làm bằng code, không phải chỉnh tay từng ảnh.</p>
+            
             <h2><span data-i18n="d.how">Cách nó chạy</span></h2>
-            <p data-i18n-html="p.this-profile.how">Ba script: ảnh SVG cho README, ảnh raster (icon, OG, cover) bằng Pillow, và trang HTML từ dữ liệu.</p>
+            <p data-i18n-html="p.this-profile.how">Bốn script Python: SVG cho README, ảnh raster bằng Pillow, trang HTML từ dữ liệu, và font subset. Output là file tĩnh, không build lúc chạy.</p>
           </article>
         </div>
 
         <aside class="detail__aside reveal" style="--d: 120ms">
           <h3 class="label"><span data-i18n="d.facts">Thông tin</span></h3>
-          <dl class="detail__facts"><div><dt class="label"><span data-i18n="fact.lang">Ngôn ngữ</span></dt><dd>Python</dd></div><div><dt class="label"><span data-i18n="fact.output">Đầu ra</span></dt><dd>12 pages · 19 images</dd></div><div><dt class="label"><span data-i18n="fact.fonts">Font</span></dt><dd>Inter · JetBrains Mono</dd></div><div><dt class="label"><span data-i18n="fact.build">Build</span></dt><dd><span data-i18n="fact.manual">chạy tay</span></dd></div></dl>
+          <dl class="detail__facts"><div><dt class="label"><span data-i18n="fact.lang">Ngôn ngữ</span></dt><dd>Python</dd></div><div><dt class="label"><span data-i18n="fact.output">Đầu ra</span></dt><dd>12 pages · 20 images</dd></div><div><dt class="label"><span data-i18n="fact.fonts">Font</span></dt><dd><span data-i18n="fact.selfhost">tự host</span></dd></div><div><dt class="label"><span data-i18n="fact.build">Build</span></dt><dd><span data-i18n="fact.manual">chạy tay</span></dd></div></dl>
           <h3 class="label"><span data-i18n="d.links">Đường dẫn</span></h3>
-          <div class="contact__links"><a href="https://github.com/NggKhaiz/NggKhaiz" target="_blank" rel="noopener noreferrer"><span data-i18n="d.source">Mã nguồn</span> <span class="arrow">↗</span></a><a href="mailto:nggkhaiz@proton.me?subject=this-profile"><span data-i18n="d.email">Hỏi về dự án này</span> <span class="arrow">↗</span></a></div>
+          <div class="contact__links"><a href="https://github.com/NggKhaiz/NggKhaiz" target="_blank" rel="noopener noreferrer"><span data-i18n="d.source">Mã nguồn</span> <span class="arrow">↗</span></a><a href="https://nggkhaiz.js.org" target="_blank" rel="noopener noreferrer"><span data-i18n="d.live">Bản chạy</span> <span class="arrow">↗</span></a><a href="mailto:nggkhaiz@proton.me?subject=this-profile"><span data-i18n="d.email">Hỏi về dự án này</span> <span class="arrow">↗</span></a></div>
         </aside>
       </div>
     </section>
 
     <section class="section section--tight">
       <div class="shell">
-        <a class="nextup reveal" href="public-file.html">
+        <a class="nextup reveal" href="zmrig.html">
           <span class="label"><span data-i18n="d.next">Dự án tiếp theo</span></span>
-          <span class="nextup__title">PUBLIC_FILE<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-          <span class="nextup__text"><span data-i18n="p.public-file.tagline">Trình quét code bị làm rối và vài công cụ file đi kèm.</span></span>
+          <span class="nextup__title">ZMRIG<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+          <span class="nextup__text"><span data-i18n="p.zmrig.tagline">Miner RandomX cho Monero — dev fee 3% hiện rõ và tắt được.</span></span>
         </a>
         <div class="section__foot reveal">
           <a class="btn btn--ghost" href="index.html"><span data-i18n="d.back">Về danh sách dự án</span></a>
@@ -112,8 +113,8 @@
 
   <footer class="site-footer">
     <div class="shell site-footer__inner">
-      <p>© <span id="year">2026</span> Nguyễn Gia Khải · <span data-i18n="footer.rights">làm bằng tay</span></p>
-      <nav class="footer-nav" aria-label="Footer"><a href="../work/"><span data-i18n="nav.work">Dự án</span></a><a href="../studio/index.html"><span data-i18n="nav.studio">Studio</span></a><a href="../index.html#contact"><span data-i18n="nav.contact">Liên hệ</span></a><a href="https://github.com/NggKhaiz" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+      <p>© <span id="year">2026</span> Nguyễn Gia Khải · <span data-i18n="footer.rights">không framework, không bước build</span></p>
+      <nav class="footer-nav" aria-label="Footer"><a href="../work/"><span data-i18n="nav.work">Dự án</span></a><a href="../labs/index.html"><span data-i18n="nav.labs">MoLik Labs</span></a><a href="../index.html#contact"><span data-i18n="nav.contact">Liên hệ</span></a><a href="https://github.com/NggKhaiz" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
       <a class="to-top" href="#top"><span data-i18n="footer.top">Lên đầu trang</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
       </a>

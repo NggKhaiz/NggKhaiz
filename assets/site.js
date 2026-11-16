@@ -9,10 +9,6 @@
   var root = document.documentElement;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Optional Telegram link. Leave empty and nothing is emitted at all — no
-     element, no attribute, no text. Set it to a handle ("name") to have the
-     link appended to every [data-contact-direct] block. */
-  var TELEGRAM_HANDLE = "";
 
   /* ---------------- copy ---------------- */
 
@@ -234,19 +230,6 @@
       }
     });
   });
-
-  /* ---------------- optional telegram link ---------------- */
-
-  if (TELEGRAM_HANDLE) {
-    Array.prototype.forEach.call(document.querySelectorAll("[data-contact-direct]"), function (slot) {
-      var link = document.createElement("a");
-      link.href = "https://t.me/" + TELEGRAM_HANDLE;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.innerHTML = 'Telegram <span class="arrow">↗</span>';
-      slot.appendChild(link);
-    });
-  }
 
   /* ---------------- misc ---------------- */
 
