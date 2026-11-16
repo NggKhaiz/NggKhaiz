@@ -62,6 +62,21 @@ python3 tools/graph_art.py render    # ASCII preview of the frozen plan
 python3 tools/graph_art.py verify    # how many commits are still missing
 ```
 
+## Status
+
+Painted on **2026-11-16**: 332 commits from plan v1 (the glyph `KHAI`, anchor
+2026-01-04, cells between 2026-04-19 and 2026-09-26), authored as
+`Nguyễn Gia Khải <251014756+NggKhaiz@users.noreply.github.com>` so the squares
+land on the profile rather than on a bot.
+
+Two consequences worth knowing:
+
+- the painting lives in the branch history, so **merge the pull request with a merge
+  commit, not with squash** — a squash collapses the 332 commits into one and the
+  drawing disappears from the calendar;
+- if it is squashed anyway, nothing is lost: the plan is committed, so installing the
+  workflow and running it once repaints every cell on the default branch.
+
 ## Painting
 
 ```bash
