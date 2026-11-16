@@ -27,6 +27,8 @@ My work moves between C++, Python scripts, TypeScript panels and hand-written HT
 
 <p><strong>Selected work</strong></p>
 
+<sub>Write-ups for each of these: [nggkhaiz.js.org/work](https://nggkhaiz.js.org/work/) · studio pages: [nggkhaiz.js.org/studio](https://nggkhaiz.js.org/studio/)</sub>
+
 <div align="center">
 
 <a href="https://github.com/NggKhaiz/PUBLIC_FILE">

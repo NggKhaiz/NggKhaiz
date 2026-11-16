@@ -3,6 +3,32 @@
    Type: Inter Tight (display) · Inter (text) · JetBrains Mono (labels)
    ============================================================ */
 
+/* ---------- fonts (self-hosted, SIL OFL 1.1) ---------- */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/inter-tight-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jetbrains-mono-var.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- tokens ---------- */
 
 :root {
@@ -1006,7 +1032,7 @@ body::before {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1rem 2rem;
   font-family: var(--mono);
   font-size: 0.6875rem;
   letter-spacing: 0.04em;
@@ -1015,6 +1041,27 @@ body::before {
 
 .site-footer__inner a:hover {
   color: var(--text);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+}
+
+.footer-nav a {
+  transition: color 0.25s var(--ease);
+}
+
+.footer-nav a:hover {
+  color: var(--text);
+}
+
+.section__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .to-top {

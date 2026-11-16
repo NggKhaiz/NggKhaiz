@@ -85,7 +85,7 @@ real projects. No fake certificates, no fake employers, no invented metrics.
 | Email | `nggkhaiz@proton.me` | README badge, hero CTA, contact block, studio page, `<meta name="description">` |
 | Discord | `mental.arc` | README badge, contact block with copy-to-clipboard |
 | Telegram | **withheld by request** | nowhere. `TELEGRAM_HANDLE = ""` in `assets/site.js` keeps the link out of the page; fill it in when you want it visible |
-| Avatar | monogram `K` | hero SVG monogram plate |
+| Avatar | monogram `K` | hero SVG plate, app icons, `assets/img/social/avatar*.png` |
 
 ## 7. Unknowns — fill these in yourself
 
@@ -94,12 +94,35 @@ real projects. No fake certificates, no fake employers, no invented metrics.
   in `tools/build_assets.py`, then rebuild — the monogram plate disappears automatically
 - whether `nggkhaiz.pages.dev` (profile blog) should be the primary URL instead of `nggkhaiz.js.org`
 
-## 8. Rebuild
+## 8. Structure
+
+The site is 12 static pages (see `docs/site-map.md`) served from the repository root, so deploying
+is "upload this folder". Profile pages are bilingual (VI default, EN toggle); studio pages stay in
+English like the reference, and their `<html>` has no `data-lang-switch`, so the language script
+never touches them.
+
+Fonts are self-hosted: `tools/fetch_fonts.py` pulls Inter, Inter Tight and JetBrains Mono from the
+Google Fonts repository and subsets them to Latin + Vietnamese (320 KiB total, OFL 1.1 licences kept
+in `assets/fonts`). No request leaves the domain for type, and there is no third-party script.
+
+## 9. Images
+
+`tools/build_images.py` renders every raster asset with Pillow from the same design tokens as the
+CSS: favicon set, apple-touch-icon, PWA 192/512, OG cards (profile + studio, dark + light), GitHub
+social preview 1280×640, X header 1500×500, Discord banner 960×540, square avatars, and one
+1200×675 cover per project. The covers are deliberately abstract UI studies — they are *not*
+presented as screenshots of software that does not exist.
+
+## 10. Rebuild
 
 ```bash
-python3 tools/build_assets.py   # regenerates every SVG in assets/
+python3 tools/fetch_fonts.py    # woff2 subsets        (fonttools, brotli, network)
+python3 tools/build_images.py   # 19 raster images     (pillow, fonts in .cache/fonts)
+python3 tools/build_assets.py   # README SVGs
+python3 tools/build_pages.py    # HTML + copy.js + sitemap + manifest
 python3 -m http.server 8000     # preview http://localhost:8000
 ```
 
-Content of the SVGs lives in `CONTENT` at the top of `tools/build_assets.py`; site copy lives in
-the `copy.vi` / `copy.en` dictionaries in `assets/site.js`. Nothing is fetched at build time.
+SVG content lives in `CONTENT` at the top of `tools/build_assets.py`; page copy and the project
+records live in `tools/build_pages.py`, which also emits `assets/copy.js` so the two languages can
+never drift apart. Nothing is fetched at runtime.

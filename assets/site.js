@@ -16,176 +16,23 @@
 
   /* ---------------- copy ---------------- */
 
-  var copy = {
-    vi: {
-      title: "Nguyễn Gia Khải — developer, builder",
-      "a11y.skip": "Bỏ qua tới nội dung",
-      "nav.about": "Giới thiệu",
-      "nav.work": "Dự án",
-      "nav.domains": "Lĩnh vực",
-      "nav.contact": "Liên hệ",
-      "hero.kicker": "Xin chào",
-      "hero.age": "26 tuổi",
-      "hero.role": "Lập trình viên · Builder",
-      "hero.tagline":
-        "Mình viết code, phá thử, rồi ghép lại — để một ý tưởng thành thứ người khác chạy được thật.",
-      "hero.ctaContact": "Liên hệ",
-      "hero.ctaCredentials": "Xem dự án",
-      "hero.scroll": "Cuộn",
-      "facts.fieldKey": "Lĩnh vực",
-      "facts.fieldValue": "Code & thiết kế",
-      "facts.dobKey": "Ngày sinh",
-      "facts.dobValue": "09/05/2000",
-      "facts.locationKey": "Nơi ở",
-      "facts.locationValue": "Bắc Giang, Việt Nam",
-      "facts.emailKey": "Email",
-      "facts.siteKey": "Trang",
-      "facts.statusKey": "Trạng thái",
-      "facts.statusValue": "Học và làm công khai",
-      "about.kicker": "Giới thiệu",
-      "about.title": "Chỗ giao nhau giữa tò mò và tay nghề.",
-      "about.lede": "Mình không cố tỏ ra chuyên nghiệp. Mình cố giỏi hơn, công khai, từng dòng một.",
-      "about.p1":
-        "Mình là <strong>Khải</strong>, ở Bắc Giang. Mình bắt đầu với C++ vì trình biên dịch rất thẳng thắn: hoặc chạy, hoặc không. Thói quen đó ở lại — mình thích chương trình nhỏ, dự án thật, và code có thể giải thích từng dòng.",
-      "about.p2":
-        "Phần lớn thứ mình làm nằm công khai: một trình quét code bị làm rối bằng Python, một panel chạy được bằng Docker, và trang này — HTML/CSS viết tay, không framework, không bước build. Mình thích cảm giác đẩy lên rồi xem nó có sống không.",
-      "about.locationKey": "Vị trí",
-      "about.locationValue": "Bắc Giang, Việt Nam",
-      "about.focusKey": "Đang tập trung",
-      "about.focusValue": "C++, Python, web thuần",
-      "about.learnKey": "Đang học",
-      "about.learnValue": "Hệ thống, bảo mật cơ bản",
-      "cred.kicker": "Năng lực",
-      "cred.title": "Con số nhỏ, nhưng là thật.",
-      "cred.lede": "Không có chứng chỉ để khoe. Chỉ có repo, commit và những thứ đã chạy được.",
-      "cred.one.title": "Repo công khai",
-      "cred.one.text":
-        "Từ tháng 12/2025, mỗi repo là một lý do để học thêm: công cụ, thử nghiệm, panel nhỏ.",
-      "cred.two.title": "Ngôn ngữ trong repo",
-      "cred.two.text":
-        "C++, Python, TypeScript, JavaScript, HTML/CSS, Rust — chọn theo việc cần làm, không theo mốt.",
-      "cred.three.title": "Điều đang theo đuổi",
-      "cred.three.text":
-        "Hiểu máy chạy thế nào, viết code đọc được, và giữ thói quen đẩy sản phẩm ra ngoài.",
-      "work.kicker": "Dự án",
-      "work.title": "Vài thứ đã làm xong.",
-      "work.lede": "Chọn lọc, không phải tất cả. Cái nào cũng có link để bạn tự kiểm tra.",
-      "work.one.text":
-        "Trình quét code bị làm rối và một kệ file công khai. Mình muốn biết code rối giấu gì, nên viết luôn công cụ đi tìm.",
-      "work.two.text":
-        "Panel tự host, đóng gói Docker, chạy được từ một Procfile. Làm để xem một bảng điều khiển nhỏ có thể đi xa tới đâu.",
-      "work.three.text":
-        "Chính trang bạn đang đọc: HTML và CSS viết tay, không framework, không bundler, deploy bằng GitHub Pages.",
-      "work.four.title": "Profile này",
-      "work.four.text":
-        "README và toàn bộ ảnh SVG của profile, sinh ra từ một script Python nhỏ để sáng/tối luôn khớp nhau.",
-      "domains.kicker": "Lĩnh vực",
-      "domains.title": "Những gì mình chạm tới.",
-      "domains.lede": "Không phải bảng kỹ năng đầy đủ — chỉ là những thứ đã dùng cho một dự án thật.",
-      "domains.note":
-        "Thứ mình đang đọc thêm: cách CPU và bộ nhớ làm việc, cách một request đi qua một hệ thống, và cách viết giao diện ít nhưng đúng.",
-      "contact.kicker": "Liên hệ",
-      "contact.title": "Một đường thẳng.",
-      "contact.note": "Mail là đường nhanh nhất. Discord thì thường trực hơn.",
-      "contact.direct": "Liên hệ trực tiếp",
-      "contact.copy": "copy",
-      "contact.copyAria": "Copy username Discord mental.arc",
-      "contact.copied": "đã copy",
-      "contact.where": "Nơi khác",
-      "contact.repo": "Repo của profile này",
-      "footer.rights": "làm bằng tay",
-      "footer.top": "Lên đầu trang"
-    },
-
-    en: {
-      title: "Nguyễn Gia Khải — developer, builder",
-      "a11y.skip": "Skip to content",
-      "nav.about": "About",
-      "nav.work": "Work",
-      "nav.domains": "Domains",
-      "nav.contact": "Contact",
-      "hero.kicker": "Welcome",
-      "hero.age": "26 years old",
-      "hero.role": "Developer · Builder",
-      "hero.tagline":
-        "I write code, break it on purpose, and put it back together — so an idea becomes something you can actually run.",
-      "hero.ctaContact": "Get in touch",
-      "hero.ctaCredentials": "View work",
-      "hero.scroll": "Scroll",
-      "facts.fieldKey": "Field",
-      "facts.fieldValue": "Code & design",
-      "facts.dobKey": "Date of birth",
-      "facts.dobValue": "9 May 2000",
-      "facts.locationKey": "Based in",
-      "facts.locationValue": "Bắc Giang, Việt Nam",
-      "facts.emailKey": "Email",
-      "facts.siteKey": "Site",
-      "facts.statusKey": "Status",
-      "facts.statusValue": "Learning in public",
-      "about.kicker": "About",
-      "about.title": "Where curiosity meets craft.",
-      "about.lede": "I am not trying to look senior. I am trying to get better, in public, one line at a time.",
-      "about.p1":
-        "I am <strong>Khải</strong>, from Bắc Giang. I started with C++ because a compiler is brutally honest: it runs or it does not. The habit stuck — I like small programs, real projects and code I can explain line by line.",
-      "about.p2":
-        "Most of what I build lives in public: a Python scanner for obfuscated code, a Docker-ready panel, and this site — hand-written HTML and CSS, no framework, no build step. I like pushing something live and finding out whether it survives.",
-      "about.locationKey": "Location",
-      "about.locationValue": "Bắc Giang, Việt Nam",
-      "about.focusKey": "Focus",
-      "about.focusValue": "C++, Python, plain web",
-      "about.learnKey": "Learning",
-      "about.learnValue": "Systems, security basics",
-      "cred.kicker": "Credentials",
-      "cred.title": "Small numbers, all of them real.",
-      "cred.lede": "No certificates to show off. Just repos, commits and things that already ran.",
-      "cred.one.title": "Public repositories",
-      "cred.one.text":
-        "Since December 2025 every repo has been a reason to learn something: tools, experiments, small panels.",
-      "cred.two.title": "Languages in my repos",
-      "cred.two.text":
-        "C++, Python, TypeScript, JavaScript, HTML/CSS, Rust — picked per job, not per trend.",
-      "cred.three.title": "What I am after",
-      "cred.three.text":
-        "Understanding how the machine actually works, writing readable code, and keeping the habit of shipping.",
-      "work.kicker": "Work",
-      "work.title": "A few things, finished.",
-      "work.lede": "Selected, not everything. Each one links somewhere you can check.",
-      "work.one.text":
-        "An obfuscation scanner and a public file shelf. I wanted to know what obfuscated code hides, so I wrote the tool that looks for it.",
-      "work.two.text":
-        "A self-hosted panel with Docker packaging, deployable from a Procfile. Built to see how far one small control panel can go.",
-      "work.three.text":
-        "The page you are reading: hand-written HTML and CSS, no framework, no bundler, deployed on GitHub Pages.",
-      "work.four.title": "This profile",
-      "work.four.text":
-        "The README and every SVG asset behind it, generated by a small Python script so dark and light stay in sync.",
-      "domains.kicker": "Domains",
-      "domains.title": "What I actually touch.",
-      "domains.lede": "Not a full skill matrix — only the things that carried a real project.",
-      "domains.note":
-        "Currently reading up on: how CPU and memory work, how a request travels through a system, and how to write interfaces that say less but mean more.",
-      "contact.kicker": "Contact",
-      "contact.title": "A direct line.",
-      "contact.note": "Email is the fastest route. Discord is usually the fastest reply.",
-      "contact.direct": "Direct",
-      "contact.copy": "copy",
-      "contact.copyAria": "Copy the Discord username mental.arc",
-      "contact.copied": "copied",
-      "contact.where": "Elsewhere",
-      "contact.repo": "This profile's repo",
-      "footer.rights": "made by hand",
-      "footer.top": "Back to top"
-    }
-  };
+  var copy = window.NK_COPY || { vi: {}, en: {} };
 
   /* ---------------- language ---------------- */
 
   var langBtn = document.getElementById("lang-toggle");
   var langCurrent = document.getElementById("lang-current");
-  var hasCopy = document.querySelector("[data-i18n], [data-i18n-html]") !== null;
+  var langOther = document.getElementById("lang-other");
+  var hasCopy =
+    document.documentElement.hasAttribute("data-lang-switch") && typeof window.NK_COPY === "object";
+
+  function dictFor(lang) {
+    if (copy[lang]) return copy[lang];
+    return copy.vi || {};
+  }
 
   function applyLang(lang) {
-    var dict = copy[lang] || copy.vi;
+    var dict = dictFor(lang);
     root.lang = lang;
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -203,8 +50,8 @@
       if (value) el.setAttribute("aria-label", value);
     });
 
-    if (dict.title) document.title = dict.title;
     if (langCurrent) langCurrent.textContent = lang.toUpperCase();
+    if (langOther) langOther.textContent = "/" + (lang === "vi" ? "EN" : "VI");
 
     try {
       localStorage.setItem("nk-lang", lang);
@@ -347,8 +194,7 @@
     var hint = btn.querySelector(".contact__copy-hint");
 
     function label(dictKey, fallback) {
-      var dict = copy[root.lang] || copy.vi;
-      return dict[dictKey] || fallback;
+      return dictFor(root.lang)[dictKey] || fallback;
     }
 
     function done() {
