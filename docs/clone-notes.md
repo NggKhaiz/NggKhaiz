@@ -64,7 +64,7 @@ the site and the README is derived from that table — commit volume, not taste.
 - 10 of the 18 are original, the rest are forks kept on purpose
 - languages across the non-forks: PowerShell 21%, HTML 18%, C 16%, C++ 13%, Python 10%,
   JavaScript 9%, TypeScript 3.5%, Zig 2%, seventeen in total
-- contributions in the last year: **464**; 12 ★ on the top repository
+- contributions in the last year: **736** (GitHub profile, 2026-11-16); 12 ★ on the top repository
 - profile site: `CNAME` → `nggkhaiz.js.org` (blog stays at `nggkhaiz.pages.dev`)
 
 Consequences that changed the build:
@@ -111,7 +111,7 @@ metrics — and every figure on the site is one the API returns.
 | Email | `nggkhaiz@proton.me` | README badge, hero CTA, contact block, labs page, `<meta name="description">` |
 | Discord | `mental.arc` | README badge, contact block with copy-to-clipboard |
 | Telegram | **not published** | the site has no element, attribute, string or comment for it; the copy table and the script were scrubbed rather than gated behind an empty variable |
-| Avatar | illustration (`tools/src/portrait.png`) | circular-cropped into the hero SVG plate, app icons and `assets/img/social/avatar{,-384}.{png,jpg}` |
+| Avatar | the real one (`tools/src/avatar.png`) | circular-cropped into the hero SVG plate and `assets/img/social/avatar{,-384}.{png,jpg}`; app icons keep the `K` monogram, because a photo is mud at 16 px |
 
 ## 7. Unknowns — fill these in yourself
 
@@ -135,7 +135,7 @@ in `assets/fonts`). No request leaves the domain for type, and there is no third
 `tools/build_images.py` renders every raster asset with Pillow from the same design tokens as the
 CSS: favicon set, apple-touch-icon, PWA 192/512, OG cards (profile + labs, dark + light), GitHub
 social preview 1280×640, X header 1500×500, Discord banner 960×540, square avatars cropped from
-`tools/src/portrait.png`, and one 1200×675 cover per project (20 images in total). The covers are deliberately abstract UI studies — they are *not*
+`tools/src/avatar.png`, and one 1200×675 cover per project (20 images in total). The covers are deliberately abstract UI studies — they are *not*
 presented as screenshots of software that does not exist.
 
 ## 10. Rebuild

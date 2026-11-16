@@ -746,6 +746,11 @@ def page_home() -> str:
         <div class="hero__lead">
           <p class="hero__kicker label">{t("hero.kicker", "span")}</p>
 
+          <div class="hero__portrait">
+            <img src="assets/img/social/avatar-384.jpg" alt="Ảnh đại diện của Nguyễn Gia Khải"
+                 width="96" height="96" />
+          </div>
+
           <h1 id="hero-title">Nguyễn Gia Khải</h1>
 
           <p class="hero__meta">

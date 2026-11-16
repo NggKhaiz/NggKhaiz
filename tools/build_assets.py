@@ -11,7 +11,7 @@ editing it; nothing else in the repository needs to change.
 
 Avatar: the hero embeds assets/img/social/avatar-384.jpg as a base64 data URI,
 because GitHub renders SVG but will not let it fetch remote images. Replace the
-portrait with `python3 tools/build_images.py` (it crops tools/src/portrait.png).
+portrait by replacing tools/src/avatar.png and running `python3 tools/build_images.py`.
 """
 
 import base64
@@ -24,7 +24,7 @@ ASSETS = ROOT / "assets"
 MONO = "ui-monospace,SFMono-Regular,Menlo,monospace"
 SANS = "-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif"
 
-# Illustration avatar, embedded so GitHub renders it (SVG cannot load remote images).
+# Real avatar, embedded so GitHub renders it (SVG cannot load remote images).
 AVATAR_SOURCE = ROOT / "assets" / "img" / "social" / "avatar-384.jpg"
 AVATAR_DATA_URI = (
     "data:image/jpeg;base64," + base64.b64encode(AVATAR_SOURCE.read_bytes()).decode("ascii")
@@ -45,7 +45,7 @@ CONTENT = {
     "monogram": "K",
     "highlights_label": "GITHUB HIGHLIGHTS",
     "highlights": [
-        ("464", "contributions"),
+        ("736", "contributions"),
         ("18", "public repositories"),
         ("12", "stars, top repository"),
         ("13", "languages in use"),

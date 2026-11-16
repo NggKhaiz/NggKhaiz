@@ -10,6 +10,8 @@ Outputs (all committed, so deploying needs no build step):
 
 Requires: pip install pillow, plus the variable fonts from tools/fetch_fonts.py
 (cached in .cache/fonts).
+Avatar:   drop a square photo at tools/src/avatar.png; it is cropped to a circle
+          here and embedded into the README SVGs by tools/build_assets.py.
 Usage:    python3 tools/build_images.py
 """
 
@@ -18,13 +20,13 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / ".cache" / "fonts"
 OUT = ROOT / "assets" / "img"
 
-PORTRAIT = ROOT / "tools" / "src" / "portrait.png"
+AVATAR = ROOT / "tools" / "src" / "avatar.png"
 
 INTER = FONTS / "Inter.ttf"
 TIGHT = FONTS / "InterTight.ttf"
@@ -146,11 +148,17 @@ def monogram(size: int, theme: dict, letter: str = "K") -> Image.Image:
 
 
 def portrait(size: int) -> Image.Image:
-    """Circular crop of the illustration that stands in for a photo."""
-    image = Image.open(PORTRAIT).convert("RGB")
+    """Circular crop of the real avatar (tools/src/avatar.png)."""
+    image = Image.open(AVATAR).convert("RGB")
     side = min(image.size)
-    image = image.crop(((image.width - side) // 2, (image.height - side) // 2, (image.width + side) // 2, (image.height + side) // 2))
+    # bias the square slightly above centre so the head is not cropped tight
+    top = int((image.height - side) * 0.4)
+    left = (image.width - side) // 2
+    image = image.crop((left, top, left + side, top + side))
     image = image.resize((size, size), Image.LANCZOS)
+    # the source is a dark frame: lift it just enough to read at 94 px
+    image = ImageEnhance.Brightness(image).enhance(1.18)
+    image = ImageEnhance.Contrast(image).enhance(1.06)
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     mask = Image.new("L", (size, size), 0)
     ImageDraw.Draw(mask).ellipse([0, 0, size - 1, size - 1], fill=255)
