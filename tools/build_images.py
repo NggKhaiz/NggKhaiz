@@ -167,12 +167,23 @@ def portrait(size: int) -> Image.Image:
 
 
 def app_icon(size: int, theme: dict) -> Image.Image:
-    """Squircle icon. The accent dot only appears once there is room for it."""
+    """Squircle icon: the avatar once there is room, the monogram below that.
+
+    A photo at 16 px is mud, so tab-sized favicons keep the K; home-screen and
+    touch icons (48 px and up) carry the face.
+    """
     scale = 4
     big = size * scale
     canvas = Image.new("RGBA", (big, big), (0, 0, 0, 0))
     draw = ImageDraw.Draw(canvas)
     rounded(draw, [0, 0, big - 1, big - 1], int(big * 0.23), fill=theme["bg"] + (255,))
+    if size >= 48:
+        inset = int(big * 0.085)
+        face_size = big - inset * 2
+        plate = Image.new("RGBA", (face_size, face_size), (0, 0, 0, 0))
+        plate.alpha_composite(portrait(face_size))
+        canvas.alpha_composite(plate, (inset, inset))
+        return canvas.resize((size, size), Image.LANCZOS)
     face = typeface(TIGHT, int(big * 0.56), 800)
     write(draw, (big / 2, big * 0.68), "K", face, theme["text"], tracking=-big * 0.015, anchor="center")
     if size >= 128:
@@ -430,15 +441,18 @@ def main() -> int:
     for folder in (icons, social, covers):
         folder.mkdir(parents=True, exist_ok=True)
 
-    # icons
-    master = app_icon(512, DARK)
-    master.save(icons / "icon-512.png")
-    master.resize((192, 192), Image.LANCZOS).save(icons / "icon-192.png")
-    master.resize((180, 180), Image.LANCZOS).save(icons / "apple-touch-icon.png")
-    master.resize((48, 48), Image.LANCZOS).save(icons / "favicon-48.png")
-    master.resize((32, 32), Image.LANCZOS).save(icons / "favicon-32.png")
-    master.resize((16, 16), Image.LANCZOS).save(icons / "favicon-16.png")
-    master.resize((64, 64), Image.LANCZOS).save(icons / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    # icons: rendered per size, because the small ones use the monogram
+    app_icon(512, DARK).save(icons / "icon-512.png")
+    app_icon(192, DARK).save(icons / "icon-192.png")
+    app_icon(180, DARK).save(icons / "apple-touch-icon.png")
+    app_icon(48, DARK).save(icons / "favicon-48.png")
+    app_icon(32, DARK).save(icons / "favicon-32.png")
+    app_icon(16, DARK).save(icons / "favicon-16.png")
+    app_icon(48, DARK).save(
+        icons / "favicon.ico",
+        sizes=[(16, 16), (32, 32), (48, 48)],
+        append_images=[app_icon(16, DARK), app_icon(32, DARK)],
+    )
 
     # social
     og_profile(DARK).save(social / "og-profile.png", optimize=True)
