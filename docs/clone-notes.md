@@ -47,7 +47,7 @@ description) → **04 Technical domains** (flat list).
 
 ## 3. Observed — Khải's own data (GitHub API, 2026-11-16)
 
-- login `NggKhaiz`, name `Ngg.Khaiz`, location `Viet Nam`, blog `nggkhaiz.pages.dev`
+- login `NggKhaiz`, name `Ngg.Khaiz`, location `Viet Nam`, blog `nggkhaiz.pages.dev`, no public email in the API
 - 12 public repositories, 5 stars total, top repo `PUBLIC_FILE` with 4 stars, account created 2025-12-22
 - repo languages: `D, HTML, JavaScript, Python, Rust, TypeScript`; `RHLZ-PANEL` adds `Shell`, `CSS`, `Dockerfile`
 - contributions in the last year: **464**
@@ -73,18 +73,28 @@ description) → **04 Technical domains** (flat list).
 
 The reference is a security analyst with certifications and eight years of experience. Copying
 that copy verbatim would make this profile lie. The structure, type scale and section rhythm are
-cloned; **the claims are Khải's own**: 14 years old, 12 public repositories, real languages,
+cloned; **the claims are Khải's own**: born 9 May 2000, 12 public repositories, real languages,
 real projects. No fake certificates, no fake employers, no invented metrics.
 
-## 6. Unknowns — fill these in yourself
+## 6. Identity data — supplied by the owner
 
-- email address and Discord/Telegram handles (none are published anywhere in this repo)
-- date of birth on the site (left out rather than invented)
+| Field | Value | Where it appears |
+| --- | --- | --- |
+| Date of birth | 09-05-2000 (9 May 2000, DD-MM-YYYY) | site facts table (`facts.dobValue`) |
+| Age | derived: 26 | hero, both languages |
+| Email | `nggkhaiz@proton.me` | README badge, hero CTA, contact block, studio page, `<meta name="description">` |
+| Discord | `mental.arc` | README badge, contact block with copy-to-clipboard |
+| Telegram | **withheld by request** | nowhere. `TELEGRAM_HANDLE = ""` in `assets/site.js` keeps the link out of the page; fill it in when you want it visible |
+| Avatar | monogram `K` | hero SVG monogram plate |
+
+## 7. Unknowns — fill these in yourself
+
+- the Telegram handle, whenever it should go live
 - a real avatar photo for the hero: base64-encode a square image and set `AVATAR_DATA_URI`
   in `tools/build_assets.py`, then rebuild — the monogram plate disappears automatically
 - whether `nggkhaiz.pages.dev` (profile blog) should be the primary URL instead of `nggkhaiz.js.org`
 
-## 7. Rebuild
+## 8. Rebuild
 
 ```bash
 python3 tools/build_assets.py   # regenerates every SVG in assets/

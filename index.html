@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nguyễn Gia Khải — 14, builder</title>
-  <meta name="description" content="Nguyễn Gia Khải (Ngg.Khaiz) — 14 tuổi, Bắc Giang, Việt Nam. C++, Python, TypeScript và web viết tay. Xây những thứ chạy được thật." />
+  <title>Nguyễn Gia Khải — developer, builder</title>
+  <meta name="description" content="Nguyễn Gia Khải (Ngg.Khaiz) — Bắc Giang, Việt Nam. C++, Python, TypeScript và web viết tay. Xây những thứ chạy được thật. Liên hệ: nggkhaiz@proton.me." />
   <meta name="author" content="Nguyễn Gia Khải" />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="canonical" href="https://nggkhaiz.js.org/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nguyễn Gia Khải — 14, builder" />
+  <meta property="og:title" content="Nguyễn Gia Khải — developer, builder" />
   <meta property="og:description" content="C++, Python, TypeScript và web viết tay. Xây những thứ chạy được thật." />
   <meta property="og:url" content="https://nggkhaiz.js.org/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -70,9 +70,9 @@
           <h1 id="hero-title">Nguyễn Gia Khải</h1>
 
           <p class="hero__meta">
-            <span data-i18n="hero.age">14 tuổi</span>
+            <span data-i18n="hero.age">26 tuổi</span>
             <span class="sep" aria-hidden="true"></span>
-            <span data-i18n="hero.role">Học sinh · Người viết code</span>
+            <span data-i18n="hero.role">Lập trình viên · Builder</span>
           </p>
 
           <p class="hero__tagline" data-i18n="hero.tagline">
@@ -80,12 +80,12 @@
           </p>
 
           <div class="hero__actions">
-            <a class="btn btn--solid" href="https://github.com/NggKhaiz" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn--solid" href="mailto:nggkhaiz@proton.me">
               <span data-i18n="hero.ctaContact">Liên hệ</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
             </a>
-            <a class="btn btn--ghost" href="#credentials">
-              <span data-i18n="hero.ctaCredentials">Xem năng lực</span>
+            <a class="btn btn--ghost" href="#work">
+              <span data-i18n="hero.ctaCredentials">Xem dự án</span>
             </a>
           </div>
 
@@ -102,8 +102,16 @@
               <dd data-i18n="facts.fieldValue">Code &amp; thiết kế</dd>
             </div>
             <div class="facts__row">
+              <dt data-i18n="facts.dobKey">Ngày sinh</dt>
+              <dd data-i18n="facts.dobValue">09/05/2000</dd>
+            </div>
+            <div class="facts__row">
               <dt data-i18n="facts.locationKey">Nơi ở</dt>
               <dd data-i18n="facts.locationValue">Bắc Giang, Việt Nam</dd>
+            </div>
+            <div class="facts__row">
+              <dt data-i18n="facts.emailKey">Email</dt>
+              <dd><a class="inline-link" href="mailto:nggkhaiz@proton.me">nggkhaiz@proton.me</a></dd>
             </div>
             <div class="facts__row">
               <dt data-i18n="facts.siteKey">Trang</dt>
@@ -134,7 +142,7 @@
         <div class="about__body">
           <div class="prose reveal">
             <p data-i18n-html="about.p1">
-              Mình là <strong>Khải</strong>, 14 tuổi, ở Bắc Giang. Mình bắt đầu với C++ vì trình biên dịch
+              Mình là <strong>Khải</strong>, ở Bắc Giang. Mình bắt đầu với C++ vì trình biên dịch
               rất thẳng thắn: hoặc chạy, hoặc không. Thói quen đó ở lại — mình thích chương trình nhỏ,
               dự án thật, và code có thể giải thích từng dòng.
             </p>
@@ -314,27 +322,35 @@
 
         <div class="contact">
           <div class="reveal">
-            <a class="contact__big" href="https://github.com/NggKhaiz" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="contact.cta">Nhắn mình trên GitHub</span>
+            <a class="contact__big" href="mailto:nggkhaiz@proton.me">
+              <span>nggkhaiz@proton.me</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
             </a>
+            <p class="contact__note" data-i18n="contact.note">
+              Mail là đường nhanh nhất. Discord thì thường trực hơn.
+            </p>
           </div>
 
           <div class="contact__grid reveal" style="--d: 100ms">
+            <div class="contact__block">
+              <h3 data-i18n="contact.direct">Liên hệ trực tiếp</h3>
+              <div class="contact__links" data-contact-direct>
+                <a href="mailto:nggkhaiz@proton.me">Email <span class="arrow">↗</span></a>
+
+                <button class="contact__copy" type="button" data-copy="mental.arc" data-i18n-aria="contact.copyAria" aria-label="Copy Discord username">
+                  <span class="contact__copy-handle">Discord · @mental.arc</span>
+                  <span class="contact__copy-hint" data-i18n="contact.copy">copy</span>
+                </button>
+              </div>
+            </div>
+
             <div class="contact__block">
               <h3 data-i18n="contact.where">Nơi khác</h3>
               <div class="contact__links">
                 <a href="https://github.com/NggKhaiz" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
                 <a href="https://nggkhaiz.js.org" target="_blank" rel="noopener noreferrer">nggkhaiz.js.org <span class="arrow">↗</span></a>
-                <a href="https://github.com/NggKhaiz/NggKhaiz" target="_blank" rel="noopener noreferrer" data-i18n="contact.repo">Repo của profile này</a>
-              </div>
-            </div>
-
-            <div class="contact__block">
-              <h3 data-i18n="contact.site">Trang</h3>
-              <div class="contact__links">
                 <a href="./studio/">Studio <span class="arrow">↗</span></a>
-                <a href="#top" data-i18n="contact.top">Về đầu trang</a>
+                <a href="https://github.com/NggKhaiz/NggKhaiz" target="_blank" rel="noopener noreferrer" data-i18n="contact.repo">Repo của profile này</a>
               </div>
             </div>
           </div>

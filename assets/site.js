@@ -9,28 +9,36 @@
   var root = document.documentElement;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Optional Telegram link. Leave empty and nothing is emitted at all — no
+     element, no attribute, no text. Set it to a handle ("name") to have the
+     link appended to every [data-contact-direct] block. */
+  var TELEGRAM_HANDLE = "";
+
   /* ---------------- copy ---------------- */
 
   var copy = {
     vi: {
-      title: "Nguyễn Gia Khải — 14, builder",
+      title: "Nguyễn Gia Khải — developer, builder",
       "a11y.skip": "Bỏ qua tới nội dung",
       "nav.about": "Giới thiệu",
       "nav.work": "Dự án",
       "nav.domains": "Lĩnh vực",
       "nav.contact": "Liên hệ",
       "hero.kicker": "Xin chào",
-      "hero.age": "14 tuổi",
-      "hero.role": "Học sinh · Người viết code",
+      "hero.age": "26 tuổi",
+      "hero.role": "Lập trình viên · Builder",
       "hero.tagline":
         "Mình viết code, phá thử, rồi ghép lại — để một ý tưởng thành thứ người khác chạy được thật.",
       "hero.ctaContact": "Liên hệ",
-      "hero.ctaCredentials": "Xem năng lực",
+      "hero.ctaCredentials": "Xem dự án",
       "hero.scroll": "Cuộn",
       "facts.fieldKey": "Lĩnh vực",
       "facts.fieldValue": "Code & thiết kế",
+      "facts.dobKey": "Ngày sinh",
+      "facts.dobValue": "09/05/2000",
       "facts.locationKey": "Nơi ở",
       "facts.locationValue": "Bắc Giang, Việt Nam",
+      "facts.emailKey": "Email",
       "facts.siteKey": "Trang",
       "facts.statusKey": "Trạng thái",
       "facts.statusValue": "Học và làm công khai",
@@ -38,7 +46,7 @@
       "about.title": "Chỗ giao nhau giữa tò mò và tay nghề.",
       "about.lede": "Mình không cố tỏ ra chuyên nghiệp. Mình cố giỏi hơn, công khai, từng dòng một.",
       "about.p1":
-        "Mình là <strong>Khải</strong>, 14 tuổi, ở Bắc Giang. Mình bắt đầu với C++ vì trình biên dịch rất thẳng thắn: hoặc chạy, hoặc không. Thói quen đó ở lại — mình thích chương trình nhỏ, dự án thật, và code có thể giải thích từng dòng.",
+        "Mình là <strong>Khải</strong>, ở Bắc Giang. Mình bắt đầu với C++ vì trình biên dịch rất thẳng thắn: hoặc chạy, hoặc không. Thói quen đó ở lại — mình thích chương trình nhỏ, dự án thật, và code có thể giải thích từng dòng.",
       "about.p2":
         "Phần lớn thứ mình làm nằm công khai: một trình quét code bị làm rối bằng Python, một panel chạy được bằng Docker, và trang này — HTML/CSS viết tay, không framework, không bước build. Mình thích cảm giác đẩy lên rồi xem nó có sống không.",
       "about.locationKey": "Vị trí",
@@ -78,34 +86,39 @@
         "Thứ mình đang đọc thêm: cách CPU và bộ nhớ làm việc, cách một request đi qua một hệ thống, và cách viết giao diện ít nhưng đúng.",
       "contact.kicker": "Liên hệ",
       "contact.title": "Một đường thẳng.",
-      "contact.cta": "Nhắn mình trên GitHub",
+      "contact.note": "Mail là đường nhanh nhất. Discord thì thường trực hơn.",
+      "contact.direct": "Liên hệ trực tiếp",
+      "contact.copy": "copy",
+      "contact.copyAria": "Copy username Discord mental.arc",
+      "contact.copied": "đã copy",
       "contact.where": "Nơi khác",
       "contact.repo": "Repo của profile này",
-      "contact.site": "Trang",
-      "contact.top": "Về đầu trang",
       "footer.rights": "làm bằng tay",
       "footer.top": "Lên đầu trang"
     },
 
     en: {
-      title: "Nguyễn Gia Khải — 14, builder",
+      title: "Nguyễn Gia Khải — developer, builder",
       "a11y.skip": "Skip to content",
       "nav.about": "About",
       "nav.work": "Work",
       "nav.domains": "Domains",
       "nav.contact": "Contact",
       "hero.kicker": "Welcome",
-      "hero.age": "14 years old",
-      "hero.role": "Student · Code writer",
+      "hero.age": "26 years old",
+      "hero.role": "Developer · Builder",
       "hero.tagline":
         "I write code, break it on purpose, and put it back together — so an idea becomes something you can actually run.",
       "hero.ctaContact": "Get in touch",
-      "hero.ctaCredentials": "View credentials",
+      "hero.ctaCredentials": "View work",
       "hero.scroll": "Scroll",
       "facts.fieldKey": "Field",
       "facts.fieldValue": "Code & design",
+      "facts.dobKey": "Date of birth",
+      "facts.dobValue": "9 May 2000",
       "facts.locationKey": "Based in",
       "facts.locationValue": "Bắc Giang, Việt Nam",
+      "facts.emailKey": "Email",
       "facts.siteKey": "Site",
       "facts.statusKey": "Status",
       "facts.statusValue": "Learning in public",
@@ -113,7 +126,7 @@
       "about.title": "Where curiosity meets craft.",
       "about.lede": "I am not trying to look senior. I am trying to get better, in public, one line at a time.",
       "about.p1":
-        "I am <strong>Khải</strong>, 14, from Bắc Giang. I started with C++ because a compiler is brutally honest: it runs or it does not. The habit stuck — I like small programs, real projects and code I can explain line by line.",
+        "I am <strong>Khải</strong>, from Bắc Giang. I started with C++ because a compiler is brutally honest: it runs or it does not. The habit stuck — I like small programs, real projects and code I can explain line by line.",
       "about.p2":
         "Most of what I build lives in public: a Python scanner for obfuscated code, a Docker-ready panel, and this site — hand-written HTML and CSS, no framework, no build step. I like pushing something live and finding out whether it survives.",
       "about.locationKey": "Location",
@@ -153,11 +166,13 @@
         "Currently reading up on: how CPU and memory work, how a request travels through a system, and how to write interfaces that say less but mean more.",
       "contact.kicker": "Contact",
       "contact.title": "A direct line.",
-      "contact.cta": "Message me on GitHub",
+      "contact.note": "Email is the fastest route. Discord is usually the fastest reply.",
+      "contact.direct": "Direct",
+      "contact.copy": "copy",
+      "contact.copyAria": "Copy the Discord username mental.arc",
+      "contact.copied": "copied",
       "contact.where": "Elsewhere",
       "contact.repo": "This profile's repo",
-      "contact.site": "Pages",
-      "contact.top": "Back to top",
       "footer.rights": "made by hand",
       "footer.top": "Back to top"
     }
@@ -181,6 +196,11 @@
     document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
       var value = dict[el.getAttribute("data-i18n-html")];
       if (value) el.innerHTML = value;
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var value = dict[el.getAttribute("data-i18n-aria")];
+      if (value) el.setAttribute("aria-label", value);
     });
 
     if (dict.title) document.title = dict.title;
@@ -318,6 +338,67 @@
 
     revealItems.forEach(function (el) {
       observer.observe(el);
+    });
+  }
+
+  /* ---------------- copy contact handles ---------------- */
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copy]"), function (btn) {
+    var hint = btn.querySelector(".contact__copy-hint");
+
+    function label(dictKey, fallback) {
+      var dict = copy[root.lang] || copy.vi;
+      return dict[dictKey] || fallback;
+    }
+
+    function done() {
+      btn.classList.add("is-copied");
+      if (hint) hint.textContent = label("contact.copied", "copied");
+      window.setTimeout(function () {
+        btn.classList.remove("is-copied");
+        if (hint) hint.textContent = label("contact.copy", "copy");
+      }, 1800);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      try {
+        document.execCommand("copy");
+        done();
+      } catch (err) {
+        /* clipboard unavailable: the handle is visible on the page anyway */
+      }
+      document.body.removeChild(area);
+    }
+
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy") || "";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () {
+          legacyCopy(text);
+        });
+      } else {
+        legacyCopy(text);
+      }
+    });
+  });
+
+  /* ---------------- optional telegram link ---------------- */
+
+  if (TELEGRAM_HANDLE) {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-contact-direct]"), function (slot) {
+      var link = document.createElement("a");
+      link.href = "https://t.me/" + TELEGRAM_HANDLE;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.innerHTML = 'Telegram <span class="arrow">↗</span>';
+      slot.appendChild(link);
     });
   }
 

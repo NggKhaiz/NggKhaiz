@@ -8,8 +8,9 @@
 
 <p>
   <a href="https://nggkhaiz.js.org"><img src="https://img.shields.io/badge/nggkhaiz.js.org-111827?style=for-the-badge&logo=github&logoColor=white" alt="nggkhaiz.js.org" /></a>
-  <a href="https://github.com/NggKhaiz?tab=repositories"><img src="https://img.shields.io/badge/14_y%2Fo_builder-6F4320?style=for-the-badge&logo=codeforces&logoColor=white" alt="14 years old, builder" /></a>
-  <a href="https://github.com/NggKhaiz"><img src="https://img.shields.io/badge/@NggKhaiz-181717?style=for-the-badge&logo=github&logoColor=white" alt="@NggKhaiz" /></a>
+  <a href="https://nggkhaiz.js.org/studio/"><img src="https://img.shields.io/badge/NggKhaiz_Studio-6F4320?style=for-the-badge&logo=github&logoColor=white" alt="NggKhaiz Studio" /></a>
+  <a href="mailto:nggkhaiz@proton.me"><img src="https://img.shields.io/badge/nggkhaiz@proton.me-6D4AFF?style=for-the-badge&logo=protonmail&logoColor=white" alt="nggkhaiz@proton.me" /></a>
+  <img src="https://img.shields.io/badge/mental.arc-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord: mental.arc" />
 </p>
 
 </div>
@@ -20,7 +21,9 @@
 
 Hi, I'm **Khải**, I build things because an idea is only worth something once someone else can run it.
 
-My work moves between C++, Python scripts, TypeScript panels and hand-written HTML, depending on what the idea needs. I'm 14, I learn in public, and I'd rather ship a small honest tool than a big empty one.
+My work moves between C++, Python scripts, TypeScript panels and hand-written HTML, depending on what the idea needs. I learn in public and I'd rather ship a small honest tool than a big empty one.
+
+<sub>nggkhaiz@proton.me · Discord <code>mental.arc</code> · Bắc Giang, Việt Nam</sub>
 
 <p><strong>Selected work</strong></p>
 
