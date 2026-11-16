@@ -247,6 +247,7 @@ def apply_plan(
             git(
                 "commit",
                 "--allow-empty",
+                "--no-verify",  # keep the message exactly as documented
                 "-q",
                 "-m",
                 MESSAGE.format(date=date, i=index, n=want),
