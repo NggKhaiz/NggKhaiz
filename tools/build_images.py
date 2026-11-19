@@ -22,6 +22,8 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
+from palette import LATTE, MOCHA, rgb_of
+
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / ".cache" / "fonts"
 OUT = ROOT / "assets" / "img"
@@ -33,26 +35,28 @@ TIGHT = FONTS / "InterTight.ttf"
 MONO = FONTS / "JetBrainsMono.ttf"
 
 DARK = {
-    "bg": (10, 10, 11),
-    "panel": (16, 16, 18),
-    "panel2": (22, 22, 25),
-    "line": (38, 38, 42),
-    "line_soft": (28, 28, 31),
-    "text": (244, 242, 238),
-    "muted": (154, 150, 143),
-    "faint": (111, 107, 100),
-    "accent": (217, 160, 107),
+    "bg": rgb_of(MOCHA, "base"),
+    "panel": rgb_of(MOCHA, "surface0"),
+    "panel2": rgb_of(MOCHA, "surface1"),
+    "line": rgb_of(MOCHA, "surface1"),
+    "line_soft": rgb_of(MOCHA, "surface0"),
+    "text": rgb_of(MOCHA, "text"),
+    "muted": rgb_of(MOCHA, "subtext0"),
+    "faint": rgb_of(MOCHA, "overlay1"),
+    "accent": rgb_of(MOCHA, "mauve"),
+    "accent2": rgb_of(MOCHA, "peach"),
 }
 LIGHT = {
-    "bg": (246, 244, 240),
+    "bg": rgb_of(LATTE, "base"),
     "panel": (255, 255, 255),
-    "panel2": (239, 236, 231),
-    "line": (216, 211, 203),
-    "line_soft": (228, 224, 217),
-    "text": (19, 18, 17),
-    "muted": (93, 90, 85),
-    "faint": (139, 135, 127),
-    "accent": (138, 82, 32),
+    "panel2": rgb_of(LATTE, "mantle"),
+    "line": rgb_of(LATTE, "surface0"),
+    "line_soft": rgb_of(LATTE, "mantle"),
+    "text": rgb_of(LATTE, "text"),
+    "muted": rgb_of(LATTE, "subtext0"),
+    "faint": rgb_of(LATTE, "overlay1"),
+    "accent": rgb_of(LATTE, "mauve"),
+    "accent2": rgb_of(LATTE, "peach"),
 }
 
 

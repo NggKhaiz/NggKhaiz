@@ -15,8 +15,11 @@ portrait by replacing tools/src/avatar.png and running `python3 tools/build_imag
 """
 
 import base64
+import json
 from pathlib import Path
 from xml.sax.saxutils import escape
+
+from palette import LATTE, MOCHA
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
@@ -43,12 +46,14 @@ CONTENT = {
         ("globe", "Based in", "Việt Nam"),
     ],
     "monogram": "K",
-    "highlights_label": "GITHUB HIGHLIGHTS",
+    "highlights_label": "FROM THE GITHUB API",
+    # Replaced at import time by data/profile.json (see live_highlights below);
+    # these are only the fallback when the data file is missing.
     "highlights": [
-        ("736", "contributions"),
-        ("18", "public repositories"),
-        ("12", "stars, top repository"),
-        ("13", "languages in use"),
+        ("!", "run tools/fetch_stats.py"),
+        ("!", "data/profile.json missing"),
+        ("", ""),
+        ("", ""),
     ],
     "projects": [
         {
@@ -57,6 +62,13 @@ CONTENT = {
             "title": "ZMRIG",
             "desc": "RandomX miner, pool and proxy",
             "langs": ["C", "C++", "Zig"],
+        },
+        {
+            "slug": "molik-winlik",
+            "repo": "MoLik-Labs / MOLIK_WINLIK",
+            "title": "MOLIK_WINLIK",
+            "desc": "PowerShell build of Sophia Script",
+            "langs": ["PowerShell", "MIT"],
         },
         {
             "slug": "qfox",
@@ -84,44 +96,44 @@ CONTENT = {
 
 THEMES = {
     "dark": {
-        "hero_bg": "#131313",
-        "hero_ring_far": "#1e1e1e",
-        "hero_ring_near": "#262626",
-        "hero_stroke": "#262626",
-        "hero_plate": "#ffffff",
-        "hero_mono_bg": "#1c1c1c",
-        "hero_mono_fg": "#f5f5f5",
-        "hero_title": "#f5f5f5",
-        "hero_muted": "#a3a3a3",
-        "hero_icon": "#f5f5f5",
-        "card_bg": "#0d1117",
-        "card_stroke": "#30363d",
-        "card_label": "#8b949e",
-        "card_link": "#dde6f0",
-        "card_title": "#f0f6fc",
-        "card_desc": "#8b949e",
-        "pill_bg": "#161b22",
-        "pill_text": "#f0f6fc",
+        "hero_bg": MOCHA["base"],
+        "hero_ring_far": MOCHA["surface0"],
+        "hero_ring_near": MOCHA["surface1"],
+        "hero_stroke": MOCHA["surface0"],
+        "hero_plate": MOCHA["mauve"],
+        "hero_mono_bg": MOCHA["surface0"],
+        "hero_mono_fg": MOCHA["text"],
+        "hero_title": MOCHA["text"],
+        "hero_muted": MOCHA["subtext0"],
+        "hero_icon": MOCHA["text"],
+        "card_bg": MOCHA["mantle"],
+        "card_stroke": MOCHA["surface1"],
+        "card_label": MOCHA["overlay1"],
+        "card_link": MOCHA["mauve"],
+        "card_title": MOCHA["text"],
+        "card_desc": MOCHA["subtext0"],
+        "pill_bg": MOCHA["surface0"],
+        "pill_text": MOCHA["subtext1"],
     },
     "light": {
-        "hero_bg": "#fafafa",
-        "hero_ring_far": "#efefef",
-        "hero_ring_near": "#e7e7e7",
-        "hero_stroke": "#e7e7e7",
-        "hero_plate": "#ffffff",
-        "hero_mono_bg": "#111111",
-        "hero_mono_fg": "#fafafa",
-        "hero_title": "#111111",
-        "hero_muted": "#737373",
-        "hero_icon": "#111111",
-        "card_bg": "#ffffff",
-        "card_stroke": "#d0d7de",
-        "card_label": "#656d76",
-        "card_link": "#57606a",
-        "card_title": "#1f2328",
-        "card_desc": "#656d76",
-        "pill_bg": "#f6f8fa",
-        "pill_text": "#1f2328",
+        "hero_bg": LATTE["base"],
+        "hero_ring_far": LATTE["surface0"],
+        "hero_ring_near": LATTE["surface1"],
+        "hero_stroke": LATTE["surface0"],
+        "hero_plate": LATTE["mauve"],
+        "hero_mono_bg": LATTE["surface0"],
+        "hero_mono_fg": LATTE["text"],
+        "hero_title": LATTE["text"],
+        "hero_muted": LATTE["subtext0"],
+        "hero_icon": LATTE["text"],
+        "card_bg": LATTE["base"],
+        "card_stroke": LATTE["surface0"],
+        "card_label": LATTE["overlay1"],
+        "card_link": LATTE["mauve"],
+        "card_title": LATTE["text"],
+        "card_desc": LATTE["subtext0"],
+        "pill_bg": LATTE["mantle"],
+        "pill_text": LATTE["subtext1"],
     },
 }
 
@@ -206,6 +218,21 @@ def hero(theme: dict) -> str:
     )
 
 
+def live_highlights() -> list[tuple[str, str]]:
+    """Four real numbers, straight from data/profile.json."""
+    try:
+        data = json.loads((ROOT / "data" / "profile.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return CONTENT["highlights"]
+    user = data["user"]
+    return [
+        (f"{user['contributions']:,}", "contributions, last year"),
+        (f"{user['source_commits']:,}", "commits in owned repos"),
+        (f"{user['public_repos'] + user['org_repos']}", "public repositories"),
+        (f"{len(data['languages'])}", "languages in the trees"),
+    ]
+
+
 def highlights(theme: dict) -> str:
     t = theme
     cells = []
@@ -262,6 +289,7 @@ def project_card(project: dict, theme: dict) -> str:
 
 
 def main() -> None:
+    CONTENT["highlights"] = live_highlights()
     (ASSETS / "projects").mkdir(parents=True, exist_ok=True)
     for name, theme in THEMES.items():
         (ASSETS / f"hero-{name}.svg").write_text(hero(theme), encoding="utf-8")

@@ -88,7 +88,7 @@
     var dark = theme === "dark";
     if (sun) sun.hidden = !dark;
     if (moon) moon.hidden = dark;
-    if (themeColor) themeColor.setAttribute("content", dark ? "#0a0a0b" : "#f6f4f0");
+    if (themeColor) themeColor.setAttribute("content", dark ? "#1e1e2e" : "#eff1f5");
     try {
       localStorage.setItem("nk-theme", theme);
     } catch (err) {
