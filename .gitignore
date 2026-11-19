@@ -1,0 +1,13 @@
+# build caches (fonts are fetched here, never committed)
+.cache/
+
+# editors and OS noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# python
+__pycache__/
+*.pyc

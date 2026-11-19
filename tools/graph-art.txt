@@ -1,0 +1,14 @@
+// Graph art pattern - 53 columns (weeks, Sunday first) x 7 rows (days).
+// Anchor is the Sunday of the first column; tools/graph_art.py turns this into
+// real dates. '#'=4 commits, '+'=3, '-'=2, '.'=1, space=none.
+// Change a glyph here, then run: python3 tools/graph_art.py plan
+// Nothing is hidden: tools/graph_art.py, docs/graph-art.md and the commit
+// message on every painted cell all say what this is.
+anchor: 2026-01-04
+               #...# #...# .###. #####               
+               #..#. #...# #...# ..#..               
+               #.#.. #...# #...# ..#..               
+               ##... ##### ##### ..#..               
+               #.#.. #...# #...# ..#..               
+               #..#. #...# #...# ..#..               
+               #...# #...# #...# #####               
