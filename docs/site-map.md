@@ -20,7 +20,18 @@ base-path setting.
 | `/labs/work/qfox.html` | `labs/work/qfox.html` | EN | lab project detail |
 | `/labs/work/study-site.html` | `labs/work/study-site.html` | EN | lab project detail |
 | `/studio/` | `studio/index.html` | — | redirect stub to `/labs/` (kept so old links land somewhere) |
-| `/404.html` | `404.html` | VI / EN | not found |
+| `/404.html` | `404.html` | VI / EN | not found (no canonical, `noindex`) |
+| `/robots.txt` | `robots.txt` | — | allow all + sitemap pointer |
+| `/sitemap.xml` | `sitemap.xml` | — | 13 public URLs, `lastmod` set |
+
+Metadata: every page carries a canonical URL (directory form, no `/index.html`),
+OpenGraph and Twitter cards with an absolute image, `og:locale` plus the alternate,
+and JSON-LD — `Person` + `WebSite` on the profile, `SoftwareSourceCode` and
+`BreadcrumbList` on each project, `Organization` on MoLik Labs. The 404 page is
+`noindex` and deliberately has no canonical.
+
+`.nojekyll` keeps GitHub Pages from running Jekyll over the output, so folders that
+start with an underscore would still be served if they ever appear.
 
 Language: the profile pages default to Vietnamese and carry a VI/EN toggle
 (`assets/copy.js`). Every `/labs/` page is English only and has no toggle.

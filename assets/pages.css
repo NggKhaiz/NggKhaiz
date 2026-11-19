@@ -566,6 +566,16 @@
   background: var(--bg);
 }
 
+.person__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .person__index {
   font-family: var(--mono);
   font-size: 0.625rem;

@@ -152,7 +152,17 @@ SVG content lives in `CONTENT` at the top of `tools/build_assets.py`; page copy 
 records live in `tools/build_pages.py`, which also emits `assets/copy.js` so the two languages can
 never drift apart. Nothing is fetched at runtime.
 
-## 11. Graph art
+## 11. Machine-readable surface
+
+The reference exposes nothing beyond `<title>` and a description. This rebuild goes a
+step further because the numbers on it are claims: each project page emits
+`SoftwareSourceCode` with `codeRepository` and `programmingLanguage`, so a crawler can
+check the repo it points at; the profile emits `Person` (same `sameAs` list as the site)
+plus `WebSite`; MoLik Labs emits `Organization`. Breadcrumbs are `BreadcrumbList`.
+Canonical URLs use the directory form, so `/work/` never competes with `/work/index.html`,
+and the 404 page is `noindex` with no canonical at all.
+
+## 12. Graph art
 
 The reference repository carries 365 commits that exist only to draw a picture in the
 contribution calendar: every one dated 12:00 +07:00, every one authored from the same

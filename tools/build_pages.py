@@ -22,6 +22,7 @@ Usage: python3 tools/build_pages.py
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -533,6 +534,81 @@ ICON_MOON = (
 )
 
 
+def canonical_url(path: str) -> str:
+    if path.endswith("index.html"):
+        return f"{ORIGIN}/{path[:-len('index.html')]}"
+    return f"{ORIGIN}/{path}"
+
+
+def jsonld(payload: dict) -> str:
+    blob = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    return f'  <script type="application/ld+json">{blob}</script>'
+
+
+def person_ld() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nguyễn Gia Khải",
+        "alternateName": "Ngg.Khaiz",
+        "url": f"{ORIGIN}/",
+        "image": f"{ORIGIN}/assets/img/social/avatar-384.jpg",
+        "email": f"mailto:{EMAIL}",
+        "birthDate": "2000-05-09",
+        "jobTitle": "Software builder",
+        "address": {"@type": "PostalAddress", "addressLocality": "Bắc Giang", "addressCountry": "VN"},
+        "sameAs": [GITHUB, "https://github.com/MoLik-Labs", "https://nggkhaiz.pages.dev"],
+        "knowsAbout": ["C", "C++", "Zig", "Python", "JavaScript", "RandomX", "Static sites"],
+        "worksFor": {"@type": "Organization", "name": "MoLik Labs", "url": "https://github.com/MoLik-Labs"},
+    }
+
+
+def website_ld() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Nguyễn Gia Khải",
+        "url": f"{ORIGIN}/",
+        "inLanguage": ["vi", "en"],
+        "author": {"@type": "Person", "name": "Nguyễn Gia Khải", "url": f"{ORIGIN}/"},
+    }
+
+
+def project_ld(project: dict, path: str, org: bool = False) -> dict:
+    license_name = next((value for key, value in project["facts"] if key == "fact.license"), None)
+    payload = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": project["title"],
+        "description": project["tagline"]["en"],
+        "url": canonical_url(path),
+        "codeRepository": project["url"],
+        "programmingLanguage": project["stack"],
+        "author": {"@type": "Person", "name": "Nguyễn Gia Khải", "url": f"{ORIGIN}/"},
+        "isPartOf": {
+            "@type": "Organization",
+            "name": "MoLik Labs",
+            "url": "https://github.com/MoLik-Labs",
+        },
+    }
+    if license_name:
+        payload["license"] = license_name
+    if org:
+        payload["maintainer"] = {"@type": "Organization", "name": "MoLik Labs"}
+    return payload
+
+
+def breadcrumb_ld(crumbs: list[tuple[str, str]]) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": index + 1, "name": name, "item": f"{ORIGIN}/{href}"}
+            for index, (name, href) in enumerate(crumbs)
+        ],
+    }
+
+
 def layout(
     *,
     path: str,
@@ -543,12 +619,13 @@ def layout(
     og_image: str = "assets/img/social/og-profile.png",
     og_type: str = "website",
     scripts: str = "",
+    structured: list[dict] | None = None,
 ) -> str:
     depth = len(path.split("/")) - 1  # nested folders below the host root
     prefix = "../" * depth
     lang = "en" if studio else "vi"
     lang_switch = "" if studio else ' data-lang-switch="on"'
-    canonical = f"{ORIGIN}/{path}"
+    canonical = canonical_url(path)
 
     if studio:
         nav = (
@@ -593,6 +670,11 @@ def layout(
     # t() renders a span; build the skip link explicitly instead
     skip = f'<a class="skip-link" href="#main" data-i18n="a11y.skip">{COPY["vi"]["a11y.skip"] if not studio else COPY["en"]["a11y.skip"]}</a>'
 
+    structured_block = "\n".join(jsonld(item) for item in (structured or []))
+    canonical_tag = (
+        "" if path == "404.html" else f'  <link rel="canonical" href="{canonical}" />'
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="{lang}" data-theme="dark"{lang_switch}>
 <head>
@@ -601,8 +683,10 @@ def layout(
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}" />
   <meta name="author" content="Nguyễn Gia Khải" />
-  <meta name="theme-color" content="#0a0a0b" />
-  <link rel="canonical" href="{canonical}" />
+  <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+{canonical_tag}
 
   <meta property="og:type" content="{og_type}" />
   <meta property="og:site_name" content="Ngg.Khaiz" />
@@ -614,7 +698,13 @@ def layout(
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="{esc(title)}" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{esc(title)}" />
+  <meta name="twitter:description" content="{esc(description)}" />
   <meta name="twitter:image" content="{ORIGIN}/{og_image}" />
+  <meta name="twitter:image:alt" content="{esc(title)}" />
+  <meta property="og:locale" content="{'en_US' if studio else 'vi_VN'}" />
+  <meta property="og:locale:alternate" content="{'vi_VN' if studio else 'en_US'}" />
+{structured_block}
 
   <link rel="icon" href="{prefix}assets/img/icons/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/img/icons/favicon-32.png" />
@@ -625,6 +715,7 @@ def layout(
   <script>document.documentElement.classList.add("js");</script>
   <link rel="preload" href="{prefix}assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="{prefix}assets/fonts/inter-tight-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="{prefix}assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="{prefix}assets/site.css" />
   <link rel="stylesheet" href="{prefix}assets/pages.css" />
 </head>
@@ -930,11 +1021,12 @@ def page_home() -> str:
 
     return layout(
         path="index.html",
-        title="Nguyễn Gia Khải — developer, builder",
+        title="Nguyễn Gia Khải — builder · C, C++, Zig, Python, web",
         description=(
-            "Nguyễn Gia Khải (Ngg.Khaiz) — Bắc Giang, Việt Nam. C++, Python, TypeScript và web viết tay. "
-            f"Xây những thứ chạy được thật. Liên hệ: {EMAIL}."
+            "Nguyễn Gia Khải (Ngg.Khaiz) — Bắc Giang, Việt Nam. Làm một mình, từ C/C++ và Zig "
+            f"tới Python và web viết tay: ZMRIG, Q-FOX, Study Focus Fox. Liên hệ: {EMAIL}."
         ),
+        structured=[person_ld(), website_ld()],
         body=body,
     )
 
@@ -965,7 +1057,8 @@ def page_work_index() -> str:
     return layout(
         path="work/index.html",
         title="Work — Nguyễn Gia Khải",
-        description="Bốn dự án công khai: trình quét code bị làm rối, panel tự host, trang web này và bộ sinh ảnh profile.",
+        description="Sáu dự án công khai, xếp theo số commit: ZMRIG, Q-FOX, Study Focus Fox, PUBLIC_FILE, MOLIK_WINLIK và chính trang này.",
+        structured=[breadcrumb_ld([("Trang chủ", ""), ("Dự án", "work/")])],
         body=body,
     )
 
@@ -1053,6 +1146,10 @@ def page_work_detail(project: dict, index: int) -> str:
         description=project["tagline"]["vi"],
         og_image=project["cover"],
         og_type="article",
+        structured=[
+            project_ld(project, f"work/{slug}.html"),
+            breadcrumb_ld([("Home", ""), ("Work", "work/"), (project["title"], f"work/{slug}.html")]),
+        ],
         body=body,
     )
 
@@ -1125,6 +1222,8 @@ def page_studio_home() -> str:
         <div class="people">
           <article class="person reveal">
             <p class="person__index">01</p>
+            <img class="person__avatar" src="../assets/img/social/avatar-384.jpg" alt="Nguyễn Gia Khải"
+                 width="72" height="72" loading="lazy" />
             <h3 class="person__name">Nguyễn Gia Khải</h3>
             <p class="person__role">Founder · Maintainer · C, C++, Zig, Python, web</p>
             <a href="{GITHUB}" target="_blank" rel="noopener noreferrer">github.com/NggKhaiz ↗</a>
@@ -1227,6 +1326,17 @@ def page_studio_home() -> str:
         description="A personal, non-commercial open-source lab: a RandomX miner, a cube laboratory and a single-file study app. No tracking, no ads, source in the open.",
         og_image="assets/img/social/og-labs.png",
         studio=True,
+        structured=[
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "MoLik Labs",
+                "url": "https://github.com/MoLik-Labs",
+                "description": "A personal, non-commercial open-source organisation: a RandomX miner, a cube laboratory and a single-file study app.",
+                "founder": {"@type": "Person", "name": "Nguyễn Gia Khải", "url": f"{ORIGIN}/"},
+                "sameAs": ["https://github.com/MoLik-Labs"],
+            }
+        ],
         body=body,
     )
 
@@ -1291,6 +1401,7 @@ def page_studio_work_index() -> str:
         description="Open-source projects from MoLik Labs: a RandomX miner, a 3x3 cube laboratory and a single-file study app.",
         og_image="assets/img/social/og-labs.png",
         studio=True,
+        structured=[breadcrumb_ld([("MoLik Labs", "labs/"), ("Work", "labs/work/")])],
         body=body,
     )
 
@@ -1382,6 +1493,10 @@ def page_studio_detail(project: dict, index: int) -> str:
         og_image=project["cover"],
         og_type="article",
         studio=True,
+        structured=[
+            project_ld(project, f"labs/work/{slug}.html", org=True),
+            breadcrumb_ld([("MoLik Labs", "labs/"), ("Work", "labs/work/"), (project["title"], f"labs/work/{slug}.html")]),
+        ],
         body=body,
     )
 
@@ -1456,16 +1571,16 @@ def copy_js() -> str:
 MANIFEST = """{
   "name": "Nguyễn Gia Khải — nggkhaiz.js.org",
   "short_name": "Ngg.Khaiz",
-  "description": "Developer, builder, Bắc Giang, Việt Nam.",
-  "start_url": "/",
-  "scope": "/",
+  "description": "Builder — C, C++, Zig, Python and the web around it. Bắc Giang, Việt Nam.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0a0a0b",
   "theme_color": "#0a0a0b",
   "icons": [
-    { "src": "/assets/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "assets/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
 """
@@ -1516,6 +1631,11 @@ def main() -> int:
 
     (ROOT / "assets" / "copy.js").write_text(copy_js(), encoding="utf-8")
     (ROOT / "site.webmanifest").write_text(MANIFEST, encoding="utf-8")
+
+    (ROOT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n", encoding="utf-8"
+    )
+    (ROOT / ".nojekyll").write_text("", encoding="utf-8")
 
     public = [p for p in pages if p not in ("404.html", "studio/index.html")]
     (ROOT / "sitemap.xml").write_text(sitemap(public), encoding="utf-8")
