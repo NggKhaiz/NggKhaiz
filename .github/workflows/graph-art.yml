@@ -1,0 +1,69 @@
+# This file is not active where it sits: GitHub Apps without the `workflows`
+# permission cannot push into .github/workflows/. Install it once with
+#
+#     mkdir -p .github/workflows && cp tools/graph-art.workflow.yml .github/workflows/graph-art.yml
+#
+# then set the repository variable GRAPH_ART_AUTHOR (see docs/graph-art.md).
+
+name: graph art
+
+# Paints the contribution calendar from tools/graph-art.txt through
+# tools/graph-art.plan.json. Every commit is an ordinary empty commit dated
+# 12:00 +07:00 with the message "chore: graph art YYYY-MM-DD (n/m)".
+# Read docs/graph-art.md before enabling this on a fork.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum new commits for this run (blank = no limit)"
+        required: false
+        default: ""
+  schedule:
+    # Weekly, Sunday 18:00 ICT (11:00 UTC). Mostly a no-op: the plan is frozen.
+    - cron: "0 11 * * 0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: graph-art
+  cancel-in-progress: false
+
+jobs:
+  paint:
+    # Forks and mirrors should not start committing on their own.
+    if: github.repository_owner == 'NggKhaiz'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check that an author identity is configured
+        id: identity
+        env:
+          AUTHOR: ${{ vars.GRAPH_ART_AUTHOR }}
+        run: |
+          if [ -z "$AUTHOR" ]; then
+            echo "::warning::Set the repository variable GRAPH_ART_AUTHOR to \"Name <id+user@users.noreply.github.com>\" to paint the grid."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Report progress
+        run: python3 tools/graph_art.py verify || true
+
+      - name: Paint the missing cells
+        if: steps.identity.outputs.ready == 'true'
+        env:
+          GRAPH_ART_AUTHOR: ${{ vars.GRAPH_ART_AUTHOR }}
+        run: |
+          limit="${{ github.event.inputs.limit }}"
+          if [ -n "$limit" ]; then
+            python3 tools/graph_art.py apply --yes --push --limit "$limit"
+          else
+            python3 tools/graph_art.py apply --yes --push
+          fi
