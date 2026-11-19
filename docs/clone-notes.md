@@ -85,8 +85,8 @@ Consequences that changed the build:
   text). The rebuild uses `Inter Tight` (display), `Inter` (text), `JetBrains Mono` (labels):
   a modern grotesk pairing consistent with the reference's tight, lowercase-and-caps mix.
 - **Colour values of the sites.** Only the SVG assets expose exact hex values; those were
-  reused (`#131313`, mono text ramp). The website palette (`#0a0a0b` / `#f4f2f0` + warm
-  accent `#d9a06b`) is a deliberate interpretation of the same monochrome-plus-warm-badge language.
+  reused (`#131313`, mono text ramp). The first build interpreted that as `#0a0a0b` /
+  `#f4f2f0` with a warm `#d9a06b` accent; **v2 replaces it with Catppuccin** (see §7).
 - **Motion.** Reveal-on-scroll, scroll progress, active-nav tracking and the sticky blur header
   are additions in that spirit; they are hidden from `prefers-reduced-motion`.
 - **The `/labs/` page.** sakayori.studio describes a studio with two people and a legal
@@ -110,7 +110,6 @@ metrics — and every figure on the site is one the API returns.
 | Age | derived: 26 | hero, both languages |
 | Email | `nggkhaiz@proton.me` | README badge, hero CTA, contact block, labs page, `<meta name="description">` |
 | Discord | `mental.arc` | README badge, contact block with copy-to-clipboard |
-| Telegram | **not published** | the site has no element, attribute, string or comment for it; the copy table and the script were scrubbed rather than gated behind an empty variable |
 | Avatar | the real one (`tools/src/avatar.png`) | circular-cropped into the hero SVG plate and `assets/img/social/avatar{,-384}.{png,jpg}`; app icons keep the `K` monogram, because a photo is mud at 16 px |
 
 ## 7. Unknowns — fill these in yourself
@@ -173,3 +172,19 @@ picture, `tools/graph_art.py` turns it into absolute dates and empty commits who
 `chore: graph art YYYY-MM-DD (n/m)`, `.github/workflows/graph-art.yml` repaints from CI, and
 `docs/graph-art.md` documents the mapping, the identity requirement and how to switch it off.
 The plan file is frozen so the drawing does not scramble when the calendar slides forward.
+
+## 8. v2 — what changed, and what it borrowed
+
+The second pass took two more references as *structure*: `kelexine` (terminal
+framing — section headings written as shell commands, a `status/languages/os`
+block, a `flat-square` badge row) and `alireza0` (one live
+`github-profile-summary-cards` image covering commits, PRs, issues and stars).
+
+| Decision | Reason |
+| --- | --- |
+| **Catppuccin Mocha** (dark) + **Latte** (light) | The reference palette was warm-neutral and read as "beige" at small sizes. Mocha's `#1e1e2e` base keeps the same calm contrast but gives the accents (`mauve #cba6f7`, `peach #fab387`) enough separation to work as UI colour rather than decoration. Latte is the same hue family, so `<picture>` swapping does not change the identity between themes. |
+| One token module, `tools/palette.py` | Four consumers (CSS, SVG, raster, shields.io) previously each carried their own hexes. A palette change is now a change in one file plus a rebuild. |
+| Terminal headings, not ASCII art | kelexine's box-drawing wordmark is beautiful but duplicates the hero, which already carries the name at 104 px. The terminal framing was kept where it adds information: `$ whoami`, `$ ls ~/projects`, `$ cat ~/stack`. |
+| One third-party image only | `profile-details` is the single card that cannot be reproduced from this repository, and it is the one that stays live without a build. Everything else is local, deterministic SVG. The `streak-stats` image from v1 was dropped: it duplicated the contribution grid and its palette could not be matched. |
+| Every number from `data/profile.json` | v1 quoted the API by hand and drifted (`Q-FOX 42 → 48`, `STUDY-SITE 31 → 46` commits within days). The numbers now come from `tools/fetch_stats.py`; see [`data.md`](data.md). |
+| Forks excluded from totals | Two forks carry 25 000 inherited commits. Counting them would have been the one dishonest figure in a checkable set. |

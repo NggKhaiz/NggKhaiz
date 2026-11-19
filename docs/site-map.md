@@ -55,12 +55,15 @@ Assets
 Regeneration
 
 ```bash
+python3 tools/fetch_stats.py    # data/profile.json from the GitHub GraphQL API
 python3 tools/fetch_fonts.py    # woff2 subsets (needs fonttools + brotli, network)
 python3 tools/build_images.py   # raster images (needs pillow + fonts in .cache)
 python3 tools/build_assets.py   # README SVGs
 python3 tools/build_pages.py    # HTML, copy.js, sitemap.xml, site.webmanifest
+python3 tools/build_readme.py   # README.md (--check fails when it is stale)
 python3 tools/graph_art.py plan # rebuild the contribution-art plan (optional)
 ```
 
-Nothing in `assets/` or the HTML is meant to be edited by hand: change the
-Python sources in `tools/` and re-run them.
+Nothing in `assets/`, the HTML or the README is meant to be edited by hand:
+change the Python sources in `tools/` and re-run them. Colours come from
+`tools/palette.py`, numbers from `data/profile.json` — see [`data.md`](data.md).

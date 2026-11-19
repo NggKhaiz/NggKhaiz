@@ -33,6 +33,40 @@ GITHUB = "https://github.com/NggKhaiz"
 
 YEAR = 2026
 
+# ------------------------------------------------------------ github numbers
+#
+# data/profile.json is written by tools/fetch_stats.py from the GitHub GraphQL
+# API and refreshed by .github/workflows/profile-data.yml. Every figure quoted on
+# the site is read from here, so no page can drift away from the API.
+
+DATA_FILE = ROOT / "data" / "profile.json"
+try:
+    DATA = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+except (OSError, ValueError):  # first run, before fetch_stats.py
+    DATA = {"user": {}, "repos": [], "languages": []}
+
+REPOS = {repo["repo"]: repo for repo in DATA.get("repos", [])}
+ORG = DATA.get("user", {}).get("org", "MoLik-Labs")
+
+
+def repo_commits(name: str) -> int:
+    return int(REPOS.get(name, {}).get("commits", 0))
+
+
+def repo_stars(name: str) -> int:
+    return int(REPOS.get(name, {}).get("stars", 0))
+
+
+def fmt(number: int, lang: str = "en") -> str:
+    """4,580 in English, 4.580 in Vietnamese."""
+    text = f"{int(number):,}"
+    return text.replace(",", ".") if lang == "vi" else text
+
+
+def stars(number: int) -> str:
+    return f"{int(number)} ★"
+
+
 # ---------------------------------------------------------------- projects
 
 
@@ -59,13 +93,13 @@ PROJECTS = [
             "en": "I wanted the developer fee to be something you can see and switch off, not something buried where nobody looks.",
         },
         "how": {
-            "vi": "Linux x86-64, macOS, Windows. GPL-3.0. 4.580 commit và 12 sao — repo nhiều hoạt động nhất trong cả hai tài khoản.",
-            "en": "Linux x86-64, macOS and Windows. GPL-3.0. 4,580 commits and 12 stars — the most active repository across both accounts.",
+            "vi": f"Linux x86-64, macOS, Windows. GPL-3.0. {fmt(repo_commits('MoLik-Labs/ZMRIG'), 'vi')} commit và {repo_stars('MoLik-Labs/ZMRIG')} sao — repo nhiều hoạt động nhất trong cả hai tài khoản.",
+            "en": f"Linux x86-64, macOS and Windows. GPL-3.0. {fmt(repo_commits('MoLik-Labs/ZMRIG'), 'en')} commits and {repo_stars('MoLik-Labs/ZMRIG')} stars — the most active repository across both accounts.",
         },
         "facts": [
             ("fact.lang", "C · C++ · Zig"),
-            ("fact.commits", "4.580"),
-            ("fact.stars", "12 ★"),
+            ("fact.commits", "n.zmrig.commits"),
+            ("fact.stars", "n.zmrig.stars"),
             ("fact.release", "6.48.0"),
             ("fact.license", "GPL-3.0"),
         ],
@@ -102,8 +136,8 @@ PROJECTS = [
         },
         "facts": [
             ("fact.lang", "C · Python · JS"),
-            ("fact.commits", "42"),
-            ("fact.stars", "1 ★"),
+            ("fact.commits", "n.qfox.commits"),
+            ("fact.stars", "n.qfox.stars"),
             ("fact.license", "fact.none"),
         ],
         "studio": {
@@ -139,8 +173,8 @@ PROJECTS = [
         },
         "facts": [
             ("fact.lang", "HTML · JS"),
-            ("fact.commits", "31"),
-            ("fact.stars", "1 ★"),
+            ("fact.commits", "n.study-site.commits"),
+            ("fact.stars", "n.study-site.stars"),
             ("fact.license", "MIT"),
         ],
         "studio": {
@@ -171,13 +205,13 @@ PROJECTS = [
             "en": "Reading unfamiliar code is the fastest way to understand a system. Writing the scanner forced me to understand each obfuscation trick instead of guessing.",
         },
         "how": {
-            "vi": "Một script Python chạy bằng CLI, không cần service. Apache-2.0, 4 sao.",
-            "en": "A Python script you run from a terminal — no service to host. Apache-2.0, 4 stars.",
+            "vi": f"Một script Python chạy bằng CLI, không cần service. Apache-2.0, {repo_stars('NggKhaiz/PUBLIC_FILE')} sao.",
+            "en": f"A Python script you run from a terminal — no service to host. Apache-2.0, {repo_stars('NggKhaiz/PUBLIC_FILE')} stars.",
         },
         "facts": [
             ("fact.lang", "Python"),
-            ("fact.commits", "8"),
-            ("fact.stars", "4 ★"),
+            ("fact.commits", "n.public-file.commits"),
+            ("fact.stars", "n.public-file.stars"),
             ("fact.license", "Apache-2.0"),
         ],
         "studio": {
@@ -208,13 +242,13 @@ PROJECTS = [
             "en": "I use it daily and needed a copy I can adjust without waiting on upstream.",
         },
         "how": {
-            "vi": "PowerShell module cộng batch, chạy trên Windows 10/11. 2.824 commit trong bản dựng này, phần lớn lịch sử đến từ upstream.",
-            "en": "A PowerShell module plus batch files for Windows 10/11. 2,824 commits in this build, most of that history inherited from upstream.",
+            "vi": f"PowerShell module cộng batch, chạy trên Windows 10/11. {fmt(repo_commits('MoLik-Labs/MOLIK_WINLIK'), 'vi')} commit trong bản dựng này, phần lớn lịch sử đến từ upstream.",
+            "en": f"A PowerShell module plus batch files for Windows 10/11. {fmt(repo_commits('MoLik-Labs/MOLIK_WINLIK'), 'en')} commits in this build, most of that history inherited from upstream.",
         },
         "facts": [
             ("fact.lang", "PowerShell"),
-            ("fact.commits", "2.824"),
-            ("fact.stars", "1 ★"),
+            ("fact.commits", "n.molik-winlik.commits"),
+            ("fact.stars", "n.molik-winlik.stars"),
             ("fact.license", "MIT"),
         ],
         "note": {
@@ -254,7 +288,7 @@ PROJECTS = [
         },
         "facts": [
             ("fact.lang", "Python"),
-            ("fact.output", "12 pages · 20 images"),
+            ("fact.output", "15 pages · 20 images"),
             ("fact.fonts", "fact.selfhost"),
             ("fact.build", "fact.manual"),
         ],
@@ -273,6 +307,16 @@ PROJECT_BY_SLUG = {p["slug"]: p for p in PROJECTS}
 SELECTED = [PROJECT_BY_SLUG[slug] for slug in SELECTED_SLUGS]
 LABS_PROJECTS = [PROJECT_BY_SLUG[slug] for slug in LABS_SLUGS]
 
+# Aggregates, computed once from the same data file.
+LAB_COMMITS = sum(repo_commits(project["repo"]) for project in LABS_PROJECTS)
+LAB_STARS = sum(repo_stars(project["repo"]) for project in LABS_PROJECTS)
+ORG_SOURCE = [r for r in DATA.get("repos", []) if r["owner"] == ORG and not r["fork"]]
+ORG_COMMITS = sum(r["commits"] for r in ORG_SOURCE)
+PUBLIC_REPOS = int(DATA.get("user", {}).get("public_repos", 0)) + int(
+    DATA.get("user", {}).get("org_repos", 0)
+)
+SOURCE_REPOS = len([r for r in DATA.get("repos", []) if not r["fork"]])
+
 # ---------------------------------------------------------------- copy (VI/EN)
 
 COPY: dict[str, dict[str, str]] = {
@@ -284,6 +328,21 @@ COPY: dict[str, dict[str, str]] = {
 def add(key: str, vi: str, en: str) -> None:
     COPY["vi"][key] = vi
     COPY["en"][key] = en
+
+
+# Per-project commit and star counts, keyed so each language keeps its own
+# thousands separator (4.580 / 4,580) through the normal copy mechanism.
+for _project in PROJECTS:
+    _repo = _project.get("repo")
+    if not _repo:
+        continue
+    _slug = _project["slug"]
+    add(
+        f"n.{_slug}.commits",
+        fmt(repo_commits(_repo), "vi"),
+        fmt(repo_commits(_repo), "en"),
+    )
+    add(f"n.{_slug}.stars", stars(repo_stars(_repo)), stars(repo_stars(_repo)))
 
 
 # global
@@ -320,7 +379,11 @@ add(
 add("labs.cta", "Mở MoLik Labs", "Open MoLik Labs")
 add("labs.orgKey", "Tổ chức", "Organisation")
 add("labs.reposKey", "Repo công khai", "Public repos")
-add("labs.reposValue", "6 · 4.600 commit", "6 · 4,600 commits")
+add(
+    "labs.reposValue",
+    f"{len(ORG_SOURCE)} · {fmt(ORG_COMMITS, 'vi')} commit",
+    f"{len(ORG_SOURCE)} · {fmt(ORG_COMMITS, 'en')} commits",
+)
 add("labs.licKey", "Giấy phép", "Licences")
 add("lab.brand", "MoLik Labs", "MoLik Labs")
 add("lab.footer", "MoLik Labs · độc lập, phi thương mại", "MoLik Labs · independent, non-commercial")
@@ -349,7 +412,11 @@ add("lab.fig.2", "Mã mở, không giấu gì", "Open source, nothing to hide")
 add("lab.fig.3", "Không telemetry, không bao giờ", "No telemetry, ever")
 add("lab.fig.4", "Miễn phí dùng, miễn phí fork", "Free to use, free to fork")
 add("lab.strip.left", "Ít ồn hơn. <strong>Nhiều chủ đích hơn.</strong>", "Less noise. <strong>More intent.</strong>")
-add("lab.strip.right", "3 dự án · 4.600 commit · 14 sao", "3 projects · 4,600 commits · 14 stars")
+add(
+    "lab.strip.right",
+    f"{len(LABS_PROJECTS)} dự án · {fmt(LAB_COMMITS, 'vi')} commit · {LAB_STARS} sao",
+    f"{len(LABS_PROJECTS)} projects · {fmt(LAB_COMMITS, 'en')} commits · {LAB_STARS} stars",
+)
 add("lab.work.num", "01 / Dự án chọn lọc", "01 / Selected work")
 add("lab.work.title", "Làm để dùng.", "Built to be used.")
 add(
@@ -442,7 +509,11 @@ add(
     "Ba repo, mỗi cái đủ nhỏ để đọc trong một buổi chiều.",
     "Three repositories, each one small enough to read in an afternoon.",
 )
-add("lab.wi.meta", "03 dự án · 4.600 commit · 2026", "03 projects · 4,600 commits · 2026")
+add(
+    "lab.wi.meta",
+    f"0{len(LABS_PROJECTS)} dự án · {fmt(LAB_COMMITS, 'vi')} commit · {YEAR}",
+    f"0{len(LABS_PROJECTS)} projects · {fmt(LAB_COMMITS, 'en')} commits · {YEAR}",
+)
 add("lab.d.what", "Nó là gì", "What it is")
 add("lab.d.ship", "Nó ra sao", "How it ships")
 add("lab.d.next", "Tiếp theo", "What is next")
@@ -542,14 +613,14 @@ add(
 add("cred.one.title", "Repo công khai, hai tài khoản", "Public repositories, two accounts")
 add(
     "cred.one.text",
-    "18 repo công khai giữa @NggKhaiz và @MoLik-Labs — 10 cái là code gốc, phần còn lại là fork có chủ đích.",
-    "18 public repositories across @NggKhaiz and @MoLik-Labs — 10 original, the rest deliberate forks.",
+    f"{PUBLIC_REPOS} repo công khai giữa @NggKhaiz và @MoLik-Labs — {SOURCE_REPOS} cái là code gốc, phần còn lại là fork có chủ đích.",
+    f"{PUBLIC_REPOS} public repositories across @NggKhaiz and @MoLik-Labs — {SOURCE_REPOS} original, the rest deliberate forks.",
 )
 add("cred.two.title", "Commit trong repo lớn nhất", "Commits in the largest repository")
 add(
     "cred.two.text",
-    "ZMRIG: 4.580 commit, 12 sao, engine C/C++ cộng các mảnh Zig. Con số lấy từ GitHub API, không phải tự khai.",
-    "ZMRIG: 4,580 commits, 12 stars, a C/C++ engine with Zig parts. Numbers read from the GitHub API, not self-reported.",
+    f"ZMRIG: {fmt(repo_commits('MoLik-Labs/ZMRIG'), 'vi')} commit, {repo_stars('MoLik-Labs/ZMRIG')} sao, engine C/C++ cộng các mảnh Zig. Con số lấy từ GitHub API, không phải tự khai.",
+    f"ZMRIG: {fmt(repo_commits('MoLik-Labs/ZMRIG'))} commits, {repo_stars('MoLik-Labs/ZMRIG')} stars, a C/C++ engine with Zig parts. Numbers read from the GitHub API, not self-reported.",
 )
 add("cred.three.title", "Điều đang theo đuổi", "What I am after")
 add(
@@ -850,8 +921,8 @@ def layout(
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}" />
   <meta name="author" content="Nguyễn Gia Khải" />
-  <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)" />
   <meta name="color-scheme" content="dark light" />
 {canonical_tag}
 
@@ -1234,7 +1305,7 @@ def page_work_detail(project: dict, index: int) -> str:
     slug = project["slug"]
     nxt = PROJECTS[(index + 1) % len(PROJECTS)]
     facts = "".join(
-        f'<div><dt class="label">{t(key)}</dt><dd>{t(value) if value.startswith("fact.") else esc(value)}</dd></div>'
+        f'<div><dt class="label">{t(key)}</dt><dd>{t(value) if value.startswith(("fact.", "n.")) else esc(value)}</dd></div>'
         for key, value in project["facts"]
     )
     links = [f'<a href="{project["url"]}" target="_blank" rel="noopener noreferrer">{t("d.source")} <span class="arrow">↗</span></a>']
@@ -1742,8 +1813,8 @@ MANIFEST = """{
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0a0a0b",
-  "theme_color": "#0a0a0b",
+  "background_color": "#1e1e2e",
+  "theme_color": "#1e1e2e",
   "icons": [
     { "src": "assets/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
