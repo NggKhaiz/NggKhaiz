@@ -14,11 +14,11 @@ base-path setting.
 | `/work/public-file.html` | `work/public-file.html` | VI / EN | project detail |
 | `/work/molik-winlik.html` | `work/molik-winlik.html` | VI / EN | project detail, with the upstream credit note |
 | `/work/this-profile.html` | `work/this-profile.html` | VI / EN | how this site is generated |
-| `/labs/` | `labs/index.html` | EN | MoLik Labs: work, people, contact, fine print |
-| `/labs/work/` | `labs/work/index.html` | EN | lab project index (three) |
-| `/labs/work/zmrig.html` | `labs/work/zmrig.html` | EN | lab project detail |
-| `/labs/work/qfox.html` | `labs/work/qfox.html` | EN | lab project detail |
-| `/labs/work/study-site.html` | `labs/work/study-site.html` | EN | lab project detail |
+| `/labs/` | `labs/index.html` | VI / EN | MoLik Labs: work, people, contact, fine print |
+| `/labs/work/` | `labs/work/index.html` | VI / EN | lab project index (three) |
+| `/labs/work/zmrig.html` | `labs/work/zmrig.html` | VI / EN | lab project detail |
+| `/labs/work/qfox.html` | `labs/work/qfox.html` | VI / EN | lab project detail |
+| `/labs/work/study-site.html` | `labs/work/study-site.html` | VI / EN | lab project detail |
 | `/studio/` | `studio/index.html` | — | redirect stub to `/labs/` (kept so old links land somewhere) |
 | `/404.html` | `404.html` | VI / EN | not found (no canonical, `noindex`) |
 | `/robots.txt` | `robots.txt` | — | allow all + sitemap pointer |
@@ -33,8 +33,10 @@ and JSON-LD — `Person` + `WebSite` on the profile, `SoftwareSourceCode` and
 `.nojekyll` keeps GitHub Pages from running Jekyll over the output, so folders that
 start with an underscore would still be served if they ever appear.
 
-Language: the profile pages default to Vietnamese and carry a VI/EN toggle
-(`assets/copy.js`). Every `/labs/` page is English only and has no toggle.
+Language: every page defaults to Vietnamese and carries a VI/EN toggle
+(`assets/copy.js` + `data-lang-switch`). The lab pages used to be English-only like the
+reference studio; they now share the same toggle and the same dictionary, so no string
+exists in one language only.
 
 Assets
 

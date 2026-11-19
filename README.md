@@ -176,6 +176,21 @@ Most of the larger code lives in the [MoLik-Labs](https://github.com/MoLik-Labs)
 
 </div>
 
+<p><strong>This repository</strong></p>
+
+This profile and [nggkhaiz.js.org](https://nggkhaiz.js.org) are one static site, generated — the HTML, the SVG cards and every raster image come out of `tools/`, so nothing under `assets/` is hand-edited.
+
+```bash
+python3 tools/fetch_fonts.py    # font subsets      (needs fonttools + brotli)
+python3 tools/build_images.py   # 20 raster images  (needs pillow)
+python3 tools/build_assets.py   # README SVGs
+python3 tools/build_pages.py    # 15 HTML pages, copy.js, sitemap, manifest, robots
+```
+
+Deploying is "upload the repository root": GitHub Pages serves it from `CNAME`, there is no build step at runtime and no framework in the bundle. Page map: [`docs/site-map.md`](docs/site-map.md) · what came from the reference and what did not: [`docs/clone-notes.md`](docs/clone-notes.md) · the graph: [`docs/graph-art.md`](docs/graph-art.md).
+
+MIT for the code ([`LICENSE`](LICENSE)); the name, portrait and write-ups stay mine, and each project keeps its own licence.
+
 ---
 
 <div align="center">

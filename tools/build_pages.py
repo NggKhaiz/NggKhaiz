@@ -322,6 +322,165 @@ add("labs.orgKey", "Tổ chức", "Organisation")
 add("labs.reposKey", "Repo công khai", "Public repos")
 add("labs.reposValue", "6 · 4.600 commit", "6 · 4,600 commits")
 add("labs.licKey", "Giấy phép", "Licences")
+add("lab.brand", "MoLik Labs", "MoLik Labs")
+add("lab.footer", "MoLik Labs · độc lập, phi thương mại", "MoLik Labs · independent, non-commercial")
+add("lab.nav.work", "Dự án", "Work")
+add("lab.nav.people", "Con người", "People")
+add("lab.nav.contact", "Liên hệ", "Contact")
+add("lab.nav.profile", "Hồ sơ", "Profile")
+add("lab.nav.profileBack", "← Hồ sơ", "← Profile")
+add("lab.hero.label", "Lab phần mềm độc lập", "Independent software lab")
+add(
+    "lab.hero.title",
+    "Độc lập.<br /><em>Mở theo thiết kế.</em>",
+    "Independent.<br /><em>Open by design.</em>",
+)
+add(
+    "lab.hero.lede",
+    "MoLik Labs là nơi mình phát hành những phần mềm mình dùng thật: một miner RandomX, một phòng thí nghiệm Rubik, một app học một-file. Mã nguồn mở, không theo dõi, không quảng cáo — làm xong việc rồi tránh đường.",
+    "MoLik Labs is where I publish software I actually use: a RandomX miner, a cube laboratory, a single-file study app. Source in the open, no tracking, no ads — built to do the job and then get out of the way.",
+)
+add("lab.hero.ctaWork", "Dự án", "Projects")
+add("lab.hero.ctaOrg", "Tổ chức trên GitHub", "GitHub organisation")
+add("lab.fig.head2", "Từ 2026", "Est. 2026")
+add("lab.fig.big", "Phần mềm, có nguyên tắc.", "Software, with principles.")
+add("lab.fig.1", "Một người bảo trì, có chủ đích", "One maintainer, on purpose")
+add("lab.fig.2", "Mã mở, không giấu gì", "Open source, nothing to hide")
+add("lab.fig.3", "Không telemetry, không bao giờ", "No telemetry, ever")
+add("lab.fig.4", "Miễn phí dùng, miễn phí fork", "Free to use, free to fork")
+add("lab.strip.left", "Ít ồn hơn. <strong>Nhiều chủ đích hơn.</strong>", "Less noise. <strong>More intent.</strong>")
+add("lab.strip.right", "3 dự án · 4.600 commit · 14 sao", "3 projects · 4,600 commits · 14 stars")
+add("lab.work.num", "01 / Dự án chọn lọc", "01 / Selected work")
+add("lab.work.title", "Làm để dùng.", "Built to be used.")
+add(
+    "lab.work.lede",
+    "Danh sách ngắn, vì danh sách vốn ngắn. Tất cả đều công khai.",
+    "A short list, because the list is short. Everything below is public.",
+)
+add("lab.work.all", "Tất cả dự án", "All projects")
+add("lab.readMore", "Đọc thêm", "Read more")
+add("lab.sourceCode", "Mã nguồn", "Source code")
+add("lab.people.num", "02 / Con người", "02 / The people")
+add("lab.people.title", "Một lab một người, có chủ đích.", "A lab of one, on purpose.")
+add(
+    "lab.people.lede",
+    "Giữ nhỏ để mọi quyết định có người chịu trách nhiệm, và code giữ được sự thật thà.",
+    "Keeping it small means every decision has an owner, and the code can stay honest.",
+)
+add("lab.person.role", "Người sáng lập · Bảo trì · C, C++, Zig, Python, web", "Founder · Maintainer · C, C++, Zig, Python, web")
+add("lab.person.contribTitle", "Đóng góp", "Contributions")
+add(
+    "lab.person.contribText",
+    "Không tuyển người, không thuê ngoài, không áp lực roadmap. Pull request và báo lỗi thật thì luôn được chào.",
+    "No hires, no contractors, no roadmap pressure. Pull requests and honest bug reports are welcome.",
+)
+add("lab.contact.num", "03 / Liên hệ", "03 / Get in touch")
+add("lab.contact.title", "Một đường thẳng.", "A direct line.")
+add(
+    "lab.contact.lede",
+    "Câu hỏi, báo lỗi, hay một thứ đáng làm cùng — một hộp thư, một người đọc.",
+    "Questions, bug reports, or something worth building together — one inbox, read by one person.",
+)
+add("lab.contact.note", "Issue và pull request cũng về cùng một chỗ.", "Issues and pull requests reach the same desk.")
+add("lab.contact.elsewhere", "Nơi khác", "Elsewhere")
+add("lab.contact.site", "Trang này", "This site")
+add("lab.contact.source", "Mã nguồn trang này", "Source of this site")
+add("lab.fine.num", "04 / Chi tiết nhỏ", "04 / The fine print")
+add("lab.fine.title", "Rõ ràng mặc định.", "Clear by default.")
+add(
+    "lab.fine.lede",
+    "Cam kết viết ra, không có chữ nhỏ giả làm chữ lớn.",
+    "Commitments written down, without the small print pretending to be big.",
+)
+add("lab.fine.1.title", "Một lab cá nhân, phi thương mại", "A personal, non-commercial lab")
+add(
+    "lab.fine.1a",
+    "MoLik Labs là tổ chức mã nguồn mở cá nhân, không phải công ty và không đăng ký kinh doanh. Không có gì ở đây được kiếm tiền: không quảng cáo, không gói trả phí, không bán dữ liệu.",
+    "MoLik Labs is a personal open-source organisation, not a company and not a registered entity. Nothing here is monetised: no advertising, no paid tiers, no data sold.",
+)
+add(
+    "lab.fine.1b",
+    "Dự án được phát hành để học, để dùng và để review. Việc bảo trì theo thời gian rảnh của một người, nên không có cam kết uptime.",
+    "Projects are published for learning, for use and for review. Maintenance follows the free time of one person, so there is no uptime promise attached.",
+)
+add("lab.fine.2.title", "Không thu thập dữ liệu", "Zero data collection")
+add(
+    "lab.fine.2a",
+    "Các trang này không có analytics, không có tracker quảng cáo, không telemetry. Không cookie nào được đặt để theo dõi, font phục vụ từ chính domain này.",
+    "These pages ship no analytics, no advertising trackers and no telemetry. No cookies are set for tracking, and the fonts are served from this domain.",
+)
+add(
+    "lab.fine.2b",
+    "Hai tuỳ chọn được lưu trong localStorage của trình duyệt: giao diện sáng/tối và ngôn ngữ. Xoá dữ liệu trang là xoá cả hai. Link sang GitHub dẫn bạn ra khỏi trang này, theo chính sách của họ.",
+    "Two preferences are stored in your browser's localStorage only: the interface theme and the language. Clearing site data removes both. Links to GitHub take you to a service outside this site, under its own policies.",
+)
+add("lab.fine.3.title", "Nội dung bên thứ ba và ghi công", "Third-party content and attribution")
+add(
+    "lab.fine.3a",
+    "Các dự án là độc lập, không liên kết, không được bảo trợ và không đại diện cho bất kỳ nền tảng hay dịch vụ bên thứ ba nào trừ khi nói rõ.",
+    "Projects are independent and not affiliated with, endorsed by, or representatives of any third-party platform or service unless stated explicitly.",
+)
+add(
+    "lab.fine.3b",
+    "Chỗ nào dựng trên việc của người khác thì trang dự án nói rõ. Ví dụ MOLIK_WINLIK là bản dựng Sophia Script cho Windows của farag2 theo giấy phép MIT, giữ nguyên phần ghi công.",
+    "Where a project is built on someone else's work, that is stated on the project page. MOLIK_WINLIK, for example, is a build of Sophia Script for Windows by farag2 under the MIT licence, with attribution kept intact.",
+)
+add("lab.fine.4.title", "Giấy phép mã nguồn", "Source code licensing")
+add(
+    "lab.fine.4a",
+    "Mã nguồn được công khai để review minh bạch. Quyền dùng, sửa, phân phối mỗi dự án chỉ theo LICENSE trong repo đó — GPL-3.0 cho ZMRIG, MIT cho STUDY-SITE và MOLIK_WINLIK, Apache-2.0 cho PUBLIC_FILE.",
+    "Source is published in public repositories for transparent review. Permission to use, modify and redistribute each project is governed only by the license included in that repository — GPL-3.0 for ZMRIG, MIT for STUDY-SITE and MOLIK_WINLIK, Apache-2.0 for PUBLIC_FILE.",
+)
+add(
+    "lab.fine.4b",
+    "Đọc file LICENSE trước khi phân phối lại. Thư viện bên thứ ba giữ giấy phép và yêu cầu ghi công riêng. Font ở đây là Inter, Inter Tight và JetBrains Mono, đều theo SIL Open Font License 1.1.",
+    "Check the LICENSE file before redistributing. Third-party dependencies keep their own licences and attribution requirements. The typefaces here are Inter, Inter Tight and JetBrains Mono, all under the SIL Open Font License 1.1.",
+)
+add("lab.wi.title", "Tất cả đều mở.", "Everything in the open.")
+add(
+    "lab.wi.lede",
+    "Ba repo, mỗi cái đủ nhỏ để đọc trong một buổi chiều.",
+    "Three repositories, each one small enough to read in an afternoon.",
+)
+add("lab.wi.meta", "03 dự án · 4.600 commit · 2026", "03 projects · 4,600 commits · 2026")
+add("lab.d.what", "Nó là gì", "What it is")
+add("lab.d.ship", "Nó ra sao", "How it ships")
+add("lab.d.next", "Tiếp theo", "What is next")
+add(
+    "lab.d.nextText",
+    "Sửa lỗi nhỏ, viết docs rõ hơn, và làm tiếp thứ ý tưởng kế tiếp cần. Không có roadmap nào ngoài thế.",
+    "Small fixes, clearer docs and whatever the next idea needs. There is no roadmap beyond that, and no promise of one.",
+)
+add("lab.d.ask", "Hỏi về dự án này", "Ask about this project")
+add("lab.d.glance", "Tóm tắt", "At a glance")
+add("lab.d.repo", "Repo", "Repository")
+add("lab.d.status", "Trạng thái", "Status")
+add("lab.d.stack", "Stack", "Stack")
+
+# per-project lab copy
+LAB_VI = {
+    "zmrig": (
+        "Một miner, không giấu gì",
+        "Một miner RandomX với phí dev nhìn thấy được và tắt được, cái pool trả cho nó, proxy cho cả farm, và trang web ghép mọi thứ lại.",
+        "Mã nguồn cộng bản phát hành. GPL-3.0, phí ghi trong doc/FEE.md chứ không chôn trong code.",
+    ),
+    "qfox": (
+        "Phòng thí nghiệm phương pháp",
+        "Phòng thí nghiệm 3×3: engine C với BFS và IDA*, binding Python, mười ba phương pháp đo cạnh nhau trên cùng scramble, và trang bảng sinh ra từ benchmark.",
+        "Trang tĩnh cộng engine C và gói Python. Mọi con số công bố đều được chạy lại trên engine trước khi phát hành.",
+    ),
+    "study-site": (
+        "Công cụ học, offline",
+        "Một môi trường học một-file: lộ trình Vật lí 9 52 buổi, ôn tập cách quãng, sổ điểm, kế hoạch tuần và đấu trường pixel. Offline mặc định, vì học không cần tài khoản.",
+        "Một file HTML. Mở lên, không cài, không đăng nhập, không gì rời khỏi máy.",
+    ),
+}
+for slug, (tag_vi, summary_vi, ship_vi) in LAB_VI.items():
+    project = PROJECT_BY_SLUG[slug]
+    add(f"lab.{slug}.tag", tag_vi, project["studio"]["tag"])
+    add(f"lab.{slug}.summary", summary_vi, project["studio"]["summary"])
+    add(f"lab.{slug}.ship", ship_vi, project["studio"]["ship"])
+
 
 # hero
 add("hero.kicker", "Xin chào", "Welcome")
@@ -620,30 +779,38 @@ def layout(
     og_type: str = "website",
     scripts: str = "",
     structured: list[dict] | None = None,
+    bilingual: bool = False,
 ) -> str:
     depth = len(path.split("/")) - 1  # nested folders below the host root
     prefix = "../" * depth
-    lang = "en" if studio else "vi"
-    lang_switch = "" if studio else ' data-lang-switch="on"'
+    lang = "en" if (studio and not bilingual) else "vi"
+    lang_switch = ' data-lang-switch="on"' if (bilingual or not studio) else ""
     canonical = canonical_url(path)
 
     if studio:
         nav = (
-            f'<a href="{prefix}labs/work/">Work</a>'
-            f'<a href="{prefix}labs/#people">People</a>'
-            f'<a href="{prefix}labs/#contact">Contact</a>'
-            f'<a href="{prefix}index.html">← Profile</a>'
+            f'<a href="{prefix}labs/work/">{t("lab.nav.work")}</a>'
+            f'<a href="{prefix}labs/#people">{t("lab.nav.people")}</a>'
+            f'<a href="{prefix}labs/#contact">{t("lab.nav.contact")}</a>'
+            f'<a href="{prefix}index.html">{t("lab.nav.profileBack")}</a>'
         )
         wordmark = f'<a class="wordmark" href="{prefix}labs/index.html"><span class="wordmark__dot" aria-hidden="true"></span><span>MoLik Labs</span></a>'
         controls = (
+            (
+                '<button class="control" id="lang-toggle" type="button" aria-label="Đổi ngôn ngữ">'
+                '<span id="lang-current">VI</span><span class="control__lang-idle" id="lang-other">/EN</span></button>'
+            )
+            if bilingual
+            else ""
+        ) + (
             '<button class="control" id="theme-toggle" type="button" aria-label="Toggle light and dark theme">'
             f"{ICON_SUN}{ICON_MOON}</button>"
         )
         footer_links = (
-            f'<a href="{prefix}labs/work/">Work</a>'
-            f'<a href="{prefix}labs/#people">People</a>'
-            f'<a href="{prefix}labs/#contact">Contact</a>'
-            f'<a href="{prefix}index.html">Profile</a>'
+            f'<a href="{prefix}labs/work/">{t("lab.nav.work")}</a>'
+            f'<a href="{prefix}labs/#people">{t("lab.nav.people")}</a>'
+            f'<a href="{prefix}labs/#contact">{t("lab.nav.contact")}</a>'
+            f'<a href="{prefix}index.html">{t("lab.nav.profile")}</a>'
         )
     else:
         nav = (
@@ -668,7 +835,7 @@ def layout(
 
     skip = t("a11y.skip", "a", "skip-link").replace("<a ", '<a href="#main" ', 1)
     # t() renders a span; build the skip link explicitly instead
-    skip = f'<a class="skip-link" href="#main" data-i18n="a11y.skip">{COPY["vi"]["a11y.skip"] if not studio else COPY["en"]["a11y.skip"]}</a>'
+    skip = f'<a class="skip-link" href="#main" data-i18n="a11y.skip">{COPY[lang]["a11y.skip"]}</a>'
 
     structured_block = "\n".join(jsonld(item) for item in (structured or []))
     canonical_tag = (
@@ -702,8 +869,8 @@ def layout(
   <meta name="twitter:description" content="{esc(description)}" />
   <meta name="twitter:image" content="{ORIGIN}/{og_image}" />
   <meta name="twitter:image:alt" content="{esc(title)}" />
-  <meta property="og:locale" content="{'en_US' if studio else 'vi_VN'}" />
-  <meta property="og:locale:alternate" content="{'vi_VN' if studio else 'en_US'}" />
+  <meta property="og:locale" content="{'en_US' if (studio and not bilingual) else 'vi_VN'}" />
+  <meta property="og:locale:alternate" content="{'vi_VN' if (studio and not bilingual) else 'en_US'}" />
 {structured_block}
 
   <link rel="icon" href="{prefix}assets/img/icons/favicon.ico" sizes="any" />
@@ -738,7 +905,7 @@ def layout(
 
   <footer class="site-footer">
     <div class="shell site-footer__inner">
-      <p>© <span id="year">{YEAR}</span> {'MoLik Labs · independent, non-commercial' if studio else 'Nguyễn Gia Khải'} · {'' if studio else t('footer.rights')}</p>
+      <p>© <span id="year">{YEAR}</span> {t('lab.footer') if studio else 'Nguyễn Gia Khải'} · {'' if studio else t('footer.rights')}</p>
       <nav class="footer-nav" aria-label="Footer">{footer_links}</nav>
       <a class="to-top" href="#top">{t('footer.top') if not studio else 'Back to top'}
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
@@ -1159,30 +1326,26 @@ def page_studio_home() -> str:
     body = f"""    <section class="studio-hero">
       <div class="shell studio-hero__grid">
         <div>
-          <p class="label label--accent">Independent software lab</p>
-          <h1>Independent.<br /><em>Open by design.</em></h1>
-          <p class="studio-hero__lede">
-            MoLik Labs is where I publish software I actually use: a RandomX miner, a cube laboratory,
-            a single-file study app. Source in the open, no tracking, no ads — built to do the job and
-            then get out of the way.
-          </p>
+          <p class="label label--accent">{t("lab.hero.label")}</p>
+          <h1>{th("lab.hero.title")}</h1>
+          <p class="studio-hero__lede">{t("lab.hero.lede")}</p>
           <div class="studio-hero__actions">
-            <a class="btn btn--solid" href="work/">Projects
+            <a class="btn btn--solid" href="work/">{t("lab.hero.ctaWork")}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
             </a>
-            <a class="btn btn--ghost" href="https://github.com/MoLik-Labs" target="_blank" rel="noopener noreferrer">GitHub organisation {ICON_ARROW}</a>
+            <a class="btn btn--ghost" href="https://github.com/MoLik-Labs" target="_blank" rel="noopener noreferrer">{t("lab.hero.ctaOrg")} {ICON_ARROW}</a>
           </div>
         </div>
 
         <aside class="fig reveal">
-          <div class="fig__head"><span class="label">Fig. 001</span><span class="label">Est. 2026</span></div>
+          <div class="fig__head"><span class="label">Fig. 001</span><span class="label">{t("lab.fig.head2")}</span></div>
           <div class="fig__rule"></div>
-          <p class="fig__big">Software, with principles.</p>
+          <p class="fig__big">{t("lab.fig.big")}</p>
           <div class="fig__list">
-            <span>One maintainer, on purpose</span>
-            <span>Open source, nothing to hide</span>
-            <span>No telemetry, ever</span>
-            <span>Free to use, free to fork</span>
+            <span>{t("lab.fig.1")}</span>
+            <span>{t("lab.fig.2")}</span>
+            <span>{t("lab.fig.3")}</span>
+            <span>{t("lab.fig.4")}</span>
           </div>
         </aside>
       </div>
@@ -1190,21 +1353,21 @@ def page_studio_home() -> str:
 
     <div class="shell">
       <div class="strip">
-        <span>Less noise. <strong>More intent.</strong></span>
-        <span>3 projects · 4,600 commits · 14 stars</span>
+        <span>{th("lab.strip.left")}</span>
+        <span>{t("lab.strip.right")}</span>
       </div>
     </div>
 
     <section class="section" id="work">
       <div class="shell">
         <div class="section__head reveal">
-          <p class="section__num">01 / Selected work</p>
-          <h2 class="section__title">Built to be used.</h2>
-          <p class="section__lede">A short list, because the list is short. Everything below is public.</p>
+          <p class="section__num">{t("lab.work.num")}</p>
+          <h2 class="section__title">{t("lab.work.title")}</h2>
+          <p class="section__lede">{t("lab.work.lede")}</p>
         </div>
 {cards}
         <div class="section__foot reveal">
-          <a class="btn btn--ghost" href="work/">All projects
+          <a class="btn btn--ghost" href="work/">{t("lab.work.all")}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -1214,9 +1377,9 @@ def page_studio_home() -> str:
     <section class="section" id="people">
       <div class="shell">
         <div class="section__head reveal">
-          <p class="section__num">02 / The people</p>
-          <h2 class="section__title">A lab of one, on purpose.</h2>
-          <p class="section__lede">Keeping it small means every decision has an owner, and the code can stay honest.</p>
+          <p class="section__num">{t("lab.people.num")}</p>
+          <h2 class="section__title">{t("lab.people.title")}</h2>
+          <p class="section__lede">{t("lab.people.lede")}</p>
         </div>
 
         <div class="people">
@@ -1225,13 +1388,13 @@ def page_studio_home() -> str:
             <img class="person__avatar" src="../assets/img/social/avatar-384.jpg" alt="Nguyễn Gia Khải"
                  width="72" height="72" loading="lazy" />
             <h3 class="person__name">Nguyễn Gia Khải</h3>
-            <p class="person__role">Founder · Maintainer · C, C++, Zig, Python, web</p>
+            <p class="person__role">{t("lab.person.role")}</p>
             <a href="{GITHUB}" target="_blank" rel="noopener noreferrer">github.com/NggKhaiz ↗</a>
           </article>
           <article class="person reveal" style="--d: 90ms">
             <p class="person__index">02</p>
-            <h3 class="person__name">Contributions</h3>
-            <p class="person__role">No hires, no contractors, no roadmap pressure. Pull requests and honest bug reports are welcome.</p>
+            <h3 class="person__name">{t("lab.person.contribTitle")}</h3>
+            <p class="person__role">{t("lab.person.contribText")}</p>
             <a href="https://github.com/MoLik-Labs" target="_blank" rel="noopener noreferrer">github.com/MoLik-Labs ↗</a>
           </article>
         </div>
@@ -1241,9 +1404,9 @@ def page_studio_home() -> str:
     <section class="section" id="contact">
       <div class="shell">
         <div class="section__head reveal">
-          <p class="section__num">03 / Get in touch</p>
-          <h2 class="section__title">A direct line.</h2>
-          <p class="section__lede">Questions, bug reports, or something worth building together — one inbox, read by one person.</p>
+          <p class="section__num">{t("lab.contact.num")}</p>
+          <h2 class="section__title">{t("lab.contact.title")}</h2>
+          <p class="section__lede">{t("lab.contact.lede")}</p>
         </div>
 
         <div class="contact reveal">
@@ -1252,12 +1415,12 @@ def page_studio_home() -> str:
               <span>{EMAIL}</span>
               {ICON_ARROW}
             </a>
-            <p class="contact__note">Issues and pull requests reach the same desk.</p>
+            <p class="contact__note">{t("lab.contact.note")}</p>
           </div>
 
           <div class="contact__grid">
             <div class="contact__block">
-              <h3>Elsewhere</h3>
+              <h3>{t("lab.contact.elsewhere")}</h3>
               <div class="contact__links" data-contact-direct>
                 <a href="https://github.com/MoLik-Labs" target="_blank" rel="noopener noreferrer">MoLik Labs <span class="arrow">↗</span></a>
                 <a href="{GITHUB}" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
@@ -1268,10 +1431,10 @@ def page_studio_home() -> str:
               </div>
             </div>
             <div class="contact__block">
-              <h3>This site</h3>
+              <h3>{t("lab.contact.site")}</h3>
               <div class="contact__links">
-                <a href="../index.html">Profile <span class="arrow">↗</span></a>
-                <a href="{GITHUB}/NggKhaiz" target="_blank" rel="noopener noreferrer">Source of this site <span class="arrow">↗</span></a>
+                <a href="../index.html">{t("lab.nav.profile")} <span class="arrow">↗</span></a>
+                <a href="{GITHUB}/NggKhaiz" target="_blank" rel="noopener noreferrer">{t("lab.contact.source")} <span class="arrow">↗</span></a>
               </div>
             </div>
           </div>
@@ -1282,38 +1445,38 @@ def page_studio_home() -> str:
     <section class="section" id="fine">
       <div class="shell">
         <div class="section__head reveal">
-          <p class="section__num">04 / The fine print</p>
-          <h2 class="section__title">Clear by default.</h2>
-          <p class="section__lede">Commitments written down, without the small print pretending to be big.</p>
+          <p class="section__num">{t("lab.fine.num")}</p>
+          <h2 class="section__title">{t("lab.fine.title")}</h2>
+          <p class="section__lede">{t("lab.fine.lede")}</p>
         </div>
 
         <div class="fine reveal">
           <details>
-            <summary><span class="n">01</span> A personal, non-commercial lab <span class="plus">+</span></summary>
+            <summary><span class="n">01</span> {t("lab.fine.1.title")} <span class="plus">+</span></summary>
             <div class="fine__body">
-              <p>MoLik Labs is a personal open-source organisation, not a company and not a registered entity. Nothing here is monetised: no advertising, no paid tiers, no data sold.</p>
-              <p>Projects are published for learning, for use and for review. Maintenance follows the free time of one person, so there is no uptime promise attached.</p>
+              <p>{t("lab.fine.1a")}</p>
+              <p>{t("lab.fine.1b")}</p>
             </div>
           </details>
           <details>
-            <summary><span class="n">02</span> Zero data collection <span class="plus">+</span></summary>
+            <summary><span class="n">02</span> {t("lab.fine.2.title")} <span class="plus">+</span></summary>
             <div class="fine__body">
-              <p>These pages ship no analytics, no advertising trackers and no telemetry. No cookies are set for tracking, and the fonts are served from this domain.</p>
-              <p>Two preferences are stored in your browser's localStorage only: the interface theme and the language. Clearing site data removes both. Links to GitHub take you to a service outside this site, under its own policies.</p>
+              <p>{t("lab.fine.2a")}</p>
+              <p>{t("lab.fine.2b")}</p>
             </div>
           </details>
           <details>
-            <summary><span class="n">03</span> Third-party content and attribution <span class="plus">+</span></summary>
+            <summary><span class="n">03</span> {t("lab.fine.3.title")} <span class="plus">+</span></summary>
             <div class="fine__body">
-              <p>Projects are independent and not affiliated with, endorsed by, or representatives of any third-party platform or service unless stated explicitly.</p>
-              <p>Where a project is built on someone else's work, that is stated on the project page. MOLIK_WINLIK, for example, is a build of Sophia Script for Windows by farag2 under the MIT licence, with attribution kept intact.</p>
+              <p>{t("lab.fine.3a")}</p>
+              <p>{t("lab.fine.3b")}</p>
             </div>
           </details>
           <details>
-            <summary><span class="n">04</span> Source code licensing <span class="plus">+</span></summary>
+            <summary><span class="n">04</span> {t("lab.fine.4.title")} <span class="plus">+</span></summary>
             <div class="fine__body">
-              <p>Source is published in public repositories for transparent review. Permission to use, modify and redistribute each project is governed only by the license included in that repository — GPL-3.0 for ZMRIG, MIT for STUDY-SITE and MOLIK_WINLIK, Apache-2.0 for PUBLIC_FILE.</p>
-              <p>Check the LICENSE file before redistributing. Third-party dependencies keep their own licences and attribution requirements. The typefaces here are Inter, Inter Tight and JetBrains Mono, all under the SIL Open Font License 1.1.</p>
+              <p>{t("lab.fine.4a")}</p>
+              <p>{t("lab.fine.4b")}</p>
             </div>
           </details>
         </div>
@@ -1323,9 +1486,10 @@ def page_studio_home() -> str:
     return layout(
         path="labs/index.html",
         title="MoLik Labs — Independent, open by design",
-        description="A personal, non-commercial open-source lab: a RandomX miner, a cube laboratory and a single-file study app. No tracking, no ads, source in the open.",
+        description="MoLik Labs: a personal, non-commercial open-source lab — a RandomX miner, a cube laboratory and a single-file study app. No tracking, no ads, source in the open.",
         og_image="assets/img/social/og-labs.png",
         studio=True,
+        bilingual=True,
         structured=[
             {
                 "@context": "https://schema.org",
@@ -1342,19 +1506,20 @@ def page_studio_home() -> str:
 
 
 def studio_feature(project: dict, prefix: str) -> str:
+    slug = project["slug"]
     tags = "".join(f"<span>{esc(tag)}</span>" for tag in project["stack"])
     return f"""        <article class="feature reveal">
           <div>
-            <p class="feature__tag">{esc(project['studio']['tag'])}</p>
-            <h3 class="feature__title"><a href="{prefix}work/{project['slug']}.html">{esc(project['title'])}</a></h3>
+            <p class="feature__tag">{t(f"lab.{slug}.tag")}</p>
+            <h3 class="feature__title"><a href="{prefix}work/{slug}.html">{esc(project['title'])}</a></h3>
             <div class="feature__meta">{tags}</div>
             <div class="feature__links">
-              <a class="btn btn--ghost" href="{prefix}work/{project['slug']}.html">Read more {ICON_ARROW}</a>
-              <a class="btn btn--ghost" href="{project['url']}" target="_blank" rel="noopener noreferrer">Source code {ICON_ARROW}</a>
+              <a class="btn btn--ghost" href="{prefix}work/{slug}.html">{t("lab.readMore")} {ICON_ARROW}</a>
+              <a class="btn btn--ghost" href="{project['url']}" target="_blank" rel="noopener noreferrer">{t("lab.sourceCode")} {ICON_ARROW}</a>
             </div>
           </div>
           <div class="feature__body--end">
-            <p class="feature__text">{esc(project['studio']['summary'])}</p>
+            <p class="feature__text">{t(f"lab.{slug}.summary")}</p>
           </div>
         </article>"""
 
@@ -1366,9 +1531,9 @@ def page_studio_work_index() -> str:
             <span class="postcard__body">
               <span class="postcard__head">
                 <span class="postcard__title">{esc(p['title'])}</span>
-                <span class="postcard__status">{esc(p['studio']['tag'])}</span>
+                <span class="postcard__status">{t(f"lab.{p['slug']}.tag")}</span>
               </span>
-              <span class="postcard__text">{esc(p['tagline']['en'])}</span>
+              <span class="postcard__text">{t(f"p.{p['slug']}.tagline")}</span>
               <span class="postcard__tags">{"".join(f"<span>{esc(tag)}</span>" for tag in p['stack'])}</span>
             </span>
           </a>"""
@@ -1377,13 +1542,13 @@ def page_studio_work_index() -> str:
     body = f"""    <section class="page-head">
       <div class="shell">
         <nav class="crumbs reveal" aria-label="Breadcrumb">
-          <a href="../index.html">MoLik Labs</a><span aria-hidden="true">/</span><span>Work</span>
+          <a href="../index.html">MoLik Labs</a><span aria-hidden="true">/</span><span>{t("lab.nav.work")}</span>
         </nav>
         <div class="page-head__grid">
-          <h1 class="page-title reveal">Everything in the open.</h1>
-          <p class="page-lede reveal">Three repositories, each one small enough to read in an afternoon.</p>
+          <h1 class="page-title reveal">{t("lab.wi.title")}</h1>
+          <p class="page-lede reveal">{t("lab.wi.lede")}</p>
         </div>
-        <p class="page-meta reveal">03 projects · 4,600 commits · {YEAR}</p>
+        <p class="page-meta reveal">{t("lab.wi.meta")}</p>
       </div>
     </section>
 
@@ -1401,6 +1566,7 @@ def page_studio_work_index() -> str:
         description="Open-source projects from MoLik Labs: a RandomX miner, a 3x3 cube laboratory and a single-file study app.",
         og_image="assets/img/social/og-labs.png",
         studio=True,
+        bilingual=True,
         structured=[breadcrumb_ld([("MoLik Labs", "labs/"), ("Work", "labs/work/")])],
         body=body,
     )
@@ -1410,33 +1576,33 @@ def page_studio_detail(project: dict, index: int) -> str:
     slug = project["slug"]
     nxt = LABS_PROJECTS[(index + 1) % len(LABS_PROJECTS)]
     facts_rows = [
-        ("Status", project["status"]["en"]),
-        ("Stack", " · ".join(project["stack"])),
-        ("Repository", project["repo"]),
+        (t("lab.d.status"), project["status"]["vi"]),
+        (t("lab.d.stack"), " · ".join(project["stack"])),
+        (t("lab.d.repo"), project["repo"]),
     ]
     facts = "".join(
-        f'<div><dt class="label">{esc(key)}</dt><dd>{esc(value)}</dd></div>' for key, value in facts_rows
+        f"<div><dt class=\"label\">{label}</dt><dd>{esc(value)}</dd></div>" for label, value in facts_rows
     )
     live = (
-        f'<a href="{project["live"]}" target="_blank" rel="noopener noreferrer">Live <span class="arrow">↗</span></a>'
+        f'<a href="{project["live"]}" target="_blank" rel="noopener noreferrer">{t("d.live")} <span class="arrow">↗</span></a>'
         if project["live"]
         else ""
     )
     note = project.get("note")
-    note_html = f'<p class="detail__note">{esc(note["en"])}</p>' if note else ""
+    note_html = f'<div class="detail__note">{th(f"p.{slug}.note")}</div>' if note else ""
 
     body = f"""    <section class="page-head">
       <div class="shell">
         <nav class="crumbs reveal" aria-label="Breadcrumb">
           <a href="../index.html">MoLik Labs</a><span aria-hidden="true">/</span>
-          <a href="index.html">Work</a><span aria-hidden="true">/</span>
+          <a href="index.html">{t("lab.nav.work")}</a><span aria-hidden="true">/</span>
           <span>{esc(project['title'])}</span>
         </nav>
         <div class="page-head__grid">
           <h1 class="page-title reveal">{esc(project['title'])}</h1>
-          <p class="page-lede reveal">{esc(project['tagline']['en'])}</p>
+          <p class="page-lede reveal">{t(f"p.{slug}.tagline")}</p>
         </div>
-        <p class="page-meta reveal">{esc(project['studio']['tag'])} · {YEAR}</p>
+        <p class="page-meta reveal">{t(f"lab.{slug}.tag")} · {YEAR}</p>
       </div>
     </section>
 
@@ -1450,24 +1616,24 @@ def page_studio_detail(project: dict, index: int) -> str:
       <div class="shell detail">
         <div class="detail__main">
           <article class="prose reveal">
-            <h2>What it is</h2>
-            <p>{esc(project['studio']['summary'])}</p>
+            <h2>{t("lab.d.what")}</h2>
+            <p>{t(f"lab.{slug}.summary")}</p>
             {note_html}
-            <h2>How it ships</h2>
-            <p>{esc(project['studio']['ship'])}</p>
-            <h2>What is next</h2>
-            <p>Small fixes, clearer docs and whatever the next idea needs. There is no roadmap beyond that, and no promise of one.</p>
+            <h2>{t("lab.d.ship")}</h2>
+            <p>{t(f"lab.{slug}.ship")}</p>
+            <h2>{t("lab.d.next")}</h2>
+            <p>{t("lab.d.nextText")}</p>
           </article>
         </div>
 
         <aside class="detail__aside reveal" style="--d: 120ms">
-          <h3 class="label">At a glance</h3>
+          <h3 class="label">{t("lab.d.glance")}</h3>
           <dl class="detail__facts">{facts}</dl>
-          <h3 class="label">Links</h3>
+          <h3 class="label">{t("d.links")}</h3>
           <div class="contact__links">
-            <a href="{project['url']}" target="_blank" rel="noopener noreferrer">Source <span class="arrow">↗</span></a>
+            <a href="{project['url']}" target="_blank" rel="noopener noreferrer">{t("d.source")} <span class="arrow">↗</span></a>
             {live}
-            <a href="mailto:{EMAIL}?subject={slug}">Ask about this project <span class="arrow">↗</span></a>
+            <a href="mailto:{EMAIL}?subject={slug}">{t("lab.d.ask")} <span class="arrow">↗</span></a>
           </div>
         </aside>
       </div>
@@ -1476,12 +1642,12 @@ def page_studio_detail(project: dict, index: int) -> str:
     <section class="section section--tight">
       <div class="shell">
         <a class="nextup reveal" href="{nxt['slug']}.html">
-          <span class="label">Next project</span>
+          <span class="label">{t("d.next")}</span>
           <span class="nextup__title">{esc(nxt['title'])}{ICON_ARROW}</span>
-          <span class="nextup__text">{esc(nxt['tagline']['en'])}</span>
+          <span class="nextup__text">{t(f"p.{nxt['slug']}.tagline")}</span>
         </a>
         <div class="section__foot reveal">
-          <a class="btn btn--ghost" href="index.html">Back to all projects</a>
+          <a class="btn btn--ghost" href="index.html">{t("d.back")}</a>
         </div>
       </div>
     </section>"""
@@ -1493,6 +1659,7 @@ def page_studio_detail(project: dict, index: int) -> str:
         og_image=project["cover"],
         og_type="article",
         studio=True,
+        bilingual=True,
         structured=[
             project_ld(project, f"labs/work/{slug}.html", org=True),
             breadcrumb_ld([("MoLik Labs", "labs/"), ("Work", "labs/work/"), (project["title"], f"labs/work/{slug}.html")]),

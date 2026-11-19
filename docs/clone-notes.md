@@ -116,15 +116,14 @@ metrics — and every figure on the site is one the API returns.
 ## 7. Unknowns — fill these in yourself
 
 - whether `nggkhaiz.pages.dev` (profile blog) should be the primary URL instead of `nggkhaiz.js.org`
-- whether the lab should stay English-only, or inherit the VI/EN toggle
 - how much of the contribution grid should be art rather than real commits (see `docs/graph-art.md`)
 
 ## 8. Structure
 
 The site is 15 static pages (see `docs/site-map.md`) served from the repository root, so deploying
-is "upload this folder". Profile pages are bilingual (VI default, EN toggle); lab pages stay in
-English like the reference, and their `<html>` has no `data-lang-switch`, so the language script
-never touches them.
+is "upload this folder". Every page is bilingual (VI default, EN toggle). The lab pages were
+English-only at first, faithful to the reference studio; they now share the same dictionary, so a
+visitor can read the fine print in Vietnamese too.
 
 Fonts are self-hosted: `tools/fetch_fonts.py` pulls Inter, Inter Tight and JetBrains Mono from the
 Google Fonts repository and subsets them to Latin + Vietnamese (320 KiB total, OFL 1.1 licences kept

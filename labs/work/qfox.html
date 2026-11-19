@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="vi" data-theme="dark" data-lang-switch="on">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,8 +25,8 @@
   <meta name="twitter:description" content="A 3×3 laboratory: one C engine, 13 methods measured on the same scrambles." />
   <meta name="twitter:image" content="https://nggkhaiz.js.org/assets/img/covers/qfox.png" />
   <meta name="twitter:image:alt" content="Q-FOX — MoLik Labs" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:locale:alternate" content="vi_VN" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:locale:alternate" content="en_US" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Q-FOX","description":"A 3×3 laboratory: one C engine, 13 methods measured on the same scrambles.","url":"https://nggkhaiz.js.org/labs/work/qfox.html","codeRepository":"https://github.com/NggKhaiz/../MoLik-Labs/Q-FOX-Algorithm","programmingLanguage":["C","Python","JavaScript"],"author":{"@type":"Person","name":"Nguyễn Gia Khải","url":"https://nggkhaiz.js.org/"},"isPartOf":{"@type":"Organization","name":"MoLik Labs","url":"https://github.com/MoLik-Labs"},"license":"fact.none","maintainer":{"@type":"Organization","name":"MoLik Labs"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoLik Labs","item":"https://nggkhaiz.js.org/labs/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://nggkhaiz.js.org/labs/work/"},{"@type":"ListItem","position":3,"name":"Q-FOX","item":"https://nggkhaiz.js.org/labs/work/qfox.html"}]}</script>
 
@@ -45,13 +45,13 @@
 </head>
 
 <body id="top">
-  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Bỏ qua tới nội dung</a>
 
   <header class="site-header" id="header">
     <div class="shell site-header__inner">
       <a class="wordmark" href="../../labs/index.html"><span class="wordmark__dot" aria-hidden="true"></span><span>MoLik Labs</span></a>
-      <nav class="site-nav" aria-label="MoLik Labs"><a href="../../labs/work/">Work</a><a href="../../labs/#people">People</a><a href="../../labs/#contact">Contact</a><a href="../../index.html">← Profile</a></nav>
-      <div class="header-controls"><button class="control" id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" hidden><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></div>
+      <nav class="site-nav" aria-label="MoLik Labs"><a href="../../labs/work/"><span data-i18n="lab.nav.work">Dự án</span></a><a href="../../labs/#people"><span data-i18n="lab.nav.people">Con người</span></a><a href="../../labs/#contact"><span data-i18n="lab.nav.contact">Liên hệ</span></a><a href="../../index.html"><span data-i18n="lab.nav.profileBack">← Hồ sơ</span></a></nav>
+      <div class="header-controls"><button class="control" id="lang-toggle" type="button" aria-label="Đổi ngôn ngữ"><span id="lang-current">VI</span><span class="control__lang-idle" id="lang-other">/EN</span></button><button class="control" id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" hidden><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></div>
     </div>
     <div class="progress" id="progress" aria-hidden="true"></div>
   </header>
@@ -61,14 +61,14 @@
       <div class="shell">
         <nav class="crumbs reveal" aria-label="Breadcrumb">
           <a href="../index.html">MoLik Labs</a><span aria-hidden="true">/</span>
-          <a href="index.html">Work</a><span aria-hidden="true">/</span>
+          <a href="index.html"><span data-i18n="lab.nav.work">Dự án</span></a><span aria-hidden="true">/</span>
           <span>Q-FOX</span>
         </nav>
         <div class="page-head__grid">
           <h1 class="page-title reveal">Q-FOX</h1>
-          <p class="page-lede reveal">A 3×3 laboratory: one C engine, 13 methods measured on the same scrambles.</p>
+          <p class="page-lede reveal"><span data-i18n="p.qfox.tagline">Phòng thí nghiệm 3×3: một engine C, 13 phương pháp đo trên cùng scramble.</span></p>
         </div>
-        <p class="page-meta reveal">A method laboratory · 2026</p>
+        <p class="page-meta reveal"><span data-i18n="lab.qfox.tag">Phòng thí nghiệm phương pháp</span> · 2026</p>
       </div>
     </section>
 
@@ -82,24 +82,24 @@
       <div class="shell detail">
         <div class="detail__main">
           <article class="prose reveal">
-            <h2>What it is</h2>
-            <p>A 3×3 cube laboratory: a C engine with BFS and IDA*, a Python binding, thirteen methods measured against each other on the same scrambles, and a site whose tables are generated from the benchmark.</p>
+            <h2><span data-i18n="lab.d.what">Nó là gì</span></h2>
+            <p><span data-i18n="lab.qfox.summary">Phòng thí nghiệm 3×3: engine C với BFS và IDA*, binding Python, mười ba phương pháp đo cạnh nhau trên cùng scramble, và trang bảng sinh ra từ benchmark.</span></p>
             
-            <h2>How it ships</h2>
-            <p>Static site plus the C engine and Python package. Every published number is replayed against the engine before release.</p>
-            <h2>What is next</h2>
-            <p>Small fixes, clearer docs and whatever the next idea needs. There is no roadmap beyond that, and no promise of one.</p>
+            <h2><span data-i18n="lab.d.ship">Nó ra sao</span></h2>
+            <p><span data-i18n="lab.qfox.ship">Trang tĩnh cộng engine C và gói Python. Mọi con số công bố đều được chạy lại trên engine trước khi phát hành.</span></p>
+            <h2><span data-i18n="lab.d.next">Tiếp theo</span></h2>
+            <p><span data-i18n="lab.d.nextText">Sửa lỗi nhỏ, viết docs rõ hơn, và làm tiếp thứ ý tưởng kế tiếp cần. Không có roadmap nào ngoài thế.</span></p>
           </article>
         </div>
 
         <aside class="detail__aside reveal" style="--d: 120ms">
-          <h3 class="label">At a glance</h3>
-          <dl class="detail__facts"><div><dt class="label">Status</dt><dd>In progress</dd></div><div><dt class="label">Stack</dt><dd>C · Python · JavaScript</dd></div><div><dt class="label">Repository</dt><dd>MoLik-Labs/Q-FOX-Algorithm</dd></div></dl>
-          <h3 class="label">Links</h3>
+          <h3 class="label"><span data-i18n="lab.d.glance">Tóm tắt</span></h3>
+          <dl class="detail__facts"><div><dt class="label"><span data-i18n="lab.d.status">Trạng thái</span></dt><dd>Đang dựng</dd></div><div><dt class="label"><span data-i18n="lab.d.stack">Stack</span></dt><dd>C · Python · JavaScript</dd></div><div><dt class="label"><span data-i18n="lab.d.repo">Repo</span></dt><dd>MoLik-Labs/Q-FOX-Algorithm</dd></div></dl>
+          <h3 class="label"><span data-i18n="d.links">Đường dẫn</span></h3>
           <div class="contact__links">
-            <a href="https://github.com/NggKhaiz/../MoLik-Labs/Q-FOX-Algorithm" target="_blank" rel="noopener noreferrer">Source <span class="arrow">↗</span></a>
+            <a href="https://github.com/NggKhaiz/../MoLik-Labs/Q-FOX-Algorithm" target="_blank" rel="noopener noreferrer"><span data-i18n="d.source">Mã nguồn</span> <span class="arrow">↗</span></a>
             
-            <a href="mailto:nggkhaiz@proton.me?subject=qfox">Ask about this project <span class="arrow">↗</span></a>
+            <a href="mailto:nggkhaiz@proton.me?subject=qfox"><span data-i18n="lab.d.ask">Hỏi về dự án này</span> <span class="arrow">↗</span></a>
           </div>
         </aside>
       </div>
@@ -108,12 +108,12 @@
     <section class="section section--tight">
       <div class="shell">
         <a class="nextup reveal" href="study-site.html">
-          <span class="label">Next project</span>
+          <span class="label"><span data-i18n="d.next">Dự án tiếp theo</span></span>
           <span class="nextup__title">Study Focus Fox<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-          <span class="nextup__text">Study Focus Fox — one HTML file to study Physics 9 and everything else.</span>
+          <span class="nextup__text"><span data-i18n="p.study-site.tagline">Study Focus Fox — một file HTML để học Vật lí 9 và mọi môn.</span></span>
         </a>
         <div class="section__foot reveal">
-          <a class="btn btn--ghost" href="index.html">Back to all projects</a>
+          <a class="btn btn--ghost" href="index.html"><span data-i18n="d.back">Về danh sách dự án</span></a>
         </div>
       </div>
     </section>
@@ -121,8 +121,8 @@
 
   <footer class="site-footer">
     <div class="shell site-footer__inner">
-      <p>© <span id="year">2026</span> MoLik Labs · independent, non-commercial · </p>
-      <nav class="footer-nav" aria-label="Footer"><a href="../../labs/work/">Work</a><a href="../../labs/#people">People</a><a href="../../labs/#contact">Contact</a><a href="../../index.html">Profile</a></nav>
+      <p>© <span id="year">2026</span> <span data-i18n="lab.footer">MoLik Labs · độc lập, phi thương mại</span> · </p>
+      <nav class="footer-nav" aria-label="Footer"><a href="../../labs/work/"><span data-i18n="lab.nav.work">Dự án</span></a><a href="../../labs/#people"><span data-i18n="lab.nav.people">Con người</span></a><a href="../../labs/#contact"><span data-i18n="lab.nav.contact">Liên hệ</span></a><a href="../../index.html"><span data-i18n="lab.nav.profile">Hồ sơ</span></a></nav>
       <a class="to-top" href="#top">Back to top
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
       </a>
